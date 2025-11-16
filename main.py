@@ -5,14 +5,15 @@ import re
 
 from collections import Counter
 
-
-from DataPreprocessor import data_preprocessing
+from DataPreprocessor.DataLoader import DataLoader
+from DataPreprocessor.DataLabeling import DataLabeling
+from DataPreprocessor.DataEncoder import DataEncoder
 
 def main():
     # đường dẫn dữ liệu (có thể thay đổi)
-    path = r"D:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\ĐỒ ÁN\emotion-classification\data.xlsx" 
+    path = r"data/test_nor_811.xlsx" 
 
-    data = data_preprocessing(file_path=path)
+    data = DataLoader(file_path=path)
     data.review_data()
 
 if __name__ == "__main__":
