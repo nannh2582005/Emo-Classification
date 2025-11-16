@@ -25,10 +25,3 @@ class DataLoader:
     # xem trước 5 dòng dữ liệu 
     def review_data(self, n = 5):
         print(self.df.head(n)) 
-def main():
-    path = r"data.xlsx"
-    df = DataLoader(path)
-    df.review_data()
-
-if __name__ == "__main__":
-    main()
