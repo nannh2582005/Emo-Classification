@@ -6,7 +6,7 @@ import re
 from collections import Counter
 
 from DataPreprocessor.DataLoader import DataLoader
-from DataPreprocessor.DataLabeling import DataLabeling
+from DataPreprocessor.DataLabeler import DataLabeling
 from DataPreprocessor.DataEncoder import DataEncoder
 
 def main():

@@ -1,4 +1,4 @@
-class data_labeling(object):
+class DataLabeler:
     def __init__(self, df, label_column):
         self.df = df
         self.label_column = label_column

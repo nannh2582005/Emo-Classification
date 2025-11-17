@@ -1,4 +1,4 @@
-class data_encoder(object):
+class DataEncoder:
     def __init__(self, df, text_column, embed_dim=50):
         self.df = df
         self.text_column = text_column
