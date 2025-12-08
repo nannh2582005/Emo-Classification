@@ -1,11 +1,7 @@
 from abc import ABC, abstractmethod
 
 class DataFeature(ABC):
-    """class tạo feature cho mô hình huấn luyện:
-    - one-hot
-    - tfidf
-    - word2vec
-    - lưu lại số lượng token, vocab và kích thước của vocab
+    """lớp trừu tượng tạo đặc trưng cho mô hình
     Dữ liệu đầu vào là dữ liệu đã được token hóa thông qua lớp DataProcessor"""
     def __init__(self, texts: list):  
         """đầu vào là danh sách texts đã được xử lý để chuẩn bị cho mã hóa"""
@@ -30,6 +26,14 @@ class DataFeature(ABC):
             self.__token_count += len(text)
             self.__vocab.update(text)
     @abstractmethod
-    def token_vector(self):
-        """phương thức vector hóa token bằng các phương pháp khác nhau mà mỗi class con cần triển khai"""
+    def fit(self, X):
+        """học dữ liệu"""
         pass
+    @abstractmethod
+    def transform(self, X):
+        """vector hóa"""
+        pass
+    def fit_transform(self, X):
+        """kết hợp học và vector hóa"""
+        self.fit(X)
+        return self.transform(X)
