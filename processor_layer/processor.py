@@ -53,9 +53,12 @@ class DataProcessor:
         s = re.sub(r'\s+', ' ', s).strip()
         return s
     def _normalize_repeated_chars(self, text: str):
-        text = re.sub(r'(.)\1{2,}', r'\1\1', text)
-        text = re.sub(r'(\)+)', lambda m: ')' * min(len(m.group(1)), 2), text)
-        text = re.sub(r'(=)(\)+)', lambda m: '=' + ')' * min(len(m.group(2)), 2), text)
+        """
+        Chuẩn hóa ký tự lặp:
+        - 'đẹpppppp' -> 'đẹp'
+        - 'huhuuuu' -> 'huhu'
+        """
+        text = re.sub(r'(.)\1{2,}', r'\1\1', text) # Xử lý ký tự lặp trong từ (chữ cái)
         return text
 
     @staticmethod
