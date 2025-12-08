@@ -17,5 +17,11 @@ def main():
         emoji_dict = json.load(f)
     with open(r'data/teencode_dict.json', 'r', encoding='utf-8') as f:
         teencode_dict = json.load(f)
+    processor = DataProcessor(df, "Sentence", "Emotion", stopwords, emoji_dict, teencode_dict)
+    processor.preprocess()
+    feature = TFIDF(processor.df["processed"])
+    X = feature.fit_transform(processor.df["processed"])
+    y = processor.df["label_id"]
+    print(processor.df.head())
 if __name__ == "__main__":
     main()
