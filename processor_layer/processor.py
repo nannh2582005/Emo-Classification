@@ -32,7 +32,7 @@ class DataProcessor:
         '''chuyển chữ thường, loại bỏ các ký hiệu đặc biệt và khoảng trắng thừa'''
         s = s.lower()
         s = re.sub(r'https?://\S+', ' ', s)
-        s = re.sub(r'[^\w\s]', ' ', s)  # loại bỏ các ký hiệu đặc biệt 
+        s = re.sub(r'[!\"#$%&\'()*+,-./:;<=>?@\[\\\]^_`{|}~]', ' ', s)  # loại bỏ các ký hiệu đặc biệt nhưng giữ lại emoji 
         s = re.sub(r'\s+', ' ', s).strip()  # loại bỏ khoảng trắng thừa
         return s
     
@@ -55,7 +55,7 @@ class DataProcessor:
         '''đổi nhãn text thành số'''
         return self._df[self._label_column].map(self._label2id)
     
-    def preprocess(self):
+    def preprocess(self) -> pd.DataFrame:
         '''chạy các bước tiền xử lý'''
         self._df[self._processed_col] = (
             self._df[self._text_column].astype(str)
