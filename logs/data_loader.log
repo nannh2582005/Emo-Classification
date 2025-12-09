@@ -45,6 +45,7 @@ ValueError: Không hỗ trợ định dạng này, vui lòng nhập định dạ
 [2025-12-09 14:01:06] [INFO] Tải dữ liệu từ: data/data.xlsx
 [2025-12-09 14:01:06] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
 [2025-12-09 14:01:06] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+<<<<<<< HEAD
 [2025-12-09 14:45:28] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data
 [2025-12-09 14:45:28] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data
 [2025-12-09 14:45:28] [ERROR] Định dạng file không hỗ trợ.
@@ -56,3 +57,20 @@ ValueError: Không hỗ trợ định dạng này, vui lòng nhập định dạ
 [2025-12-09 14:53:48] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
 [2025-12-09 14:53:48] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
 [2025-12-09 14:53:49] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+=======
+[2025-12-09 07:19:19] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 07:19:19] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 07:19:19] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 07:32:23] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 07:32:23] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 07:32:24] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 07:46:31] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 07:46:31] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 07:46:31] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 07:47:39] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 07:47:39] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 07:47:39] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 07:50:57] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 07:50:57] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 07:50:57] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+>>>>>>> 8a9f5eb67bb6154d603e7ea54e254af15de8692e

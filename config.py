@@ -44,3 +44,9 @@ class Config:
 
     # tham số tối ưu mô hình 
     SVM_GRID = {"C": [0.1, 1.0, 5.0], "kernel": ["linear", "rbf"]}
+
+    # tham số cho Naive Bayes
+    NAIVE_DEFAULT = {"alpha": 1.0}
+
+    # tham số tối ưu Naive Bayes
+    NAIVE_GRID = {"alpha": [0.5, 1.0, 1.5, 2.0]}

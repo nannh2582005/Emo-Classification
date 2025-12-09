@@ -11,6 +11,8 @@ from model_layer.svm import SVMModel
 from visualization.naive import NaiveVisualization
 from visualization.svm import SVMVisualization
 from optimize.svm_optimize import SVMOptimizer
+from optimize.naive_optimize import NaiveBayesOptimizer
+
 
 def main():
 
@@ -62,22 +64,33 @@ def main():
     
     # Lưu mô hình
     log_reg.save_model("models_saver/logistic_sentiment.pkl")
+<<<<<<< HEAD
     # =====================================================
     # Khởi tạo mô hình Naive Bayes
     nb = NaiveBayesModel(alpha=1.0, random_state= Config.RANDOM_STATE)
 
     # Chia tập dữ liệu
     nb.split_data(X, y, test_size =Config.TEST_SIZE)
+=======
 
-    # Huấn luyện mô hình Naive Bayes
-    nb.train()
+    print("\n=== Tối ưu và train Naive Bayes ===")
 
-    # Đánh giá mô hình Naive Bayes
-    nb.evaluate(target_names=label_names)
+    # Khởi tạo optimizer
+    nb_optimizer = NaiveBayesOptimizer(X, y, config=Config)
+>>>>>>> 8a9f5eb67bb6154d603e7ea54e254af15de8692e
 
-    # Lưu mô hình Naive Bayes
-    nb.save_model("models_saver/naive_sentiment.pkl")
+    # Tìm tham số tối ưu
+    nb_best_params, nb_best_score = nb_optimizer.optimize(cv=5)
+    print("Naive Bayes best params:", nb_best_params)
+    print("Naive Bayes best score:", nb_best_score)
 
+    # Train mô hình NB với tham số tối ưu
+    nb_model = nb_optimizer.train_best_model()
+
+    # Evaluate mô hình
+    nb_model.evaluate(verbose=True)
+
+<<<<<<< HEAD
     # Tạo lớp trực quan hóa
     viz = NaiveVisualization()  
 
@@ -86,6 +99,16 @@ def main():
     #=======================================================
     # Mô hình SVM
     print("\nTối ưu và train SVM:")
+=======
+    # Save model
+    nb_model.save("naive_sentiment.pkl")
+
+    # Visualization
+    nb_viz = NaiveVisualization(save_dir="images")
+    nb_viz.visualize(nb_model, target_names=label_names)
+
+    print("\n=== Tối ưu và train SVM ===")
+>>>>>>> 8a9f5eb67bb6154d603e7ea54e254af15de8692e
     svm_optimizer = SVMOptimizer(X, y, config=Config)
 
     # Tìm tham số tốt nhất
