@@ -7,6 +7,7 @@ from processor_layer.processor import DataProcessor
 from feature_layer.tfidf import TFIDF
 from model_layer.logistics import LogisticRegressionModel # Import module mới
 from model_layer.naive import NaiveBayesModel
+from visualization.naive import NaiveVisualization
 
 
 def main():
@@ -65,7 +66,7 @@ def main():
     # Lưu mô hình ( Kiên implement method)
     log_reg.save_model("models/logistic_sentiment.pkl")
 
-    # Khởi tạo mô hinh Naive Bayes
+    # Khởi tạo mô hình Naive Bayes
     nb = NaiveBayesModel(alpha=1.0, random_state=42)
 
     # Chia tập dữ liệu
@@ -79,6 +80,15 @@ def main():
 
     # Lưu mô hình Naive Bayes
     nb.save_model("models/naive_sentiment.pkl")
+
+    # 6. TRỰC QUAN MÔ HÌNH (VISUALIZE MODEL)
+    # Naive Bayes
+
+    # Tạo lớp trực quan hóa
+    viz = NaiveVisualization("images/naive")
+    # Vẽ và lưu hình
+    viz.visualize(nb, target_names=label_names)
+
 
 if __name__ == "__main__":
     main()
