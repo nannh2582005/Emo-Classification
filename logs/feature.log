@@ -25,3 +25,6 @@
 [2025-12-09 13:46:13] [INFO] Khởi tạo DataFeature
 [2025-12-09 13:46:13] [INFO] Bắt đầu tính token_count và vocab
 [2025-12-09 13:46:13] [INFO] Hoàn thành thống kê: Tổng token = 37250, Vocab size = 6393
+[2025-12-09 14:01:07] [INFO] Khởi tạo DataFeature
+[2025-12-09 14:01:07] [INFO] Bắt đầu tính token_count và vocab
+[2025-12-09 14:01:07] [INFO] Hoàn thành thống kê: Tổng token = 37250, Vocab size = 6393
