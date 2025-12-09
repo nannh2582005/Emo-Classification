@@ -1,14 +1,21 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from .base import DataFeature
+from logs.logger import setup_logger
+from config import Config
 
 class TFIDF(DataFeature):
-    def __init__(self, texts: list[list[str]], 
-                 max_features: int = 10000, 
-                 ngram_range=(1, 2),
-                 min_df=3,
-                 max_df=0.95):
+    def __init__(self, texts: list[list[str]]):
         
         super().__init__(texts)
+        self.logger = setup_logger("tfidf")
+        # lấy tham số từ config 
+        max_features = Config.TFIDF_MAX_FEATURES
+        ngram_range = Config.TFIDF_NGRAM
+        
+        self.logger.info(
+            f"Khởi tạo TFIDF với max_features={max_features}, "
+            f"ngram_range={ngram_range}"
+        )
 
         self.vectorizer = TfidfVectorizer(
             tokenizer=lambda x: x,
@@ -16,14 +23,31 @@ class TFIDF(DataFeature):
             token_pattern=None,
             max_features=max_features,
             ngram_range=ngram_range,
-            min_df=min_df,
-            max_df=max_df,
+            min_df=3,
+            max_df=0.95,
             sublinear_tf=True,
             norm='l2'
         )
+        self.logger.info("TFIDF đã được khởi tạo thành công.")
 
     def fit(self, X):
-        self.vectorizer.fit(X)
+        self.logger.info("Bắt đầu fit TFIDF")
+        try: 
+            self.vectorizer.fit(X)
+            self.logger.info("Fit TFIDF thành công.")
+        except Exception as e:
+            self.logger.exception("Lỗi khi fit TFIDF:")
+            raise e
 
     def transform(self, X):
-        return self.vectorizer.transform(X)
+        """biến token thành TFIDF"""
+        self.logger.info("Bắt đầu transform TFIDF...")
+        try: 
+            vect =  self.vectorizer.transform(X)
+            self.logger.info(
+                f"Transform hoàn thành. Shape = {vect.shape}"
+            )
+            return vect
+        except Exception as e:
+            self.logger.exception("Lỗi khi transform TFIDF:")
+            raise e
