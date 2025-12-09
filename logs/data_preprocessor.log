@@ -58,3 +58,9 @@
 [2025-12-09 14:01:06] [INFO] Hoàn tất mã hóa nhãn
 [2025-12-09 14:01:06] [INFO] Bắt đầu tiền xử lý dữ liệu
 [2025-12-09 14:01:07] [INFO] Tiền xử lý hoàn tất.
+[2025-12-09 14:53:49] [INFO] Khởi tạo DataProcessor
+[2025-12-09 14:53:49] [INFO] Thực hiện gộp nhãn
+[2025-12-09 14:53:49] [INFO] Tạo dictionary mã hóa nhãn
+[2025-12-09 14:53:49] [INFO] Hoàn tất mã hóa nhãn
+[2025-12-09 14:53:49] [INFO] Bắt đầu tiền xử lý dữ liệu
+[2025-12-09 14:53:50] [INFO] Tiền xử lý hoàn tất.

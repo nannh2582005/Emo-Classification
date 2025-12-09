@@ -13,66 +13,61 @@ from visualization.svm import SVMVisualization
 from optimize.svm_optimize import SVMOptimizer
 
 def main():
-    # 1. THIẾT LẬP ĐƯỜNG DẪN
-    data_path = r"data/data.xlsx" 
-    stopwords_path = r"data/vietnamese-stopwords.txt"
-    emoji_path = r"data/emoji_dict.json"
-    teencode_path = r"data/teencode_dict.json"
-    
-    # 2. LOAD DATA
-    print(" BƯỚC 1: load dữ liệu")
-    loader = DataLoader(data_path)
+
+    # LOAD DATA
+    print("\nload dữ liệu:")
+    loader = DataLoader(Config.DATA_FILE)
     df = loader.load_data()
     # loader.review_data()
 
     # Load từ điển phụ trợ
-    with open(stopwords_path, 'r', encoding='utf-8') as f:
+    with open(Config.STOPWORDS_FILE, 'r', encoding='utf-8') as f:
         stopwords = [line.strip() for line in f if line.strip()]
-    with open(emoji_path, 'r', encoding='utf-8') as f:
+    with open(Config.EMOJI_FILE, 'r', encoding='utf-8') as f:
         emoji_dict = json.load(f)
-    with open(teencode_path, 'r', encoding='utf-8') as f:
+    with open(Config.TEENCODE_FILE, 'r', encoding='utf-8') as f:
         teencode_dict = json.load(f)
 
-    # 3. TIỀN XỬ LÝ (PREPROCESSING)
-    print("\n BƯỚC 2: tiền xử lí")
-    processor = DataProcessor(df, "Sentence", "Emotion", stopwords, emoji_dict, teencode_dict)
+    # TIỀN XỬ LÝ (PREPROCESSING)
+    print("\nTiền xử lí:")
+    processor = DataProcessor(df, Config.TEXT_COLUMN, Config.LABEL_COLUMN, stopwords, emoji_dict, teencode_dict)
     processor.preprocess()
     
     # Lấy danh sách tên nhãn để in báo cáo cho đẹp (map từ id ngược lại tên)
     # id2label = {0: 'Tích cực', 1: 'Tiêu cực', 2: 'Trung tính'} (Ví dụ)
     label_names = [processor._id2label[i] for i in range(len(processor._id2label))]
 
-    # 4. TRÍCH ĐẶC TRƯNG (FEATURE EXTRACTION)
-    print("\n BƯỚC 3: vec to hoá (TF-IDF) ")
+    # TRÍCH ĐẶC TRƯNG (FEATURE EXTRACTION)
+    print("\nVector hóa (TF-IDF):")
     feature = TFIDF(processor.df["processed"])
     X = feature.fit_transform(processor.df["processed"])
     y = processor.df["label_id"]
     
     print(f"Kích thước vector: {X.shape}")
 
-    # 5. HUẤN LUYỆN VÀ ĐÁNH GIÁ MÔ HÌNH (TRAIN MODEL)
-    print("\n Bước 4: đánh giá")
-    
+    # HUẤN LUYỆN VÀ ĐÁNH GIÁ MÔ HÌNH (TRAIN MODEL)
+    print("\nHuấn luyện mô hình và đánh giá:")
+    # LogisticRegressionModel
     # Khởi tạo mô hình 
-    log_reg = LogisticRegressionModel(random_state=42)
+    log_reg = LogisticRegressionModel(Config.RANDOM_STATE)
     
     # Chia tập dữ liệu 
-    log_reg.split_data(X, y, test_size=0.2)
+    log_reg.split_data(X, y, Config.TEST_SIZE)
     
     # Train 
     log_reg.train()
     
-    # Đánh giá ( Kiên implement method trong class để dang gọi)
+    # Đánh giá
     log_reg.evaluate(target_names=label_names)
     
-    # Lưu mô hình ( Kiên implement method)
+    # Lưu mô hình
     log_reg.save_model("models_saver/logistic_sentiment.pkl")
-
+    # =====================================================
     # Khởi tạo mô hình Naive Bayes
-    nb = NaiveBayesModel(alpha=1.0, random_state=42)
+    nb = NaiveBayesModel(alpha=1.0, random_state= Config.RANDOM_STATE)
 
     # Chia tập dữ liệu
-    nb.split_data(X, y, test_size=0.2)
+    nb.split_data(X, y, test_size =Config.TEST_SIZE)
 
     # Huấn luyện mô hình Naive Bayes
     nb.train()
@@ -83,16 +78,14 @@ def main():
     # Lưu mô hình Naive Bayes
     nb.save_model("models_saver/naive_sentiment.pkl")
 
-    # 6. TRỰC QUAN MÔ HÌNH (VISUALIZE MODEL)
-    # Naive Bayes
-
     # Tạo lớp trực quan hóa
     viz = NaiveVisualization()  
 
     # Vẽ và lưu hình
     viz.visualize(nb, target_names=label_names)
-
-    print("\n=== Tối ưu và train SVM ===")
+    #=======================================================
+    # Mô hình SVM
+    print("\nTối ưu và train SVM:")
     svm_optimizer = SVMOptimizer(X, y, config=Config)
 
     # Tìm tham số tốt nhất

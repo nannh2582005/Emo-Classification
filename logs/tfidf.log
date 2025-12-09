@@ -78,3 +78,11 @@
 [2025-12-09 14:01:08] [INFO] fit() hoàn thành — bắt đầu transform()
 [2025-12-09 14:01:08] [INFO] Bắt đầu transform TFIDF...
 [2025-12-09 14:01:08] [INFO] Transform hoàn thành. Shape = (6241, 2899)
+[2025-12-09 14:53:50] [INFO] Khởi tạo TFIDF với max_features=5000, ngram_range=(1, 2)
+[2025-12-09 14:53:50] [INFO] TFIDF đã được khởi tạo thành công.
+[2025-12-09 14:53:50] [INFO] Gọi fit_transform trong DataFeature
+[2025-12-09 14:53:50] [INFO] Bắt đầu fit TFIDF
+[2025-12-09 14:53:50] [INFO] Fit TFIDF thành công.
+[2025-12-09 14:53:50] [INFO] fit() hoàn thành — bắt đầu transform()
+[2025-12-09 14:53:50] [INFO] Bắt đầu transform TFIDF...
+[2025-12-09 14:53:50] [INFO] Transform hoàn thành. Shape = (6241, 2899)

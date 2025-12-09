@@ -45,3 +45,14 @@ ValueError: Không hỗ trợ định dạng này, vui lòng nhập định dạ
 [2025-12-09 14:01:06] [INFO] Tải dữ liệu từ: data/data.xlsx
 [2025-12-09 14:01:06] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
 [2025-12-09 14:01:06] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 14:45:28] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data
+[2025-12-09 14:45:28] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data
+[2025-12-09 14:45:28] [ERROR] Định dạng file không hỗ trợ.
+[2025-12-09 14:45:28] [ERROR] Lỗi khi đọc dữ liệu:
+Traceback (most recent call last):
+  File "d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\processor_layer\loader.py", line 38, in load_data
+    raise ValueError("Không hỗ trợ định dạng này, vui lòng nhập định dạng [csv, xlsx, json]")
+ValueError: Không hỗ trợ định dạng này, vui lòng nhập định dạng [csv, xlsx, json]
+[2025-12-09 14:53:48] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 14:53:48] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 14:53:49] [INFO] Tải dữ liệu thành công! Số dòng: 6241

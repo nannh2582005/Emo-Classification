@@ -21,6 +21,10 @@ class Config:
     TEENCODE_FILE = os.path.join(DATA_DIR, 'teencode_dict.json')
     STOPWORDS_FILE = os.path.join(DATA_DIR, 'vietnamese-stopwords.txt')
 
+    # tham số cho processor
+    LABEL_COLUMN = 'Emotion'
+    TEXT_COLUMN = 'Sentence'
+
     # lựa chọn cho tiền xử lý dữ liệu 
     REMOVE_URLS = True
     NORMALIZE_UNICODE = True
