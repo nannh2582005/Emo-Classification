@@ -34,3 +34,4 @@ class DataModel(ABC):
     def evaluate(self):
         """Đánh giá model trên dữ liệu test (class con triển khai)"""
         pass
+
