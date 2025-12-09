@@ -1,11 +1,15 @@
 # main.py
 import json
 import os
-
+from config import Config
 from processor_layer.loader import DataLoader
 from processor_layer.processor import DataProcessor
 from feature_layer.tfidf import TFIDF
 from model_layer.logistics import LogisticRegressionModel # Import module mới
+from model_layer.naive import NaiveBayesModel
+from model_layer.svm import SVMModel
+from visualization.naive import NaiveVisualization
+
 
 def main():
     # 1. THIẾT LẬP ĐƯỜNG DẪN
@@ -48,7 +52,8 @@ def main():
     # 5. HUẤN LUYỆN VÀ ĐÁNH GIÁ MÔ HÌNH (TRAIN MODEL)
     print("\n Bước 4: đánh giá")
     
-    # Khởi tạo mô hình 
+    # Khởi tạo mô hình
+    print("\nHuấn luyện Logistic Regression")
     log_reg = LogisticRegressionModel(random_state=42)
     
     # Chia tập dữ liệu 
@@ -62,6 +67,51 @@ def main():
     
     # Lưu mô hình 
     log_reg.save_model("models/logistic_sentiment.pkl")
+
+    print("\nHuấn luyện Naive Bayes")
+    # Khởi tạo mô hình
+    nb = NaiveBayesModel(alpha=1.0, random_state=42)
+
+    # Chia tập dữ liệu
+    nb.split_data(X, y, test_size=0.2)
+
+    # Train
+    nb.train()
+
+    # Đánh giá
+    nb.evaluate(target_names=label_names)
+
+    # Lưu mô hình
+    nb.save_model("models/naive_sentiment.pkl")
+    
+    print("\nHuấn luyện SVM")
+    svm = SVMModel(X, y, config=Config)
+
+    # Chia dữ liệu
+    svm.split_data()
+
+    # Train
+    svm.train()
+
+    # Evaluate
+    svm.evaluate(verbose=True)
+
+    # Save model
+    svm.save("svm_sentiment.pkl")
+
+    print("Đã lưu mô hình SVM!")
+
+    # 6. TRỰC QUAN MÔ HÌNH (VISUALIZE MODEL)
+    # Naive Bayes
+
+    # Tạo lớp trực quan hóa
+    viz = NaiveVisualization()  
+
+    # Vẽ và lưu hình
+    viz.visualize(nb, target_names=label_names)
+
+
+
 
 if __name__ == "__main__":
     main()
