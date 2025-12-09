@@ -193,3 +193,35 @@
 [2025-12-09 23:48:30] [INFO] fit() hoàn thành — bắt đầu transform()
 [2025-12-09 23:48:30] [INFO] Bắt đầu transform TFIDF...
 [2025-12-09 23:48:30] [INFO] Transform hoàn thành. Shape = (6241, 2899)
+[2025-12-10 01:00:31] [INFO] Khởi tạo TFIDF với max_features=5000, ngram_range=(1, 2)
+[2025-12-10 01:00:31] [INFO] TFIDF đã được khởi tạo thành công.
+[2025-12-10 01:00:31] [INFO] Gọi fit_transform trong DataFeature
+[2025-12-10 01:00:31] [INFO] Bắt đầu fit TFIDF
+[2025-12-10 01:00:31] [INFO] Fit TFIDF thành công.
+[2025-12-10 01:00:31] [INFO] fit() hoàn thành — bắt đầu transform()
+[2025-12-10 01:00:31] [INFO] Bắt đầu transform TFIDF...
+[2025-12-10 01:00:31] [INFO] Transform hoàn thành. Shape = (6241, 2899)
+[2025-12-10 01:01:03] [INFO] Khởi tạo TFIDF với max_features=5000, ngram_range=(1, 2)
+[2025-12-10 01:01:03] [INFO] TFIDF đã được khởi tạo thành công.
+[2025-12-10 01:01:03] [INFO] Gọi fit_transform trong DataFeature
+[2025-12-10 01:01:03] [INFO] Bắt đầu fit TFIDF
+[2025-12-10 01:01:03] [INFO] Fit TFIDF thành công.
+[2025-12-10 01:01:03] [INFO] fit() hoàn thành — bắt đầu transform()
+[2025-12-10 01:01:03] [INFO] Bắt đầu transform TFIDF...
+[2025-12-10 01:01:03] [INFO] Transform hoàn thành. Shape = (6241, 2899)
+[2025-12-10 01:09:08] [INFO] Khởi tạo TFIDF với max_features=5000, ngram_range=(1, 2)
+[2025-12-10 01:09:08] [INFO] TFIDF đã được khởi tạo thành công.
+[2025-12-10 01:09:08] [INFO] Gọi fit_transform trong DataFeature
+[2025-12-10 01:09:08] [INFO] Bắt đầu fit TFIDF
+[2025-12-10 01:09:08] [INFO] Fit TFIDF thành công.
+[2025-12-10 01:09:08] [INFO] fit() hoàn thành — bắt đầu transform()
+[2025-12-10 01:09:08] [INFO] Bắt đầu transform TFIDF...
+[2025-12-10 01:09:08] [INFO] Transform hoàn thành. Shape = (6241, 2899)
+[2025-12-10 01:09:43] [INFO] Khởi tạo TFIDF với max_features=5000, ngram_range=(1, 2)
+[2025-12-10 01:09:43] [INFO] TFIDF đã được khởi tạo thành công.
+[2025-12-10 01:09:43] [INFO] Gọi fit_transform trong DataFeature
+[2025-12-10 01:09:43] [INFO] Bắt đầu fit TFIDF
+[2025-12-10 01:09:43] [INFO] Fit TFIDF thành công.
+[2025-12-10 01:09:43] [INFO] fit() hoàn thành — bắt đầu transform()
+[2025-12-10 01:09:43] [INFO] Bắt đầu transform TFIDF...
+[2025-12-10 01:09:43] [INFO] Transform hoàn thành. Shape = (6241, 2899)

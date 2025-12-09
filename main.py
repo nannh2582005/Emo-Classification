@@ -5,13 +5,15 @@ from config import Config
 from processor_layer.loader import DataLoader
 from processor_layer.processor import DataProcessor
 from feature_layer.tfidf import TFIDF
-from model_layer.logistics import LogisticRegressionModel # Import module mới
+from model_layer.logistics import LogisticRegressionModel 
 from model_layer.naive import NaiveBayesModel
 from model_layer.svm import SVMModel
 from visualization.naive import NaiveVisualization
 from visualization.svm import SVMVisualization
+from visualization.logistics import LogisticVisualization
 from optimize.svm_optimize import SVMOptimizer
 from optimize.naive_optimize import NaiveBayesOptimizer
+from optimize.logistic_optimize import LogisticOptimizer
 
 
 def main():
@@ -49,21 +51,38 @@ def main():
 
     # HUẤN LUYỆN VÀ ĐÁNH GIÁ MÔ HÌNH (TRAIN MODEL)
     print("\nHuấn luyện mô hình và đánh giá:")
+    
+    
+    
     # LogisticRegressionModel
     # Khởi tạo mô hình 
+    
+    
+    
     log_reg = LogisticRegressionModel(X, y, config=Config)
     
     # Chia tập dữ liệu 
     log_reg.split_data()
     
-    # Train 
-    log_reg.train()
+   
+    # B1: Tối ưu tham số
+    log_optimizer = LogisticOptimizer(X, y, config=Config)
+    best_params_log, best_score_log = log_optimizer.optimize(cv=5)
+    print(f"Logistic Best Params: {best_params_log}")
+    print(f"Logistic Best Score: {best_score_log:.4f}")
+
+    # B2: Train model với tham số tốt nhất
+    log_reg = log_optimizer.train_best_model()
     
     # Đánh giá
     log_reg.evaluate(target_names=label_names)
     
     # Lưu mô hình
     log_reg.save_model("models_saver/logistic_sentiment.pkl")
+
+
+    log_viz = LogisticVisualization(save_dir="images")
+    log_viz.visualize(log_reg, target_names=label_names)
     # =====================================================
     print("\n=== Tối ưu và train Naive Bayes ===")
 

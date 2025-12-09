@@ -41,7 +41,7 @@ class LogisticOptimizer:
             param_grid,
             cv=cv,
             scoring='f1_macro', # Hoặc 'accuracy' tùy bài toán
-            n_jobs=-1,
+            n_jobs=1,
             verbose=1
         )
 

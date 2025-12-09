@@ -40,6 +40,7 @@ class VisualizationBase(ABC):
         path = os.path.join(self._save_dir, filename)
         fig.savefig(path)
         print(f"Đã lưu hình tại: {path}")
+        plt.show()
 
     @abstractmethod
     def visualize(self, model, target_names=None):

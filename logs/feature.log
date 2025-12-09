@@ -73,3 +73,15 @@
 [2025-12-09 23:48:30] [INFO] Khởi tạo DataFeature
 [2025-12-09 23:48:30] [INFO] Bắt đầu tính token_count và vocab
 [2025-12-09 23:48:30] [INFO] Hoàn thành thống kê: Tổng token = 37250, Vocab size = 6393
+[2025-12-10 01:00:31] [INFO] Khởi tạo DataFeature
+[2025-12-10 01:00:31] [INFO] Bắt đầu tính token_count và vocab
+[2025-12-10 01:00:31] [INFO] Hoàn thành thống kê: Tổng token = 37250, Vocab size = 6393
+[2025-12-10 01:01:03] [INFO] Khởi tạo DataFeature
+[2025-12-10 01:01:03] [INFO] Bắt đầu tính token_count và vocab
+[2025-12-10 01:01:03] [INFO] Hoàn thành thống kê: Tổng token = 37250, Vocab size = 6393
+[2025-12-10 01:09:08] [INFO] Khởi tạo DataFeature
+[2025-12-10 01:09:08] [INFO] Bắt đầu tính token_count và vocab
+[2025-12-10 01:09:08] [INFO] Hoàn thành thống kê: Tổng token = 37250, Vocab size = 6393
+[2025-12-10 01:09:43] [INFO] Khởi tạo DataFeature
+[2025-12-10 01:09:43] [INFO] Bắt đầu tính token_count và vocab
+[2025-12-10 01:09:43] [INFO] Hoàn thành thống kê: Tổng token = 37250, Vocab size = 6393

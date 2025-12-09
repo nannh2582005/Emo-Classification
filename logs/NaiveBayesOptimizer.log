@@ -28,3 +28,18 @@
 [2025-12-09 23:48:30] [INFO] Tối ưu xong. Best params: {'alpha': 0.1}, Best score: 0.5220
 [2025-12-09 23:48:30] [INFO] Huấn luyện mô hình Naive Bayes với tham số tối ưu
 [2025-12-09 23:48:30] [INFO] Huấn luyện NaiveBayesModel hoàn tất
+[2025-12-10 01:00:35] [INFO] Khởi tạo NaiveBayesOptimizer
+[2025-12-10 01:00:35] [INFO] Bắt đầu tối ưu tham số Naive Bayes với 5-fold CV
+[2025-12-10 01:00:35] [INFO] Tối ưu xong. Best params: {'alpha': 0.1}, Best score: 0.5220
+[2025-12-10 01:00:35] [INFO] Huấn luyện mô hình Naive Bayes với tham số tối ưu
+[2025-12-10 01:00:35] [INFO] Huấn luyện NaiveBayesModel hoàn tất
+[2025-12-10 01:01:08] [INFO] Khởi tạo NaiveBayesOptimizer
+[2025-12-10 01:01:08] [INFO] Bắt đầu tối ưu tham số Naive Bayes với 5-fold CV
+[2025-12-10 01:01:08] [INFO] Tối ưu xong. Best params: {'alpha': 0.1}, Best score: 0.5220
+[2025-12-10 01:01:08] [INFO] Huấn luyện mô hình Naive Bayes với tham số tối ưu
+[2025-12-10 01:01:08] [INFO] Huấn luyện NaiveBayesModel hoàn tất
+[2025-12-10 01:09:49] [INFO] Khởi tạo NaiveBayesOptimizer
+[2025-12-10 01:09:49] [INFO] Bắt đầu tối ưu tham số Naive Bayes với 5-fold CV
+[2025-12-10 01:09:49] [INFO] Tối ưu xong. Best params: {'alpha': 0.1}, Best score: 0.5220
+[2025-12-10 01:09:49] [INFO] Huấn luyện mô hình Naive Bayes với tham số tối ưu
+[2025-12-10 01:09:49] [INFO] Huấn luyện NaiveBayesModel hoàn tất
