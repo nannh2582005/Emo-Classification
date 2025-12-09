@@ -1,8 +1,8 @@
-# model_layer/naive_bayes.py
+# model_layer/naive.py
 
 import os
 import joblib
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive import MultinomialNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
