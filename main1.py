@@ -6,6 +6,8 @@ from processor_layer.loader import DataLoader
 from processor_layer.processor import DataProcessor
 from feature_layer.tfidf import TFIDF
 from model_layer.logistics import LogisticRegressionModel # Import module mới
+from model_layer.naive import NaiveBayesModel
+
 
 def main():
     # 1. THIẾT LẬP ĐƯỜNG DẪN
@@ -62,6 +64,21 @@ def main():
     
     # Lưu mô hình ( Kiên implement method)
     log_reg.save_model("models/logistic_sentiment.pkl")
+
+    # Khởi tạo mô hinh Naive Bayes
+    nb = NaiveBayesModel(alpha=1.0, random_state=42)
+
+    # Chia tập dữ liệu
+    nb.split_data(X, y, test_size=0.2)
+
+    # Huấn luyện mô hình Naive Bayes
+    nb.train()
+
+    # Đánh giá mô hình Naive Bayes
+    nb.evaluate(target_names=label_names)
+
+    # Lưu mô hình Naive Bayes
+    nb.save_model("models/naive_sentiment.pkl")
 
 if __name__ == "__main__":
     main()
