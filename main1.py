@@ -57,10 +57,10 @@ def main():
     # Train 
     log_reg.train()
     
-    # Đánh giá ( Kiên implement method trong class để dang gọi)
+    # Đánh giá ( kieenimplement method trong class để dang gọi)
     log_reg.evaluate(target_names=label_names)
     
-    # Lưu mô hình ( Kiên implement method)
+    # Lưu mô hình 
     log_reg.save_model("models/logistic_sentiment.pkl")
 
 if __name__ == "__main__":

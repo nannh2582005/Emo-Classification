@@ -14,8 +14,8 @@ class LogisticRegressionModel:
         self.random_state = random_state
         self.model = LogisticRegression(
             random_state=self.random_state,
-            max_iter=1000,   # Tăng số vòng lặp để mô hình hội tụ tốt hơn với dữ liệu văn bản
-            solver='lbfgs',  # Solver mặc định tốt cho multiclass
+            max_iter=1000,   # tăng số vòng lặp để mô hình hội tụ tốt hơn với dữ liệu văn bản
+            solver='lbfgs',  
             
         )
         self.X_train = None
@@ -69,7 +69,7 @@ class LogisticRegressionModel:
             os.makedirs(directory)
             
         joblib.dump(self.model, filepath)
-        print(f"💾 Đã lưu mô hình tại: {filepath}")
+        print(f" lưu mô hình tại: {filepath}")
 
     def load_model(self, filepath="models/logistic_model.pkl"):
         """Nạp mô hình từ file"""
