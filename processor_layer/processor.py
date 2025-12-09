@@ -3,7 +3,7 @@ from pyvi import ViTokenizer
 import pandas as pd
 import re
 import unicodedata
-import json
+from logs.logger import setup_logger
 
 class DataProcessor:
     """
@@ -18,22 +18,33 @@ class DataProcessor:
     def __init__(self, df: pd.DataFrame,
                   text_column: str, 
                   label_column: str, 
-                  stopwords: list = None,
-                  emoji: dict = None,
-                  teencode: dict = None):
+                  stopwords: list[str] = None,
+                  emoji: dict[str: str] = None,
+                  teencode: dict[str: str] = None):
+        
+        self.logger = setup_logger('data_preprocessor')
+        self.logger.info("Khởi tạo DataProcessor")
         self._df = df.copy() # tránh làm mất dữ liệu gốc
+
         self._label_column = label_column    # cột nhãn
         self._text_column = text_column  # cột text
+
+        # lưu stopword, emoji và teencode
         self._stopwords = set(stopwords) if stopwords else set() # lưu stopwords
         self._emoji_dict = emoji # lưu emoji với key là emoji và value là nhãn tương ứng
         self._teencode_dict = teencode # lưu những từ viết tắt với key là teencode và value là nghĩa của từ
+
         self._processed_col = 'processed'
 
+        # gộp nhãn 
+        self.logger.info("Thực hiện gộp nhãn")
         self._merge_label()
         # tạo nhãn 
+        self.logger.info("Tạo dictionary mã hóa nhãn")
         self._label2id = self._create_label_dict()   # tạo dict nhãn -> id
         self._id2label = {v: k for k, v in self._label2id.items()}  # dict id -> nhãn
         self._df["label_id"] = self._encode_labels()  # thêm cột mã hóa
+        self.logger.info("Hoàn tất mã hóa nhãn")
         
     @staticmethod
     def _normalize_unicode(s:str):
@@ -85,7 +96,7 @@ class DataProcessor:
     def _replace_teencode(self, text: str):
         for k, v in self._teencode_dict.items():
             # escape để tránh lỗi regex với ký tự đặc biệt
-            pattern = rf"\b {k} \b"
+            pattern = rf"\b{k}\b"
             text = re.sub(pattern, f" {v} ", text)
         return text
 
@@ -108,18 +119,26 @@ class DataProcessor:
         return self._df['merged_label'].map(self._label2id)
     
     def preprocess(self):
-        '''chạy các bước tiền xử lý'''
-        self._df[self._processed_col] = (
-            self._df[self._text_column].astype(str)
-            .apply(self._normalize_unicode)
-            .apply(self._replace_teencode)
-            .apply(self._replace_emoji)
-            .apply(self._normalize_repeated_chars)
-            .apply(self._clean_text)
-            .apply(self._tokenization)
-            .apply(lambda s: s.split())
-            .apply(self._remove_stopwords)
+
+        self.logger.info("Bắt đầu tiền xử lý dữ liệu")
+
+        try:
+            self._df[self._processed_col] = (
+                self._df[self._text_column].astype(str)
+                .apply(self._normalize_unicode)
+                .apply(self._replace_teencode)
+                .apply(self._replace_emoji)
+                .apply(self._normalize_repeated_chars)
+                .apply(self._clean_text)
+                .apply(self._tokenization)
+                .apply(lambda s: s.split())
+                .apply(self._remove_stopwords)
             )
+        except Exception as e:
+            self.logger.error(f"Lỗi trong preprocess: {e}")
+            raise e
+
+        self.logger.info("Tiền xử lý hoàn tất.")
         return self._df
     
     @property
