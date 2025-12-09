@@ -1,0 +1,12 @@
+[2025-12-09 13:19:48] [INFO] Khởi tạo ModelOptimizer
+[2025-12-09 13:19:48] [INFO] Bắt đầu tối ưu tham số cho SVC
+[2025-12-09 13:20:09] [INFO] Tối ưu xong. Best score: 0.5391, Best params: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}
+[2025-12-09 13:20:09] [INFO] Huấn luyện mô hình với tham số tối ưu
+[2025-12-09 13:22:44] [INFO] Khởi tạo ModelOptimizer
+[2025-12-09 13:22:44] [INFO] Bắt đầu tối ưu tham số cho SVC
+[2025-12-09 13:23:05] [INFO] Tối ưu xong. Best score: 0.5391, Best params: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}
+[2025-12-09 13:29:12] [INFO] Khởi tạo SVMOptimizer
+[2025-12-09 13:29:12] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-09 13:31:47] [INFO] Tối ưu xong. Best params: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}, Best score: 0.5391
+[2025-12-09 13:31:47] [INFO] Huấn luyện mô hình SVM với tham số tốt nhất
+[2025-12-09 13:31:59] [INFO] Huấn luyện SVMModel hoàn tất

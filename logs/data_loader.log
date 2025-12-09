@@ -30,3 +30,12 @@ ValueError: Không hỗ trợ định dạng này, vui lòng nhập định dạ
 [2025-12-09 13:06:39] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
 [2025-12-09 13:06:39] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
 [2025-12-09 13:06:40] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 13:19:45] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 13:19:45] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 13:19:45] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 13:22:41] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 13:22:41] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 13:22:41] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 13:29:09] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 13:29:09] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 13:29:10] [INFO] Tải dữ liệu thành công! Số dòng: 6241

@@ -10,7 +10,7 @@ from model_layer.naive import NaiveBayesModel
 from model_layer.svm import SVMModel
 from visualization.naive import NaiveVisualization
 from visualization.svm import SVMVisualization
-
+from optimize.svm_optimize import SVMOptimizer
 
 def main():
     # 1. THIẾT LẬP ĐƯỜNG DẪN
@@ -92,28 +92,25 @@ def main():
     # Vẽ và lưu hình
     viz.visualize(nb, target_names=label_names)
 
-    # ---- SVM Model ----
-    print("\nHuấn luyện SVM")
+    print("\n=== Tối ưu và train SVM ===")
+    svm_optimizer = SVMOptimizer(X, y, config=Config)
 
-    svm = SVMModel(X, y, config=Config)
+    # Tìm tham số tốt nhất
+    best_params, best_score = svm_optimizer.optimize(cv=5)
+    print("SVM best params:", best_params)
+    print("SVM best score:", best_score)
 
-    # Chia dữ liệu
-    svm.split_data()
+    # Train mô hình SVM với tham số tối ưu và lấy đối tượng SVMModel
+    svm_model = svm_optimizer.train_best_model()
 
-    # Train
-    svm.train()
+    # Evaluate và visualize
+    svm_model.evaluate(verbose=True)
 
-    # Evaluate
-    svm.evaluate(verbose=True)
-
-    # Save model
-    svm.save("svm_sentiment.pkl")
-
-    print("Đã lưu mô hình SVM!")
-    print("\n=== Vẽ biểu đồ cho SVM ===")
+    # Save
+    svm_model.save("svm_sentiment.pkl")
 
     svm_viz = SVMVisualization(save_dir="images")
-    svm_viz.visualize(svm, target_names=label_names)
+    svm_viz.visualize(svm_model, target_names=label_names)
 
 
 if __name__ == "__main__":
