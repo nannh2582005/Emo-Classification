@@ -17,7 +17,7 @@ Phân loại cảm xúc thành 3 nhóm chính:
 - Tiêu cực
 - Trung tính
 
-**Pipeline:** data_loading -> data_preprocessing -> data_feature -> data_modeling -> evaluate -> visualization
+**Pipeline:** EDA -> Data Loading -> Data Preprocessing -> Feature Engineering -> Modeling -> Evaluation -> Visualization
 
 ## Cài đặt 
 ### Clone repository
@@ -25,6 +25,10 @@ Phân loại cảm xúc thành 3 nhóm chính:
 git clone https://github.com/nannh2582005/Emo-Classification.git
 cd Emo-Classification
 ```
+### Tải mã nguồn thủ công 
+Truy cập https://github.com/nannh2582005/Emo-Classification.git\
+Chọn **Download ZIP** -> giải nén để sử dụng
+
 ### Tạo môi trường ảo (khuyến nghị)
 Windows
 ``` bash
@@ -61,19 +65,32 @@ Bao gồm các bước:
 
 Tất cả được gọi trong hàm preprocess.preprocess()
 ### 3. Data Feature
-Dùng phương pháp TFIDF để đưa dữ liệu về dạng vector để làm đầu vào cho mô hình học máy, fit + transform danh sách token đã được xử lý
+Dùng phương pháp TFIDF để đưa dữ liệu về dạng vector để làm đầu vào cho mô hình học máy, fit + transform danh sách token đã được xử lý\
+Input: danh sách token đã xử lý\
+Output: ma trận TF-IDF dạng sparse, phù hợp cho mô hình học máy
+Các tham số quan trọng:
+- ngram_range
+- max_features
+- min_df, max_df
+- sublinear_tf
 ### 4. Data Model
 Huấn luyện các mô hình học máy:
 - SVM
 - LinearRegression
 - Naive Bayes
-### 5. Visualization 
-Trực quan hóa dữ liệu:
-- Tần suất nhãn
-- Word cloud
-- Phân phối độ dài văn bản
-- Ma trận nhầm lẫn (Confusion Matrix)
-- So sánh hiệu suất mô hình
+### 5. Hyperparameter Optimization
+Để cải thiện mô hình, nhóm sử dụng Grid Search và Cross-validation
+### 6. Evaluation
+Hiệu suất mô hình được đánh giá bằng các chỉ số:
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion Matrix
+
+Các báo cáo được sinh tự động bằng classification_report của scikit-learn.
+### 7. Visualization 
+Trực quan dữ liệu bằng ma trận nhầm lẫn
 ## Chạy chương trình
 
 
