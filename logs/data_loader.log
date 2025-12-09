@@ -39,3 +39,6 @@ ValueError: Không hỗ trợ định dạng này, vui lòng nhập định dạ
 [2025-12-09 13:29:09] [INFO] Tải dữ liệu từ: data/data.xlsx
 [2025-12-09 13:29:09] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
 [2025-12-09 13:29:10] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 13:46:11] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 13:46:11] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 13:46:12] [INFO] Tải dữ liệu thành công! Số dòng: 6241

@@ -86,7 +86,7 @@ class SVMModel(DataModel):
 
         return path
     
-    def load_model(self, filepath="models/svm_model.pkl"):
+    def load_model(self, filepath="models_saver/svm_model.pkl"):
         """Load mô hình đã lưu."""
         if not os.path.exists(filepath):
             raise FileNotFoundError(f"Không tìm thấy file mô hình: {filepath}")

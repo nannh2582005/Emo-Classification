@@ -66,7 +66,7 @@ def main():
     log_reg.evaluate(target_names=label_names)
     
     # Lưu mô hình ( Kiên implement method)
-    log_reg.save_model("models/logistic_sentiment.pkl")
+    log_reg.save_model("models_saver/logistic_sentiment.pkl")
 
     # Khởi tạo mô hình Naive Bayes
     nb = NaiveBayesModel(alpha=1.0, random_state=42)
@@ -81,7 +81,7 @@ def main():
     nb.evaluate(target_names=label_names)
 
     # Lưu mô hình Naive Bayes
-    nb.save_model("models/naive_sentiment.pkl")
+    nb.save_model("models_saver/naive_sentiment.pkl")
 
     # 6. TRỰC QUAN MÔ HÌNH (VISUALIZE MODEL)
     # Naive Bayes

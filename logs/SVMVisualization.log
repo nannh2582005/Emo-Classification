@@ -10,3 +10,8 @@
 [2025-12-09 13:31:59] [INFO] Dữ liệu đánh giá: 1249 mẫu
 [2025-12-09 13:31:59] [INFO] Vẽ confusion matrix cho SVM...
 [2025-12-09 13:31:59] [INFO] Đã lưu hình trực quan hóa SVM tại: svm_confusion_matrix.png
+[2025-12-09 13:48:28] [INFO] Khởi tạo SVMVisualization, thư mục lưu hình: images
+[2025-12-09 13:48:28] [INFO] Bắt đầu trực quan hóa mô hình SVM
+[2025-12-09 13:48:29] [INFO] Dữ liệu đánh giá: 1249 mẫu
+[2025-12-09 13:48:29] [INFO] Vẽ confusion matrix cho SVM...
+[2025-12-09 13:48:29] [INFO] Đã lưu hình trực quan hóa SVM tại: svm_confusion_matrix.png
