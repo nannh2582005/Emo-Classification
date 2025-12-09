@@ -26,20 +26,9 @@ git clone https://github.com/nannh2582005/Emo-Classification.git
 cd Emo-Classification
 ```
 ### Tải mã nguồn thủ công 
-Truy cập https://github.com/nannh2582005/Emo-Classification.git\
-Chọn **Download ZIP** -> giải nén để sử dụng
+Truy cập https://github.com/nannh2582005/Emo-Classification.git
 
-### Tạo môi trường ảo (khuyến nghị)
-Windows
-``` bash
-python -m venv venv
-venv\Scripts\activate
-```
-Linux/MacOS
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+Chọn **Download ZIP** -> giải nén để sử dụng
 ### Cài đặt thư viện
 ``` bash
 pip install -r requirements.txt
