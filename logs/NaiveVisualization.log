@@ -32,3 +32,8 @@
 [2025-12-09 07:51:01] [INFO] Vẽ confusion matrix cho Naive Bayes...
 [2025-12-09 07:51:02] [INFO] Đã lưu hình trực quan hóa Naive Bayes tại: naive_confusion_matrix.png
 >>>>>>> 8a9f5eb67bb6154d603e7ea54e254af15de8692e
+[2025-12-09 15:09:39] [INFO] Khởi tạo NaiveVisualization, thư mục lưu hình: images
+[2025-12-09 15:09:39] [INFO] Bắt đầu trực quan hóa mô hình Naive Bayes
+[2025-12-09 15:09:39] [INFO] Dữ liệu đánh giá: 1249 mẫu
+[2025-12-09 15:09:39] [INFO] Vẽ confusion matrix cho Naive Bayes...
+[2025-12-09 15:09:39] [INFO] Đã lưu hình trực quan hóa Naive Bayes tại: naive_confusion_matrix.png

@@ -4,3 +4,9 @@
 [2025-12-09 07:51:01] [INFO] F1 mỗi lớp: {'0': 0.6435006435006435, '1': 0.7370689655172413, '2': 0.1945288753799392, 'macro avg': 0.5250328281326081, 'weighted avg': 0.61787527167197}
 [2025-12-09 07:51:01] [INFO] Đã lưu mô hình vào: /home/ngocanh/Emo-Classification/models_saver/naive_sentiment.pkl
 [2025-12-09 07:51:01] [INFO] Dự đoán 1249 mẫu.
+[2025-12-09 15:09:39] [INFO] Khởi tạo NaiveBayesModel với alpha=1.0
+[2025-12-09 15:09:39] [INFO] Bắt đầu đánh giá mô hình Naive Bayes
+[2025-12-09 15:09:39] [INFO] Accuracy: 0.6365
+[2025-12-09 15:09:39] [INFO] F1 mỗi lớp: {'0': 0.6435006435006435, '1': 0.7370689655172413, '2': 0.1945288753799392, 'macro avg': 0.5250328281326081, 'weighted avg': 0.61787527167197}
+[2025-12-09 15:09:39] [INFO] Đã lưu mô hình vào: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\models_saver\naive_sentiment.pkl
+[2025-12-09 15:09:39] [INFO] Dự đoán 1249 mẫu.

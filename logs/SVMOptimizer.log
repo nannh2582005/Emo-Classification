@@ -32,3 +32,8 @@
 [2025-12-09 07:51:02] [INFO] Khởi tạo SVMOptimizer
 [2025-12-09 07:51:02] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
 >>>>>>> 8a9f5eb67bb6154d603e7ea54e254af15de8692e
+[2025-12-09 15:09:39] [INFO] Khởi tạo SVMOptimizer
+[2025-12-09 15:09:39] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-09 15:11:10] [INFO] Tối ưu xong. Best params: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}, Best score: 0.5391
+[2025-12-09 15:11:10] [INFO] Huấn luyện mô hình SVM với tham số tốt nhất
+[2025-12-09 15:11:21] [INFO] Huấn luyện SVMModel hoàn tất

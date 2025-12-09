@@ -74,3 +74,6 @@ ValueError: Không hỗ trợ định dạng này, vui lòng nhập định dạ
 [2025-12-09 07:50:57] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
 [2025-12-09 07:50:57] [INFO] Tải dữ liệu thành công! Số dòng: 6241
 >>>>>>> 8a9f5eb67bb6154d603e7ea54e254af15de8692e
+[2025-12-09 15:09:34] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 15:09:34] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 15:09:34] [INFO] Tải dữ liệu thành công! Số dòng: 6241
