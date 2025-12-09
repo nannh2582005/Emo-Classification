@@ -11,7 +11,7 @@ class Config:
         BASE_DIR = os.path.dirname(os.path.abspath(__file__)) # lấy đường dẫn tuyệt đối của project ..:/../Emo-Classification  
     else:
         BASE_DIR = os.getcwd()  # nếu chạy trong Jupyter Notebook
-    MODEL_DIR = os.path.join(BASE_DIR, "models") # đường dẫn đến thư mục lưu mô hình huấn luyện
+    MODEL_DIR = os.path.join(BASE_DIR, "models_saver") # đường dẫn đến thư mục lưu mô hình huấn luyện
     LOG_DIR = os.path.join(BASE_DIR, "logs") # đường dẫn đến thư mục lưu file log
     DATA_DIR = os.path.join(BASE_DIR, "data")
 
