@@ -1,0 +1,10 @@
+[2025-12-09 12:39:55] [INFO] Khởi tạo SVMModel với kernel=linear, C=1.0
+[2025-12-09 12:39:55] [INFO] Bắt đầu train mô hình SVM
+[2025-12-09 12:39:55] [INFO] Tập train size: 4992 | test size: 1249
+[2025-12-09 12:39:55] [INFO] Bắt đầu cân bằng dữ liệu với RandomOverSampler
+[2025-12-09 12:39:55] [INFO] Cân bằng dữ liệu xong. Số mẫu mới: 7287
+[2025-12-09 12:40:05] [INFO] Huấn luyện mô hình hoàn tất!
+[2025-12-09 12:40:05] [INFO] Bắt đầu đánh giá mô hình
+[2025-12-09 12:40:05] [INFO] Đánh giá mô hình xong.
+[2025-12-09 12:40:05] [INFO] F1 mỗi lớp: {'0': 0.6175710594315246, '1': 0.705685618729097, '2': 0.36363636363636365}
+[2025-12-09 12:40:05] [INFO] Đã lưu mô hình vào: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\models\svm_sentiment.pkl

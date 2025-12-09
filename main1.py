@@ -1,12 +1,13 @@
 # main.py
 import json
 import os
-
+from config import Config
 from processor_layer.loader import DataLoader
 from processor_layer.processor import DataProcessor
 from feature_layer.tfidf import TFIDF
 from model_layer.logistics import LogisticRegressionModel # Import module mới
 from model_layer.naive import NaiveBayesModel
+from model_layer.svm import SVMModel
 from visualization.naive import NaiveVisualization
 
 
@@ -89,6 +90,24 @@ def main():
 
     # Vẽ và lưu hình
     viz.visualize(nb, target_names=label_names)
+
+    print("\nHuấn luyện SVM")
+
+    svm = SVMModel(X, y, config=Config)
+
+    # Chia dữ liệu
+    svm.split_data()
+
+    # Train
+    svm.train()
+
+    # Evaluate
+    svm.evaluate(verbose=True)
+
+    # Save model
+    svm.save("svm_sentiment.pkl")
+
+    print("Đã lưu mô hình SVM!")
 
 
 if __name__ == "__main__":
