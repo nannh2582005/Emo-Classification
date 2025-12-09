@@ -1,13 +1,4 @@
 # Emotion Classification
-ĐỒ ÁN CUỐI KỲ PYTHON CHO KHOA HỌC DỮ LIỆU
-
-## Danh sách thành viên:
-
-| STT | Họ và Tên           | MSSV       |
-|-----|----------------------|------------|
-| 1   | Nguyễn Thị Ngọc Anh       | 23280037  |
-| 2   | Trương Thị Quỳnh Giang           | 23280000  |
-| 3   | Nguyễn Trung Kiên           | 23280000  |
 
 ## Mục tiêu đồ án: 
 Xây dựng hệ thống phân loại cảm xúc tiếng Việt từ dữ liệu gắn nhãn, sử dụng các mô hình Machine Learning kết hợp quy trình xử lý ngôn ngữ tự nhiên (NLP).
@@ -82,4 +73,9 @@ Các báo cáo được sinh tự động bằng classification_report của sci
 Trực quan dữ liệu bằng ma trận nhầm lẫn
 ## Chạy chương trình
 
-
+## Danh sách thành viên
+|STT|Họ và tên              |MSSV    |
+|---|-----------------------|--------|
+|1  |Nguyễn Thị Ngọc Anh    |23280037|
+|2  |Trương Thị Quỳnh Giang |23280052|
+|3  |Trần Trung Kiên        |23280066|
