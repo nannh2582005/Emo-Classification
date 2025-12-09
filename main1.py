@@ -85,7 +85,8 @@ def main():
     # Naive Bayes
 
     # Tạo lớp trực quan hóa
-    viz = NaiveVisualization("images/naive")
+    viz = NaiveVisualization()  
+
     # Vẽ và lưu hình
     viz.visualize(nb, target_names=label_names)
 
