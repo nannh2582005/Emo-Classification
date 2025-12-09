@@ -16,6 +16,7 @@ class Config:
     DATA_DIR = os.path.join(BASE_DIR, "data")
 
     # đường dẫn file
+    DATA_FILE = os.path.join(DATA_DIR, 'data.xlsx')
     EMOJI_FILE = os.path.join(DATA_DIR, 'emoji_dict.json')
     TEENCODE_FILE = os.path.join(DATA_DIR, 'teencode_dict.json')
     STOPWORDS_FILE = os.path.join(DATA_DIR, 'vietnamese-stopwords.txt')

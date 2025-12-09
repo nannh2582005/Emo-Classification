@@ -47,8 +47,10 @@ class SVMModel(DataModel):
 
     def predict(self, X):
         """dự đoán"""
-        self.logger.info("Dự đoán %d mẫu.", len(X))
+        n_samples = X.shape[0]  # FIX lỗi
+        self.logger.info("Dự đoán %d mẫu.", n_samples)
         return self._model.predict(X)
+
 
     def evaluate(self, verbose=True):
         """đánh giá"""

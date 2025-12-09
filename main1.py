@@ -9,6 +9,7 @@ from model_layer.logistics import LogisticRegressionModel # Import module mới
 from model_layer.naive import NaiveBayesModel
 from model_layer.svm import SVMModel
 from visualization.naive import NaiveVisualization
+from visualization.svm import SVMVisualization
 
 
 def main():
@@ -91,6 +92,7 @@ def main():
     # Vẽ và lưu hình
     viz.visualize(nb, target_names=label_names)
 
+    # ---- SVM Model ----
     print("\nHuấn luyện SVM")
 
     svm = SVMModel(X, y, config=Config)
@@ -108,6 +110,10 @@ def main():
     svm.save("svm_sentiment.pkl")
 
     print("Đã lưu mô hình SVM!")
+    print("\n=== Vẽ biểu đồ cho SVM ===")
+
+    svm_viz = SVMVisualization(save_dir="images")
+    svm_viz.visualize(svm, target_names=label_names)
 
 
 if __name__ == "__main__":

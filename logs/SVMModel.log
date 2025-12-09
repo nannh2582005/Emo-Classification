@@ -8,3 +8,34 @@
 [2025-12-09 12:40:05] [INFO] Đánh giá mô hình xong.
 [2025-12-09 12:40:05] [INFO] F1 mỗi lớp: {'0': 0.6175710594315246, '1': 0.705685618729097, '2': 0.36363636363636365}
 [2025-12-09 12:40:05] [INFO] Đã lưu mô hình vào: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\models\svm_sentiment.pkl
+[2025-12-09 12:50:48] [INFO] Khởi tạo SVMModel với kernel=linear, C=1.0
+[2025-12-09 12:50:48] [INFO] Bắt đầu train mô hình SVM
+[2025-12-09 12:50:48] [INFO] Tập train size: 4992 | test size: 1249
+[2025-12-09 12:50:48] [INFO] Bắt đầu cân bằng dữ liệu với RandomOverSampler
+[2025-12-09 12:50:48] [INFO] Cân bằng dữ liệu xong. Số mẫu mới: 7287
+[2025-12-09 12:50:57] [INFO] Huấn luyện mô hình hoàn tất!
+[2025-12-09 12:50:57] [INFO] Bắt đầu đánh giá mô hình
+[2025-12-09 12:50:57] [INFO] Đánh giá mô hình xong.
+[2025-12-09 12:50:57] [INFO] F1 mỗi lớp: {'0': 0.6175710594315246, '1': 0.705685618729097, '2': 0.36363636363636365}
+[2025-12-09 12:50:57] [INFO] Đã lưu mô hình vào: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\models\svm_sentiment.pkl
+[2025-12-09 12:54:23] [INFO] Khởi tạo SVMModel với kernel=linear, C=1.0
+[2025-12-09 12:54:23] [INFO] Bắt đầu train mô hình SVM
+[2025-12-09 12:54:23] [INFO] Tập train size: 4992 | test size: 1249
+[2025-12-09 12:54:23] [INFO] Bắt đầu cân bằng dữ liệu với RandomOverSampler
+[2025-12-09 12:54:23] [INFO] Cân bằng dữ liệu xong. Số mẫu mới: 7287
+[2025-12-09 12:54:32] [INFO] Huấn luyện mô hình hoàn tất!
+[2025-12-09 12:54:32] [INFO] Bắt đầu đánh giá mô hình
+[2025-12-09 12:54:33] [INFO] Đánh giá mô hình xong.
+[2025-12-09 12:54:33] [INFO] F1 mỗi lớp: {'0': 0.6175710594315246, '1': 0.705685618729097, '2': 0.36363636363636365}
+[2025-12-09 12:54:33] [INFO] Đã lưu mô hình vào: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\models\svm_sentiment.pkl
+[2025-12-09 12:57:26] [INFO] Khởi tạo SVMModel với kernel=linear, C=1.0
+[2025-12-09 12:57:26] [INFO] Bắt đầu train mô hình SVM
+[2025-12-09 12:57:26] [INFO] Tập train size: 4992 | test size: 1249
+[2025-12-09 12:57:26] [INFO] Bắt đầu cân bằng dữ liệu với RandomOverSampler
+[2025-12-09 12:57:26] [INFO] Cân bằng dữ liệu xong. Số mẫu mới: 7287
+[2025-12-09 12:57:44] [INFO] Huấn luyện mô hình hoàn tất!
+[2025-12-09 12:57:44] [INFO] Bắt đầu đánh giá mô hình
+[2025-12-09 12:57:44] [INFO] Đánh giá mô hình xong.
+[2025-12-09 12:57:44] [INFO] F1 mỗi lớp: {'0': 0.6175710594315246, '1': 0.705685618729097, '2': 0.36363636363636365}
+[2025-12-09 12:57:44] [INFO] Đã lưu mô hình vào: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\models\svm_sentiment.pkl
+[2025-12-09 12:57:44] [INFO] Dự đoán 1249 mẫu.

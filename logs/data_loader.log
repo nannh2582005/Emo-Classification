@@ -4,3 +4,29 @@
 [2025-12-09 12:39:51] [INFO] Tải dữ liệu từ: data/data.xlsx
 [2025-12-09 12:39:51] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
 [2025-12-09 12:39:51] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 12:50:40] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 12:50:40] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 12:50:41] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 12:54:20] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 12:54:20] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 12:54:20] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 12:57:23] [INFO] Tải dữ liệu từ: data/data.xlsx
+[2025-12-09 12:57:23] [INFO] Đang đọc dữ liệu từ file data/data.xlsx
+[2025-12-09 12:57:23] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 13:01:23] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data
+[2025-12-09 13:01:23] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data
+[2025-12-09 13:01:23] [ERROR] Định dạng file không hỗ trợ.
+[2025-12-09 13:01:23] [ERROR] Lỗi khi đọc dữ liệu:
+Traceback (most recent call last):
+  File "d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\processor_layer\loader.py", line 38, in load_data
+    raise ValueError("Không hỗ trợ định dạng này, vui lòng nhập định dạng [csv, xlsx, json]")
+ValueError: Không hỗ trợ định dạng này, vui lòng nhập định dạng [csv, xlsx, json]
+[2025-12-09 13:02:48] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 13:02:48] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 13:02:48] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 13:05:05] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 13:05:05] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 13:05:06] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 13:06:39] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 13:06:39] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
+[2025-12-09 13:06:40] [INFO] Tải dữ liệu thành công! Số dòng: 6241
