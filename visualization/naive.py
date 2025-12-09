@@ -16,15 +16,19 @@ class NaiveVisualization(VisualizationBase):
         """
         self.logger.info("Bắt đầu trực quan hóa mô hình Naive Bayes")
 
-        # Lấy dữ liệu thật và dự đoán
+        # Lấy giá trị thực và dự đoán
         y_true = model.y_test
         y_pred = model.predict(model.X_test)
 
         self.logger.info("Dữ liệu đánh giá: %d mẫu", len(y_true))
 
+        # Nếu không có target_names thì tạo mặc định
         if target_names is None:
             target_names = [str(i) for i in sorted(set(y_true))]
-            self.logger.warning("Không truyền target_names, dùng danh sách mặc định: %s", target_names)
+            self.logger.warning(
+                "Không truyền target_names, sử dụng danh sách mặc định: %s",
+                target_names
+            )
 
         # Vẽ confusion matrix
         self.logger.info("Vẽ confusion matrix cho Naive Bayes...")
@@ -35,9 +39,9 @@ class NaiveVisualization(VisualizationBase):
             title="Confusion Matrix - Naive Bayes"
         )
 
-        # Lưu file hình
+        # Lưu ảnh
         filename = "naive_confusion_matrix.png"
         self.save_figure(fig, filename)
         self.logger.info("Đã lưu hình trực quan hóa Naive Bayes tại: %s", filename)
 
-        print("Hoàn tất trực quan hóa Naive Bayes")
+        print("Hoàn tất trực quan hóa Naive Bayes!")
