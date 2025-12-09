@@ -51,10 +51,10 @@ def main():
     print("\nHuấn luyện mô hình và đánh giá:")
     # LogisticRegressionModel
     # Khởi tạo mô hình 
-    log_reg = LogisticRegressionModel(Config.RANDOM_STATE)
+    log_reg = LogisticRegressionModel(X, y, config=Config)
     
     # Chia tập dữ liệu 
-    log_reg.split_data(X, y, Config.TEST_SIZE)
+    log_reg.split_data()
     
     # Train 
     log_reg.train()

@@ -77,3 +77,15 @@ ValueError: Không hỗ trợ định dạng này, vui lòng nhập định dạ
 [2025-12-09 15:09:34] [INFO] Tải dữ liệu từ: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
 [2025-12-09 15:09:34] [INFO] Đang đọc dữ liệu từ file d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\data\data.xlsx
 [2025-12-09 15:09:34] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 16:38:49] [INFO] Tải dữ liệu từ: /Users/kieen/hehe/Emo-Classification/data/data.xlsx
+[2025-12-09 16:38:49] [INFO] Đang đọc dữ liệu từ file /Users/kieen/hehe/Emo-Classification/data/data.xlsx
+[2025-12-09 16:38:49] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 16:43:54] [INFO] Tải dữ liệu từ: /Users/kieen/hehe/Emo-Classification/data/data.xlsx
+[2025-12-09 16:43:54] [INFO] Đang đọc dữ liệu từ file /Users/kieen/hehe/Emo-Classification/data/data.xlsx
+[2025-12-09 16:43:54] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 22:37:23] [INFO] Tải dữ liệu từ: /Users/kieen/hehe/Emo-Classification/data/data.xlsx
+[2025-12-09 22:37:23] [INFO] Đang đọc dữ liệu từ file /Users/kieen/hehe/Emo-Classification/data/data.xlsx
+[2025-12-09 22:37:23] [INFO] Tải dữ liệu thành công! Số dòng: 6241
+[2025-12-09 22:38:22] [INFO] Tải dữ liệu từ: /Users/kieen/hehe/Emo-Classification/data/data.xlsx
+[2025-12-09 22:38:22] [INFO] Đang đọc dữ liệu từ file /Users/kieen/hehe/Emo-Classification/data/data.xlsx
+[2025-12-09 22:38:23] [INFO] Tải dữ liệu thành công! Số dòng: 6241

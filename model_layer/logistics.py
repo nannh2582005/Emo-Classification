@@ -1,80 +1,79 @@
-# model_layer/logistic.py
 import joblib
 import os
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from config import Config
+from logs.logger import setup_logger
 
 class LogisticRegressionModel:
-    def __init__(self, random_state=42):
+    def __init__(self, X, y, config: Config = Config):
         """
-        tạo mô hình Logistic Regression.
-        random_state: cố định seed để kết quả tái lập được 
+        Khởi tạo mô hình Logistic Regression.
+        Nhận X, y ngay từ đầu để đồng bộ với cấu trúc Optimizer.
         """
-        self.random_state = random_state
-        self.model = LogisticRegression(
-            random_state=self.random_state,
-            max_iter=1000,   # tăng số vòng lặp để mô hình hội tụ tốt hơn với dữ liệu văn bản
-            solver='lbfgs',  
-            
-        )
-        self.X_train = None
-        self.X_test = None
-        self.y_train = None
-        self.y_test = None
+        self.logger = setup_logger(self.__class__.__name__)
+        self.X = X
+        self.y = y
+        self.config = config
+        
+        # Các thuộc tính dữ liệu sau khi split
+        self._X_train = None
+        self._X_test = None
+        self._y_train = None
+        self._y_test = None
+        
+        # Model sklearn thực tế
+        self._model = None 
 
-    def split_data(self, X, y, test_size=0.2):
-        """
-        Chia dữ liệu train/test
-        Sử dụng stratify=y để đảm bảo tỉ lệ nhãn giữa 2 tập tương đồng
-        """
-        print(f"chia dữ liệu với tỉ lệ Test: {test_size*100}%...")
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
-            X, y, 
-            test_size=test_size, 
-            random_state=self.random_state, 
-            stratify=y 
+    def split_data(self):
+        """Chia dữ liệu train/test"""
+        self.logger.info(f" chia dữ liệu với tỉ lệ Test: {self.config.TEST_SIZE*100}%...")
+        
+        self._X_train, self._X_test, self._y_train, self._y_test = train_test_split(
+            self.X, self.y, 
+            test_size=self.config.TEST_SIZE, 
+            random_state=self.config.RANDOM_STATE, 
+            stratify=self.y 
         )
-        print(f"  Train ({self.X_train.shape[0]}), Test ({self.X_test.shape[0]})")
-        return self.X_train, self.X_test, self.y_train, self.y_test
+        self.logger.info(f"Đã chia Train ({self._X_train.shape[0]}), Test ({self._X_test.shape[0]})")
 
     def train(self):
-        """Huấn luyện mô hình"""
-        if self.X_train is None:
-            raise ValueError(" chạy split_data trước khi train!")
+        """Huấn luyện mô hình mặc định (nếu không dùng Optimizer)"""
+        if self._X_train is None:
+            self.split_data()
         
-        
-        self.model.fit(self.X_train, self.y_train)
-        print(" huấn luyện mô hình")
+        self.logger.info("Logistic Regression ...")
+        self._model = LogisticRegression(
+            max_iter=1000,
+            solver='lbfgs',
+            random_state=self.config.RANDOM_STATE
+        )
+        self._model.fit(self._X_train, self._y_train)
+        self.logger.info("xong.")
 
     def evaluate(self, target_names=None):
-        """Đánh giá mô hình trên tập Test"""
-        print("\n đánh giá:")
-        y_pred = self.model.predict(self.X_test)
-        
-        acc = accuracy_score(self.y_test, y_pred)
-        print(f"(Accuracy): {acc:.4f}")
-        
-        print("\nbáo cáo")
-        print(classification_report(self.y_test, y_pred, target_names=target_names))
-        
-        print("\nMa trận nhầm lẫn (Confusion Matrix):")
-        print(confusion_matrix(self.y_test, y_pred))
+        """Đánh giá mô hình"""
+        if self._model is None:
+            self.logger.error("Chưa có model. Vui lòng train trước.")
+            return
 
-    def save_model(self, filepath="models/logistic_model.pkl"):
-        """Lưu mô hình ra file"""
-        # Tạo thư mục nếu chưa có
-        directory = os.path.dirname(filepath)
-        if not os.path.exists(directory):
-            os.makedirs(directory)
+        self.logger.info(" ĐÁNH GIÁ MÔ HÌNH (LOGISTIC REGRESSION):")
+        y_pred = self._model.predict(self._X_test)
+        
+        acc = accuracy_score(self._y_test, y_pred)
+        self.logger.info(f"Độ chính xác (Accuracy): {acc:.4f}")
+        
+        print("\nBáo cáo chi tiết:")
+        print(classification_report(self._y_test, y_pred, target_names=target_names))
+        
+        print("\nMa trận nhầm lẫn:")
+        print(confusion_matrix(self._y_test, y_pred))
+
+    def save_model(self, filename="logistic_model.pkl"):
+        """Lưu mô hình"""
+        filepath = os.path.join(self.config.MODEL_DIR, filename)
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
             
-        joblib.dump(self.model, filepath)
-        print(f" lưu mô hình tại: {filepath}")
-
-    def load_model(self, filepath="models/logistic_model.pkl"):
-        """Nạp mô hình từ file"""
-        if os.path.exists(filepath):
-            self.model = joblib.load(filepath)
-            print(f"nạp mô hình từ: {filepath}")
-        else:
-            raise FileNotFoundError(f"Không tìm thấy  {filepath}")
+        joblib.dump(self._model, filepath)
+        self.logger.info(f"lưu mô hình tại: {filepath}")
