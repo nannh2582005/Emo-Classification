@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.12.9)  10 DEC 2025 06:52
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.12.9)  10 DEC 2025 08:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -728,9 +728,38 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
-) [9
+File: images/1.2.2.png Graphic file (type bmp)
+<images/1.2.2.png>
+[9
 
-] [10
+]) (./sections/Chuong2.tex [10]
+Chapter 2.
+
+Overfull \hbox (10.14198pt too wide) in paragraph at lines 1--1
+|[]\TU/lmr/bx/n/24.88 THU THẬP VÀ KHÁM
+ []
+
+) (./sections/Chuong3.tex [11
+
+]
+Chapter 3.
+
+Overfull \hbox (6.55927pt too wide) in paragraph at lines 1--1
+|[]\TU/lmr/bx/n/24.88 XÂY DỰNG MÔ HÌNH
+ []
+
+) (./sections/Chuong4.tex [12
+
+]
+Chapter 4.
+
+Overfull \hbox (62.56415pt too wide) in paragraph at lines 1--1
+|[]\TU/lmr/bx/n/24.88 KẾT QUẢ THỰC NGHIỆM| 
+ []
+
+) (./sections/KetLuan.tex) (./main.bbl [13
+
+]) [14
 
 ] (./main.aux)
  ***********
@@ -738,15 +767,15 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5881D3F02092B0E3627653DC8220CF2B;3262.
+(rerunfilecheck)             Checksum: 21FC55B97AD0CDC899054CB052012E94;4651.
  ) 
 Here is how much of TeX's memory you used:
- 24669 strings out of 474878
- 498540 string characters out of 5762516
- 1924627 words of memory out of 5000000
- 46311 multiletter control sequences out of 15000+600000
+ 24718 strings out of 474878
+ 499597 string characters out of 5762516
+ 1928627 words of memory out of 5000000
+ 46344 multiletter control sequences out of 15000+600000
  563162 words of font info for 66 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,11n,93p,581b,399s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,93p,581b,480s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (11 pages, 42628 bytes).
+Output written on main.xdv (15 pages, 77352 bytes).

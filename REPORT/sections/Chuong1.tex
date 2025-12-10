@@ -2,38 +2,45 @@
 
 \section{Các phương pháp vectorize dữ liệu}
 \subsection{One Hot}
-% Nội dung phần khái niệm ở đây
+% Nội dung 1.1.1
 
 \subsection{TF IDF}
-% Nội dung phần các bước xử lý ở đây
+% Nội dung 1.1.2
 
 \subsection{PhoBert}
-% Nội dung phần thuật ngữ ở đây
+% Nội dung 1.1.3
 
-
-\section{Một số phương pháp khác}
-% Nội dung 
+\subsection{Một số phương pháp khác}
+% Nội dung 1.1.4
 
 
 \section{Các mô hình học máy}
-\subsection{Phân tích cảm xúc là gì?}
-% Nội dung 1.3.1 ở đây
-
-\subsection{Phân tích cảm xúc hoạt động thế nào?}
-% Nội dung 1.3.2 ở đây
-
-
-\section{Phân loại bài toán phân tích cảm xúc}
 \subsection{Logistic Regression}
-% Nội dung 1.4.1 ở đây
+% Nội dung 1.2.1 ở đây
 
 \subsection{Support Vector Machine}
  Support Vector Machine (SVM) là mô hình học máy giám sát, mục tiêu của thuật toán là tìm ra một siêu phẳng (hyperplane) sao cho có thể phân tách tối ưu các điểm dữ liệu thuộc các lớp khác nhau. “Tối ưu” ở đây nghĩa là tìm ra siêu phẳng tạo ra khoảng cách lớn nhất (margin) giữa các lớp dữ liệu. Các điểm dữ liệu có khoảng cách nhỏ nhất đến siêu mặt phẳng (các điểm gần nhất) được gọi là các vector hỗ trợ (support vectors)
 Margin là độ rộng tối đa của dải không chứa bất kỳ điểm dữ liệu nào và song song với siêu phẳng.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/1.2.2.png}
+    \caption{Hình 1. Support Vector Machine}
+    \label{fig:1.2.2}
+\end{figure}
 
-\subsection{Phân tích cảm xúc theo cấp độ}
-% Nội dung 1.4.3 ở đây
+ Việc tính toán phân tách dữ liệu phụ thuộc vào hàm kernel. Có nhiều hàm kernel khác nhau: Tuyến tính (linear kernel), đa thức (polynomial kernel), gaussian, RBF (radial basis function), sigmoid kernel. Các hàm này xác định độ mượt và hiệu quả trong việc phân tách lớp, và việc tùy biến các siêu tham số của chúng có thể dẫn đến hiện tượng quá khớp (overfitting) hoặc thiếu khớp (underfitting).
+Trong khuôn khổ báo cáo này, nhóm không trình bày chi tiết các biểu thức toán học của từng loại kernel, bạn có thể tham khảo công thức đầy đủ ở tài liệu sau: \cite{cortes1995support}
+ SVM không chỉ hỗ trợ phân loại nhị phân và tách các điểm dữ liệu thành hai lớp, SVM còn mở rộng để hỗ trợ các bài toán phân loại đa lớp thông qua cơ chế chia nhỏ bài toán đa lớp thành nhiều mô hình nhị phân.
+\begin{enumerate}[label=\alph*)]
+    \item Phương pháp OvO (One-to-One)
+    
+    Phương pháp OvO xây dựng bộ phân loại nhị phân cho mỗi cặp lớp trong tập dữ liệu. Với tập dữ liệu gồm K lớp, số lượng mô hình được tạo ra là *công thức toán học* [K(K-1)]/2. Mỗi mô hình được huấn luyện để phân biệt hai lớp cụ thể. Khi dự đoán, mỗi mô hình đưa ra một phiếu bầu cho một trong hai lớp, và lớp nhận được nhiều phiếu nhất sẽ được chọn làm kết quả cuối cùng. Phương pháp OvO thường hiệu quả khi số lượng lớp không quá lớn và mỗi mô hình nhị phân tương đối nhẹ.
+    
+    \item Phương pháp OvR (One-to-Rest)
+    
+    Phương pháp OvR (OvA) chia dữ liệu đa lớp thành nhiều bài toán phân loại nhị phân, sau đó mỗi bộ phân loại nhị phân được huấn luyện trên mỗi bài toán phân loại nhị phân và đưa ra dự đoán bằng cách sử dụng mô hình có độ tin cậy cao nhất. Phương pháp này yêu cầu tạo ra một mô hình cho mỗi lớp.
+\end{enumerate}
 
-\subsection{Phân tích cảm xúc theo khía cạnh}
-% Nội dung 1.4.4 ở đ
+\subsection{Naive Bayes}
+% Nội dung 1.2.3 ở đây
