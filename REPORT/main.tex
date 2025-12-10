@@ -2,7 +2,7 @@
 
 % ------------------ PACKAGES TỐI GIẢN ------------------
 \usepackage{fontspec}                        % XeLaTeX font support
-\usepackage[vietnamese,english]{babel}      % Language support
+\usepackage[english,vietnamese]{babel}      % Language support
 \usepackage{fancyhdr}                        % Fancy headers/footers                 
 \usepackage{amsmath, amsthm, amsfonts}       % Math packages                                       
 \usepackage{setspace}                        % Line spacing
@@ -12,7 +12,7 @@
 \usepackage{graphicx}
 \usepackage{tocloft}
 \usepackage{titlesec}
-\usepackage{tikz}  
+\usepackage{tikz}
 
 % --------- Geometry ------------
 \geometry{
@@ -35,7 +35,14 @@
   {\normalfont\huge\bfseries}  
   {Chương \thechapter}          
   {1em}                         
-  {}           
+  {}    
+
+\renewcommand{\contentsname}{MỤC LỤC}
+
+\addto\captionsvietnamese{
+    \renewcommand{\bibname}{TÀI LIỆU THAM KHẢO}
+}
+
 % ------------------ DOCUMENT ------------------
 \begin{document}
 
@@ -135,9 +142,9 @@
 \end{center}
 \newpage
 % ----------table of contents ---------
+\renewcommand{\contentsname}{Mục lục}
 \tableofcontents
 \newpage
-\renewcommand{\contentsname}{MỤC LỤC}
 
 \chapter*{Bảng ký hiệu và chữ viết tắt}
 \addcontentsline{toc}{chapter}{Bảng ký hiệu và chữ viết tắt}
@@ -164,8 +171,8 @@
 \input{sections/KetLuan.tex}
 
 %------------ BIBLIOGRAPHY ------------
-
-\bibliographystyle{plain}
+\renewcommand{\bibname}{Tài liệu tham khảo}
+\bibliographystyle{IEEEtran}
 \bibliography{references}
 
 
