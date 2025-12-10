@@ -47,3 +47,29 @@
 [2025-12-10 01:01:11] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
 [2025-12-10 01:09:50] [INFO] Khởi tạo SVMOptimizer
 [2025-12-10 01:09:50] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-10 19:57:45] [INFO] Khởi tạo SVMOptimizer
+[2025-12-10 19:57:45] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-10 20:00:44] [INFO] Khởi tạo SVMOptimizer
+[2025-12-10 20:00:44] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-10 20:08:46] [INFO] Khởi tạo SVMOptimizer
+[2025-12-10 20:08:46] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-10 20:09:20] [INFO] Khởi tạo SVMOptimizer
+[2025-12-10 20:09:20] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-10 20:17:50] [INFO] Tối ưu xong. Best params: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}, Best score: 0.5391
+[2025-12-10 20:17:50] [INFO] Huấn luyện mô hình SVM với tham số tốt nhất
+[2025-12-10 20:18:01] [INFO] Huấn luyện SVMModel hoàn tất
+[2025-12-10 20:19:23] [INFO] Khởi tạo SVMOptimizer
+[2025-12-10 20:19:23] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-10 20:27:53] [INFO] Tối ưu xong. Best params: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}, Best score: 0.5391
+[2025-12-10 20:27:53] [INFO] Huấn luyện mô hình SVM với tham số tốt nhất
+[2025-12-10 20:28:04] [INFO] Huấn luyện SVMModel hoàn tất
+[2025-12-10 20:34:37] [INFO] Khởi tạo SVMOptimizer
+[2025-12-10 20:34:37] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-10 20:43:01] [INFO] Tối ưu xong. Best params: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}, Best score: 0.5391
+[2025-12-10 20:43:01] [INFO] Huấn luyện mô hình SVM với tham số tốt nhất
+[2025-12-10 20:43:12] [INFO] Huấn luyện SVMModel hoàn tất
+[2025-12-10 21:17:19] [INFO] Khởi tạo SVMOptimizer
+[2025-12-10 21:17:19] [INFO] Bắt đầu tối ưu tham số SVM với 5-fold CV
+[2025-12-10 21:25:56] [INFO] Tối ưu xong. Best params: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}, Best score: 0.5391
+[2025-12-10 21:25:56] [INFO] Huấn luyện mô hình SVM với tham số tốt nhất
+[2025-12-10 21:26:07] [INFO] Huấn luyện SVMModel hoàn tất

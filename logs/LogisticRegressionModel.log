@@ -56,3 +56,52 @@
 [2025-12-10 01:09:46] [INFO]  ĐÁNH GIÁ MÔ HÌNH (LOGISTIC REGRESSION):
 [2025-12-10 01:09:46] [INFO] Độ chính xác (Accuracy): 0.6509
 [2025-12-10 01:09:46] [INFO] lưu mô hình tại: /Users/kieen/hehe/Emo-Classification/models_saver/models_saver/logistic_sentiment.pkl
+[2025-12-10 19:57:33] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 19:57:33] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 19:57:36] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 19:57:36] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 19:57:36] [INFO]  ĐÁNH GIÁ MÔ HÌNH (LOGISTIC REGRESSION):
+[2025-12-10 19:57:36] [INFO] Độ chính xác (Accuracy): 0.6509
+[2025-12-10 19:57:36] [INFO] lưu mô hình tại: /Users/kieen/hehe/Emo-Classification/models_saver/models_saver/logistic_sentiment.pkl
+[2025-12-10 20:00:36] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:00:36] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:00:38] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:00:38] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:00:38] [INFO]  ĐÁNH GIÁ MÔ HÌNH (LOGISTIC REGRESSION):
+[2025-12-10 20:00:38] [INFO] Độ chính xác (Accuracy): 0.6509
+[2025-12-10 20:00:38] [INFO] lưu mô hình tại: /Users/kieen/hehe/Emo-Classification/models_saver/models_saver/logistic_sentiment.pkl
+[2025-12-10 20:08:40] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:08:40] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:08:43] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:08:43] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:08:43] [INFO]  ĐÁNH GIÁ MÔ HÌNH (LOGISTIC REGRESSION):
+[2025-12-10 20:08:43] [INFO] Độ chính xác (Accuracy): 0.6509
+[2025-12-10 20:08:43] [INFO] lưu mô hình tại: /Users/kieen/hehe/Emo-Classification/models_saver/models_saver/logistic_sentiment.pkl
+[2025-12-10 20:09:15] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:09:15] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:09:17] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:09:17] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:09:17] [INFO]  ĐÁNH GIÁ MÔ HÌNH (LOGISTIC REGRESSION):
+[2025-12-10 20:09:17] [INFO] Độ chính xác (Accuracy): 0.6509
+[2025-12-10 20:09:17] [INFO] lưu mô hình tại: /Users/kieen/hehe/Emo-Classification/models_saver/models_saver/logistic_sentiment.pkl
+[2025-12-10 20:19:14] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:19:14] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:19:17] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:19:17] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:19:17] [INFO]  ĐÁNH GIÁ MÔ HÌNH (LOGISTIC REGRESSION):
+[2025-12-10 20:19:17] [INFO] Độ chính xác (Accuracy): 0.6509
+[2025-12-10 20:19:17] [INFO] lưu mô hình tại: /Users/kieen/hehe/Emo-Classification/models_saver/models_saver/logistic_sentiment.pkl
+[2025-12-10 20:34:30] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:34:30] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:34:33] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 20:34:33] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 20:34:33] [INFO]  ĐÁNH GIÁ MÔ HÌNH (LOGISTIC REGRESSION):
+[2025-12-10 20:34:33] [INFO] Độ chính xác (Accuracy): 0.6509
+[2025-12-10 20:34:33] [INFO] lưu mô hình tại: /Users/kieen/hehe/Emo-Classification/models_saver/models_saver/logistic_sentiment.pkl
+[2025-12-10 21:17:13] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 21:17:13] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 21:17:16] [INFO]  chia dữ liệu với tỉ lệ Test: 20.0%...
+[2025-12-10 21:17:16] [INFO] Đã chia Train (4992), Test (1249)
+[2025-12-10 21:17:16] [INFO]  ĐÁNH GIÁ MÔ HÌNH (LOGISTIC REGRESSION):
+[2025-12-10 21:17:16] [INFO] Độ chính xác (Accuracy): 0.6509
+[2025-12-10 21:17:16] [INFO] lưu mô hình tại: /Users/kieen/hehe/Emo-Classification/models_saver/models_saver/logistic_sentiment.pkl

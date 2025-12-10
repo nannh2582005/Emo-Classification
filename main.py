@@ -126,6 +126,16 @@ def main():
 
     svm_viz = SVMVisualization(save_dir="images")
     svm_viz.visualize(svm_model, target_names=label_names)
+    
+    
+    
+    ####
+    # QUAN TRỌNG: lưu TF-IDF Vectorizer để chạy app
+    import joblib
+    print(" lưu TF-IDF Vectorizer để dùng cho app")
+    # tfidf.vectorizer là đối tượng của sklearn
+    joblib.dump(feature.vectorizer, "models_saver/tfidf_vectorizer.pkl") 
+    print("lưu vectorizer")
 
 
 if __name__ == "__main__":

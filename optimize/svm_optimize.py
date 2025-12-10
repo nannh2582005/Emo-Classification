@@ -32,7 +32,7 @@ class SVMOptimizer:
         }
 
         svc = SVC(probability=True, random_state=self.random_state)
-        grid = GridSearchCV(svc, param_grid, cv=cv, scoring='f1_macro', n_jobs=1, verbose=1)
+        grid = GridSearchCV(svc, param_grid, cv=cv, scoring='f1_macro', n_jobs=1, verbose=3)
         grid.fit(self.X, self.y)
 
         self.best_params_ = grid.best_params_

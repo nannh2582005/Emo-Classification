@@ -2,6 +2,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from .base import DataFeature
 from logs.logger import setup_logger
 from config import Config
+def identity_tokenizer(text):
+    return text
+#để chạy app do thư viện joblib (dùng để lưu file .pkl) không thể lưu được các hàm vô danh (lambda).
 
 class TFIDF(DataFeature):
     def __init__(self, texts: list[list[str]]):
@@ -18,8 +21,8 @@ class TFIDF(DataFeature):
         )
 
         self.vectorizer = TfidfVectorizer(
-            tokenizer=lambda x: x,
-            preprocessor=lambda x: x,
+            tokenizer=identity_tokenizer,    # Thay lambda x: x bằng hàm có tên
+            preprocessor=identity_tokenizer,
             token_pattern=None,
             max_features=max_features,
             ngram_range=ngram_range,

@@ -79,3 +79,35 @@
 [2025-12-09 15:11:21] [INFO] F1 mỗi lớp: {'0': 0.6470588235294118, '1': 0.7383458646616541, '2': 0.25906735751295334}
 [2025-12-09 15:11:21] [INFO] Đã lưu mô hình vào: d:\HK1 NĂM 3\PYTHON FOR DATA SCIENCE\Emo-Classification\models_saver\svm_sentiment.pkl
 [2025-12-09 15:11:21] [INFO] Dự đoán 1249 mẫu.
+[2025-12-10 20:17:50] [INFO] Khởi tạo SVMModel với kernel=linear, C=1.0
+[2025-12-10 20:17:50] [INFO] Bắt đầu cân bằng dữ liệu với RandomOverSampler
+[2025-12-10 20:17:50] [INFO] Cân bằng dữ liệu xong. Số mẫu mới: 7287
+[2025-12-10 20:18:01] [INFO] Bắt đầu đánh giá mô hình
+[2025-12-10 20:18:01] [INFO] Đánh giá mô hình xong.
+[2025-12-10 20:18:01] [INFO] F1 mỗi lớp: {'0': 0.6470588235294118, '1': 0.7383458646616541, '2': 0.25906735751295334}
+[2025-12-10 20:18:01] [INFO] Đã lưu mô hình vào: /Users/kieen/hehe/Emo-Classification/models_saver/svm_sentiment.pkl
+[2025-12-10 20:18:01] [INFO] Dự đoán 1249 mẫu.
+[2025-12-10 20:27:53] [INFO] Khởi tạo SVMModel với kernel=linear, C=1.0
+[2025-12-10 20:27:53] [INFO] Bắt đầu cân bằng dữ liệu với RandomOverSampler
+[2025-12-10 20:27:53] [INFO] Cân bằng dữ liệu xong. Số mẫu mới: 7287
+[2025-12-10 20:28:04] [INFO] Bắt đầu đánh giá mô hình
+[2025-12-10 20:28:04] [INFO] Đánh giá mô hình xong.
+[2025-12-10 20:28:04] [INFO] F1 mỗi lớp: {'0': 0.6470588235294118, '1': 0.7383458646616541, '2': 0.25906735751295334}
+[2025-12-10 20:28:04] [INFO] Đã lưu mô hình vào: /Users/kieen/hehe/Emo-Classification/models_saver/svm_sentiment.pkl
+[2025-12-10 20:28:04] [INFO] Dự đoán 1249 mẫu.
+[2025-12-10 20:43:01] [INFO] Khởi tạo SVMModel với kernel=linear, C=1.0
+[2025-12-10 20:43:01] [INFO] Bắt đầu cân bằng dữ liệu với RandomOverSampler
+[2025-12-10 20:43:01] [INFO] Cân bằng dữ liệu xong. Số mẫu mới: 7287
+[2025-12-10 20:43:12] [INFO] Bắt đầu đánh giá mô hình
+[2025-12-10 20:43:13] [INFO] Đánh giá mô hình xong.
+[2025-12-10 20:43:13] [INFO] F1 mỗi lớp: {'0': 0.6470588235294118, '1': 0.7383458646616541, '2': 0.25906735751295334}
+[2025-12-10 20:43:13] [INFO] Đã lưu mô hình vào: /Users/kieen/hehe/Emo-Classification/models_saver/svm_sentiment.pkl
+[2025-12-10 20:43:13] [INFO] Dự đoán 1249 mẫu.
+[2025-12-10 21:25:56] [INFO] Khởi tạo SVMModel với kernel=linear, C=1.0
+[2025-12-10 21:25:56] [INFO] Bắt đầu cân bằng dữ liệu với RandomOverSampler
+[2025-12-10 21:25:56] [INFO] Cân bằng dữ liệu xong. Số mẫu mới: 7287
+[2025-12-10 21:26:07] [INFO] Bắt đầu đánh giá mô hình
+[2025-12-10 21:26:07] [INFO] Đánh giá mô hình xong.
+[2025-12-10 21:26:07] [INFO] F1 mỗi lớp: {'0': 0.6470588235294118, '1': 0.7383458646616541, '2': 0.25906735751295334}
+[2025-12-10 21:26:07] [INFO] Đã lưu mô hình vào: /Users/kieen/hehe/Emo-Classification/models_saver/svm_sentiment.pkl
+[2025-12-10 21:26:07] [INFO] Dự đoán 1249 mẫu.
