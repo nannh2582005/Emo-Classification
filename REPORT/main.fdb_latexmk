@@ -1,20 +1,20 @@
 # Fdb version 4
-["bibtex main"] 1765361645.20631 "main.aux" "main.bbl" "main" 1765361647.21475 0
+["bibtex main"] 1765363269.69061 "main.aux" "main.bbl" "main" 1765363271.58353 0
   "./references.bib" 1765360864.37184 199 1138e4de5674feed43c5db62cc4eefed ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1765361646.33587 5056 4d9fe5bcbe60365008e8cce9eb115ea3 "xelatex"
+  "main.aux" 1765363270.74028 5149 ff1baf80fa31c3c178ebcf8283c4c74d "xelatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["xdvipdfmx"] 1765361646.69461 "main.xdv" "main.pdf" "main" 1765361647.21671 0
-  "main.xdv" 1765361646.33587 82368 b1b1ded82dd5000f114a04429840b3ac "xelatex"
+["xdvipdfmx"] 1765363271.09592 "main.xdv" "main.pdf" "main" 1765363271.58569 0
+  "main.xdv" 1765363270.74028 82896 f8720c923c33f0fcd7131679ca90aa32 "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1765361645.37072 "/home/ngocanh/Emo-Classification/REPORT/main.tex" "main.xdv" "main" 1765361647.21486 0
+["xelatex"] 1765363269.83647 "/home/ngocanh/Emo-Classification/REPORT/main.tex" "main.xdv" "main" 1765363271.58371 0
   "/etc/texmf/web2c/texmf.cnf" 1759987305.73438 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ngocanh/Emo-Classification/REPORT/main.tex" 1765361526.9693 4566 c8b322adb5389a17e611597eaecc6934 ""
+  "/home/ngocanh/Emo-Classification/REPORT/main.tex" 1765363266.45513 3239 cc73987f72beb983260e6d77910da9ff ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -173,16 +173,23 @@
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1765268420 10843920 cb5ca843910c9fe65360321bd5aa9013 ""
   "images/1.2.2.png" 1765351158.98283 49776 050f95aae2059b2f7d063b1056f0d31a ""
   "images/logo.png" 1765350253.03562 73341 32ca989da11d8e810d758e106bf3c42a ""
-  "main.aux" 1765361646.33587 5056 4d9fe5bcbe60365008e8cce9eb115ea3 "xelatex"
-  "main.bbl" 1765361645.36083 990 3381e450d64687e47cb8d0ce07eb9e43 "bibtex main"
-  "main.out" 1765361646.33587 5109 abb7bdd915530a91fb0d95fc31cd69e9 "xelatex"
-  "main.tex" 1765361526.9693 4566 c8b322adb5389a17e611597eaecc6934 ""
-  "main.toc" 1765361646.33587 2763 626ccfd7beaa972006a6411f75038062 "xelatex"
+  "main.aux" 1765363270.74028 5149 ff1baf80fa31c3c178ebcf8283c4c74d "xelatex"
+  "main.bbl" 1765363269.82728 990 3381e450d64687e47cb8d0ce07eb9e43 "bibtex main"
+  "main.out" 1765363270.74028 5198 5dbec20e2b306c19194c465b4458767c "xelatex"
+  "main.tex" 1765363266.45513 3239 cc73987f72beb983260e6d77910da9ff ""
+  "main.toc" 1765363270.74028 2815 d7ceecfe9c73651954f3060c48b3c5ff "xelatex"
   "sections/Chuong1.tex" 1765354363.11883 3488 1c762960cc857908354a4af9b36dc990 ""
   "sections/Chuong2.tex" 1765352434.45613 145 aa489946ebf359c365a9e88e42c44975 ""
   "sections/Chuong3.tex" 1765361641.82569 549 b4275b39c2abbedf921ed2f88dbe4ca3 ""
   "sections/Chuong4.tex" 1765353776.38342 174 b562179c354764c549ac6c459dd4f2e2 ""
   "sections/KetLuan.tex" 1765352873.84845 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "sections/compliment.tex" 1765362115.58521 879 30f16944e52b7eae922af5e013b897f6 ""
+  "sections/danhsachbang.tex" 1765363000.58006 106 4f1767c62e5c4766c0b5e5030427351a ""
+  "sections/danhsachhinh.tex" 1765363000.44806 105 415f84bfeb9341d074020208d4b74098 ""
+  "sections/gioithieu.tex" 1765363123.5066 150 16c561bb9c753e9114871638bf14d75e ""
+  "sections/kyhieu.tex" 1765362925.03116 402 8b929a87b0d2f12c18176bd7f897460f ""
+  "sections/thanks.tex" 1765362316.26369 297 cadb221ac4f80785f84192f525ecce0f ""
+  "sections/tomtat.tex" 1765363108.46126 117 7c86b748bd6f4822ee247e0fb2a9d83b ""
   (generated)
   "main.aux"
   "main.log"

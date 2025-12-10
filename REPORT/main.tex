@@ -83,87 +83,22 @@
     {\large TP.HCM, 2025}
 \end{titlepage}
 
-%-----------Compliment Page ----------
-\clearpage
-\pagestyle{empty}
+%-----------thanks & compliment ----------
+\input{sections/compliment.tex}
+\input{sections/thanks.tex}
 
-% Khung trang
-\begin{tikzpicture}[remember picture,overlay]
-    \draw[line width=0.6pt]
-        ([xshift=1cm,yshift=-1cm]current page.north west)
-        rectangle
-        ([xshift=-1cm,yshift=1cm]current page.south east);
-\end{tikzpicture}
-
-\begin{center}
-    {\Large \textbf{NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN}}
-\end{center}
-
-\vspace{1.2cm}
-
-\noindent 1. Mục tiêu và nội dung của đồ án
-
-\vspace{4cm}
-
-\noindent 2. Kết quả đạt được
-
-\vspace{4cm}
-
-\noindent 3. Ý thức làm việc của sinh viên:
-
-\vspace{3cm}
-
-
-\vspace*{\fill}
-
-\begin{flushright}
-\begin{minipage}{0.6\textwidth}
-    \centering
-    TP. Hồ Chí Minh, ngày \dotfill\ tháng \dotfill\ năm 2025\\[0.3cm]
-    Giảng viên hướng dẫn \\[2.5cm]
-    \textbf{ThS. Hà Minh Tuấn}
-\end{minipage}
-\end{flushright}
-
-\clearpage
-\pagestyle{fancy}
-
-%----------thanks-------------
-\fancypagestyle{noheadrule}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0pt}
-}
-
-\clearpage
-\pagestyle{noheadrule}
-
-\begin{center}
-    {\Large \textbf{LỜI CẢM ƠN}}
-\end{center}
-\newpage
 % ----------table of contents ---------
 \renewcommand{\contentsname}{Mục lục}
 \tableofcontents
 \newpage
 
-\chapter*{Bảng ký hiệu và chữ viết tắt}
-\addcontentsline{toc}{chapter}{Bảng ký hiệu và chữ viết tắt}
 
-\chapter*{Danh sách bảng}
-\addcontentsline{toc}{chapter}{Danh sách bảng}
-
-\chapter*{Danh sách hình}
-\addcontentsline{toc}{chapter}{Danh sách hình}
-
-\chapter*{Tóm tắt}
-
-\chapter*{Giới thiệu}
-\addcontentsline{toc}{chapter}{Giới thiệu}
-
-% ============================
-% ===== Sections =============
-% ============================
-
+% ---------- Sections ------------
+\input{sections/kyhieu.tex}
+\input{sections/danhsachbang.tex}
+\input{sections/danhsachhinh.tex}
+\input{sections/tomtat.tex}
+\input{sections/gioithieu.tex}
 \input{sections/Chuong1.tex}
 \input{sections/Chuong2.tex}
 \input{sections/Chuong3.tex}

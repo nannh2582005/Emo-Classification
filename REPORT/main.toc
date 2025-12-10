@@ -2,6 +2,7 @@
 \contentsline {chapter}{Bảng ký hiệu và chữ viết tắt}{5}{chapter*.1}%
 \contentsline {chapter}{Danh sách bảng}{6}{chapter*.2}%
 \contentsline {chapter}{Danh sách hình}{7}{chapter*.3}%
+\contentsline {chapter}{Tóm tắt}{8}{chapter*.4}%
 \contentsline {chapter}{Giới thiệu}{9}{chapter*.5}%
 \contentsline {chapter}{\numberline {1}CƠ SỞ LÝ THUYẾT}{10}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Các phương pháp vectorize dữ liệu}{10}{section.1.1}%
