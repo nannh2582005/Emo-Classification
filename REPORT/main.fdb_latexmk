@@ -1,20 +1,20 @@
 # Fdb version 4
-["bibtex main"] 1765363269.69061 "main.aux" "main.bbl" "main" 1765363271.58353 0
+["bibtex main"] 1765392287.37938 "main.aux" "main.bbl" "main" 1765393185.98395 0
   "./references.bib" 1765360864.37184 199 1138e4de5674feed43c5db62cc4eefed ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1765363270.74028 5149 ff1baf80fa31c3c178ebcf8283c4c74d "xelatex"
+  "main.aux" 1765393185.18127 5131 110ebad111a9ae0ccc2189a7413e5b33 "xelatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["xdvipdfmx"] 1765363271.09592 "main.xdv" "main.pdf" "main" 1765363271.58569 0
-  "main.xdv" 1765363270.74028 82896 f8720c923c33f0fcd7131679ca90aa32 "xelatex"
+["xdvipdfmx"] 1765393185.48866 "main.xdv" "main.pdf" "main" 1765393185.98609 0
+  "main.xdv" 1765393185.19963 164864 8206d25bb0efd6745778e1d7d8b361f7 "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1765363269.83647 "/home/ngocanh/Emo-Classification/REPORT/main.tex" "main.xdv" "main" 1765363271.58371 0
+["xelatex"] 1765393184.38246 "/home/ngocanh/Emo-Classification/REPORT/main.tex" "main.xdv" "main" 1765393185.9841 0
   "/etc/texmf/web2c/texmf.cnf" 1759987305.73438 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ngocanh/Emo-Classification/REPORT/main.tex" 1765363266.45513 3239 cc73987f72beb983260e6d77910da9ff ""
+  "/home/ngocanh/Emo-Classification/REPORT/main.tex" 1765393122.07909 3294 f19519f70dc343a1dbe4d95a3132e7ec ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -166,6 +166,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty" 1670275497 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty" 1698436711 48766 0b93839be28e9744a24c45075c75b2e2 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty" 1578692495 36103 3e78d14f0f4b1a30560fea5e04de805d ""
+  "/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty" 1698869629 1618 c5f08dcf49a56107311a81073b35fa4e ""
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1700082560 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
@@ -173,12 +174,12 @@
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1765268420 10843920 cb5ca843910c9fe65360321bd5aa9013 ""
   "images/1.2.2.png" 1765351158.98283 49776 050f95aae2059b2f7d063b1056f0d31a ""
   "images/logo.png" 1765350253.03562 73341 32ca989da11d8e810d758e106bf3c42a ""
-  "main.aux" 1765363270.74028 5149 ff1baf80fa31c3c178ebcf8283c4c74d "xelatex"
-  "main.bbl" 1765363269.82728 990 3381e450d64687e47cb8d0ce07eb9e43 "bibtex main"
-  "main.out" 1765363270.74028 5198 5dbec20e2b306c19194c465b4458767c "xelatex"
-  "main.tex" 1765363266.45513 3239 cc73987f72beb983260e6d77910da9ff ""
-  "main.toc" 1765363270.74028 2815 d7ceecfe9c73651954f3060c48b3c5ff "xelatex"
-  "sections/Chuong1.tex" 1765354363.11883 3488 1c762960cc857908354a4af9b36dc990 ""
+  "main.aux" 1765393185.18127 5131 110ebad111a9ae0ccc2189a7413e5b33 "xelatex"
+  "main.bbl" 1765392287.48082 990 3381e450d64687e47cb8d0ce07eb9e43 "bibtex main"
+  "main.out" 1765393185.19963 5198 5dbec20e2b306c19194c465b4458767c "xelatex"
+  "main.tex" 1765393122.07909 3294 f19519f70dc343a1dbe4d95a3132e7ec ""
+  "main.toc" 1765393185.19963 2815 a57a7f13bb70ee504580470cd2ffe56c "xelatex"
+  "sections/Chuong1.tex" 1765380951.68417 3559 e265cb2180c2f13582c91b341c600219 ""
   "sections/Chuong2.tex" 1765352434.45613 145 aa489946ebf359c365a9e88e42c44975 ""
   "sections/Chuong3.tex" 1765361641.82569 549 b4275b39c2abbedf921ed2f88dbe4ca3 ""
   "sections/Chuong4.tex" 1765353776.38342 174 b562179c354764c549ac6c459dd4f2e2 ""
@@ -186,10 +187,10 @@
   "sections/compliment.tex" 1765362115.58521 879 30f16944e52b7eae922af5e013b897f6 ""
   "sections/danhsachbang.tex" 1765363000.58006 106 4f1767c62e5c4766c0b5e5030427351a ""
   "sections/danhsachhinh.tex" 1765363000.44806 105 415f84bfeb9341d074020208d4b74098 ""
-  "sections/gioithieu.tex" 1765363123.5066 150 16c561bb9c753e9114871638bf14d75e ""
+  "sections/gioithieu.tex" 1765393184.2118 9265 c5e187a942d8e70efddeee1b95de79ed ""
   "sections/kyhieu.tex" 1765362925.03116 402 8b929a87b0d2f12c18176bd7f897460f ""
   "sections/thanks.tex" 1765362316.26369 297 cadb221ac4f80785f84192f525ecce0f ""
-  "sections/tomtat.tex" 1765363108.46126 117 7c86b748bd6f4822ee247e0fb2a9d83b ""
+  "sections/tomtat.tex" 1765390920.13459 1996 06b2b6690d388139d1752a6eafb6a945 ""
   (generated)
   "main.aux"
   "main.log"

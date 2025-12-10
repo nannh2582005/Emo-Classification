@@ -4,32 +4,32 @@
 \contentsline {chapter}{Danh sách hình}{7}{chapter*.3}%
 \contentsline {chapter}{Tóm tắt}{8}{chapter*.4}%
 \contentsline {chapter}{Giới thiệu}{9}{chapter*.5}%
-\contentsline {chapter}{\numberline {1}CƠ SỞ LÝ THUYẾT}{10}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Các phương pháp vectorize dữ liệu}{10}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}One Hot}{10}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}TF IDF}{10}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}PhoBert}{10}{subsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.1.4}Một số phương pháp khác}{10}{subsection.1.1.4}%
-\contentsline {section}{\numberline {1.2}Các mô hình học máy}{10}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Logistic Regression}{10}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Support Vector Machine}{10}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Naive Bayes}{11}{subsection.1.2.3}%
-\contentsline {chapter}{\numberline {2}THU THẬP VÀ KHÁM PHÁ DỮ LIỆU}{12}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Thu thập dữ liệu}{12}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Khám phá bộ dữ liệu}{12}{section.2.2}%
-\contentsline {chapter}{\numberline {3}XÂY DỰNG MÔ HÌNH PHÂN TÍCH}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Module Loader}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Module Preprocessor}{13}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Module feature}{13}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Tối ưu tham số}{13}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Logistic Regression}{13}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Support Vector Machine}{13}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Naive Bayes}{13}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Huấn luyện mô hình}{13}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Logistic Regression}{13}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Support Vector Machine}{13}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Naive Bayes}{13}{subsection.3.5.3}%
-\contentsline {chapter}{\numberline {4}KẾT QUẢ THỰC NGHIỆM}{14}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Đánh giá mô hình}{14}{section.4.1}%
-\contentsline {section}{\numberline {4.2}So sánh mô hình}{14}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Ứng dụng thực tế}{14}{section.4.3}%
+\contentsline {chapter}{\numberline {1}CƠ SỞ LÝ THUYẾT}{12}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Các phương pháp vectorize dữ liệu}{12}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}One Hot}{12}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}TF IDF}{12}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}PhoBert}{12}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Một số phương pháp khác}{12}{subsection.1.1.4}%
+\contentsline {section}{\numberline {1.2}Các mô hình học máy}{12}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Logistic Regression}{12}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Support Vector Machine}{12}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Naive Bayes}{13}{subsection.1.2.3}%
+\contentsline {chapter}{\numberline {2}THU THẬP VÀ KHÁM PHÁ DỮ LIỆU}{14}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Thu thập dữ liệu}{14}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Khám phá bộ dữ liệu}{14}{section.2.2}%
+\contentsline {chapter}{\numberline {3}XÂY DỰNG MÔ HÌNH PHÂN TÍCH}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Module Loader}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Module Preprocessor}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Module feature}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Tối ưu tham số}{15}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Logistic Regression}{15}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Support Vector Machine}{15}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Naive Bayes}{15}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Huấn luyện mô hình}{15}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Logistic Regression}{15}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Support Vector Machine}{15}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Naive Bayes}{15}{subsection.3.5.3}%
+\contentsline {chapter}{\numberline {4}KẾT QUẢ THỰC NGHIỆM}{16}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Đánh giá mô hình}{16}{section.4.1}%
+\contentsline {section}{\numberline {4.2}So sánh mô hình}{16}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Ứng dụng thực tế}{16}{section.4.3}%
