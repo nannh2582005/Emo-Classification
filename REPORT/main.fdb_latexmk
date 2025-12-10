@@ -1,12 +1,12 @@
 # Fdb version 4
-["xdvipdfmx"] 1765348736.51241 "main.xdv" "main.pdf" "main" 1765348736.95796 0
-  "main.xdv" 1765348736.43926 37900 21221c097ceacddfa9a419b46959570e "xelatex"
+["xdvipdfmx"] 1765349557.76106 "main.xdv" "main.pdf" "main" 1765349558.25444 0
+  "main.xdv" 1765349557.67871 42628 fd384ab145e633471bb4a62441ea2907 "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1765348735.1055 "/home/ngocanh/Emo-Classification/REPORT/main.tex" "main.xdv" "main" 1765348736.9561 0
+["xelatex"] 1765349556.71935 "/home/ngocanh/Emo-Classification/REPORT/main.tex" "main.xdv" "main" 1765349558.25216 0
   "/etc/texmf/web2c/texmf.cnf" 1759987305.73438 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ngocanh/Emo-Classification/REPORT/main.tex" 1765348734.80801 4564 a100573fb8711121d610b7fb87402b20 ""
+  "/home/ngocanh/Emo-Classification/REPORT/main.tex" 1765349555.04691 4501 846c346d969c6a37c217fdae3cd57c78 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -164,11 +164,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1765268420 10843920 cb5ca843910c9fe65360321bd5aa9013 ""
   "images/logo.png" 1765277985.51935 73341 32ca989da11d8e810d758e106bf3c42a ""
-  "main.aux" 1765348736.43926 2793 cd35bedd8859176ced7ff9ddfd65333f "xelatex"
-  "main.out" 1765348736.43926 3478 d6280187aa1c84ef6c46d2d8f737d3e7 "xelatex"
-  "main.tex" 1765348734.80801 4564 a100573fb8711121d610b7fb87402b20 ""
-  "main.toc" 1765348736.43926 1649 961a91ed5569a652d4111443fef151c7 "xelatex"
-  "sections/Chuong1.tex" 1765348500.55849 977 b2285dcfe13a116df5fff641a3e48e39 ""
+  "main.aux" 1765349557.67871 2739 c4eb3e78a56d017002275c2a9133368d "xelatex"
+  "main.out" 1765349557.67871 3262 5881d3f02092b0e3627653dc8220cf2b "xelatex"
+  "main.tex" 1765349555.04691 4501 846c346d969c6a37c217fdae3cd57c78 ""
+  "main.toc" 1765349557.67871 1595 2f84353fb84d2bff8f6dc5eecf551a66 "xelatex"
+  "sections/Chuong1.tex" 1765349554.95744 1553 14952c5f4571536f76652c79a45e9920 ""
   (generated)
   "main.aux"
   "main.log"
