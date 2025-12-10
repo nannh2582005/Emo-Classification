@@ -1,0 +1,174 @@
+\documentclass[12pt,a4paper]{report}
+
+% ------------------ PACKAGES TỐI GIẢN ------------------
+\usepackage{fontspec}                        % XeLaTeX font support
+\usepackage[vietnamese,english]{babel}      % Language support
+\usepackage{fancyhdr}                        % Fancy headers/footers                 
+\usepackage{amsmath, amsthm, amsfonts}       % Math packages                                       
+\usepackage{setspace}                        % Line spacing
+\usepackage{geometry}                        % Page geometry
+\usepackage{hyperref}                        % Clickable TOC and references
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{titlesec}
+\usepackage{tikz}  
+
+% --------- Geometry ------------
+\geometry{
+    left=3cm,
+    right=3cm,
+    top=3cm,
+    bottom=3cm
+}                                
+
+%------------PREAMBLE------------
+\renewcommand{\cftchappresnum}{Chương~}  
+\renewcommand{\cftchapaftersnum}{:\ }  
+
+
+\setlength{\cftchapnumwidth}{2.5cm} 
+\setlength{\cftsecnumwidth}{1cm} 
+\setlength{\cftsubsecnumwidth}{1.5cm}
+
+\titleformat{\chapter}
+  {\normalfont\huge\bfseries}   % style chung
+  {Chương \thechapter}          % phần bên trái: "Chương 1"
+  {1em}                         % khoảng cách
+  {}           
+% ------------------ DOCUMENT ------------------
+\begin{document}
+
+% ------------------ COVER PAGE ------------------
+\begin{titlepage}
+    \centering
+
+    \begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=0.5pt]
+        ([xshift=1cm,yshift=-1cm]current page.north west)
+        rectangle
+        ([xshift=-1cm,yshift=1cm]current page.south east);
+    \end{tikzpicture}
+
+    {\Large \textbf{TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN}}\\[0.3cm]
+    {\large \textbf{ĐẠI HỌC QUỐC GIA TP.HCM}}\\[1.8cm]
+
+    
+    \includegraphics[width=0.45\textwidth]{images/logo.png}\\[1.5cm]
+
+    {\Huge \textbf{TÊN ĐỒ ÁN}}\\[0.7cm]
+    {\large \textbf{Môn học:} Python cho Khoa học Dữ liệu}\\[1.5cm]
+
+    {\large \textbf{Giảng viên hướng dẫn:} ThS. Hà Minh Tuấn}\\[1cm]
+
+    {\large \textbf{Nhóm sinh viên thực hiện:}}\\[0.3cm]
+
+    \begin{center}
+    \begin{tabular}{ll}
+        \textbf{Nguyễn Thị Ngọc Anh} & 23280037 \\[3pt]
+        \textbf{Trương Thị Quỳnh Giang} & 23280052 \\[3pt]
+        \textbf{Trần Trung Kiên} & 23280066 \\
+    \end{tabular}
+    \end{center}
+
+    \vfill
+
+    {\large TP.HCM, 2025}
+\end{titlepage}
+
+%-----------Compliment Page ----------
+\clearpage
+\pagestyle{empty}
+
+% Khung trang
+\begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=0.6pt]
+        ([xshift=1cm,yshift=-1cm]current page.north west)
+        rectangle
+        ([xshift=-1cm,yshift=1cm]current page.south east);
+\end{tikzpicture}
+
+\begin{center}
+    {\Large \textbf{NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN}}
+\end{center}
+
+\vspace{1.2cm}
+
+\noindent 1. Mục tiêu và nội dung của đồ án
+
+\vspace{4cm}
+
+\noindent 2. Kết quả đạt được
+
+\vspace{4cm}
+
+\noindent 3. Ý thức làm việc của sinh viên:
+
+\vspace{3cm}
+
+
+\vspace*{\fill}
+
+\begin{flushright}
+\begin{minipage}{0.6\textwidth}
+    \centering
+    TP. Hồ Chí Minh, ngày \dotfill\ tháng \dotfill\ năm 2025\\[0.3cm]
+    Giảng viên hướng dẫn \\[2.5cm]
+    \textbf{ThS. Hà Minh Tuấn}
+\end{minipage}
+\end{flushright}
+
+\clearpage
+\pagestyle{fancy}
+
+%----------thanks-------------
+\fancypagestyle{noheadrule}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+\clearpage
+\pagestyle{noheadrule}
+
+\begin{center}
+    {\Large \textbf{LỜI CẢM ƠN}}
+\end{center}
+\newpage
+% ----------table of contents ---------
+\tableofcontents
+\newpage
+\renewcommand{\contentsname}{MỤC LỤC}
+
+\chapter*{Bảng ký hiệu và chữ viết tắt}
+\addcontentsline{toc}{chapter}{Bảng ký hiệu và chữ viết tắt}
+
+\chapter*{Danh sách bảng}
+\addcontentsline{toc}{chapter}{Danh sách bảng}
+
+\chapter*{Danh sách hình}
+\addcontentsline{toc}{chapter}{Danh sách hình}
+
+\chapter*{Tóm tắt}
+
+\chapter*{Giới thiệu}
+\addcontentsline{toc}{chapter}{Giới thiệu}
+
+% ============================
+% ===== Sections =============
+% ============================
+
+\input{sections/Chuong1.tex}
+%\input{sections/Bai2.tex}
+%\input{sections/Bai3.tex}
+%\input{sections/Bai4.tex}
+%\input{sections/Bai5.tex}
+%\input{sections/Bai6.tex}
+
+
+% ------------------ REFERENCES ------------------
+\begin{thebibliography}{9}
+\bibitem{sklearn}
+scikit-learn documentation: \url{https://scikit-learn.org/}
+\end{thebibliography}
+
+\end{document}
