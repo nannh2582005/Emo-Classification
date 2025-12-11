@@ -11,6 +11,7 @@ Phân loại cảm xúc thành 3 nhóm chính:
 **Pipeline:** EDA -> Data Loading -> Data Preprocessing -> Feature Engineering -> Modeling -> Evaluation -> Visualization
 
 **Cấu trúc thư mục**:
+``` bash
 Emo-Classification/
 │
 ├── README.md                       # Mô tả tổng quan, cách cài đặt, chạy, dataset, mô hình...
@@ -64,7 +65,7 @@ Emo-Classification/
 ├── tests/                    # Unit tests / integration tests (nếu có)
 │
 └── .gitignore                # Loại trừ file không cần track (data lớn, log, v.v)
-
+```
 ## Cài đặt 
 ### Clone repository
 ```bash
