@@ -1,7 +1,86 @@
 \chapter{XÂY DỰNG MÔ HÌNH PHÂN TÍCH}
 
 \section{Module Loader}
-% Nội dung 3.1
+\subsection{Các thư viện chính}
+
+Hệ thống sử dụng các thư viện mã nguồn mở sau:
+
+\begin{itemize}
+    \item \textbf{Scikit-learn (sklearn):} 
+    Thư viện cốt lõi dùng để xây dựng các mô hình học máy như 
+    \textit{Logistic Regression}, \textit{Naive Bayes} và \textit{SVM}. 
+    Thư viện cung cấp đầy đủ công cụ để:
+    \begin{itemize}
+        \item trích xuất đặc trưng văn bản bằng \textit{TF--IDF Vectorizer};
+        \item tiền xử lý dữ liệu (train--test split, chuẩn hóa);
+        \item huấn luyện và đánh giá mô hình.
+    \end{itemize}
+
+    Các tham số quan trọng thường dùng:
+    \begin{itemize}
+        \item \texttt{C} (SVM): điều chỉnh mức phạt khi mô hình phân loại sai;
+        \item \texttt{kernel} (SVM): lựa chọn hàm nhân (\textit{linear}, \textit{rbf}, \dots);
+        \item \texttt{alpha} (Naive Bayes): hệ số làm trơn Laplace;
+        \item \texttt{max\_features} (TF--IDF): giới hạn số lượng đặc trưng.
+    \end{itemize}
+
+    \item \textbf{Pandas:} 
+    Dùng để đọc dữ liệu từ các định dạng như \texttt{.csv} và \texttt{.xlsx},
+    đồng thời hỗ trợ thao tác linh hoạt trên \textit{DataFrame} 
+    (lọc, gộp, thống kê, biến đổi dữ liệu).
+
+    Tham số quan trọng:
+    \begin{itemize}
+        \item \texttt{read\_csv()}, \texttt{read\_excel()}: đọc dữ liệu;
+        \item \texttt{dropna()}: loại bỏ hàng bị thiếu;
+        \item \texttt{astype()}: chuyển kiểu dữ liệu.
+    \end{itemize}
+
+    \item \textbf{PyVi:}
+    Thư viện xử lý tiếng Việt chuyên dụng, dùng để tách từ (\textit{tokenization}),
+    giúp văn bản tiếng Việt được phân chia theo cụm từ có nghĩa trước khi đưa vào mô hình. 
+    Điều này cải thiện độ chính xác của TF--IDF và mô hình phân loại.
+
+    Phương thức chính:
+    \begin{itemize}
+        \item \texttt{ViTokenizer.tokenize(sentence)}: tách từ trong câu đầu vào.
+    \end{itemize}
+
+    \item \textbf{Joblib:}
+    Dùng để tuần tự hóa (serialize) mô hình đã huấn luyện và lưu xuống đĩa,
+    cho phép tái sử dụng mô hình mà không cần huấn luyện lại.
+
+    Hàm quan trọng:
+    \begin{itemize}
+        \item \texttt{joblib.dump(model, path)}: lưu mô hình;
+        \item \texttt{joblib.load(path)}: tải mô hình.
+    \end{itemize}
+
+    \item \textbf{Matplotlib \& Seaborn:}
+    Hai thư viện trực quan hóa dữ liệu giúp vẽ các biểu đồ thống kê 
+    và ma trận nhầm lẫn (\textit{Confusion Matrix}).  
+    Trong đồ án, nhóm sử dụng chúng để đánh giá trực quan hiệu năng mô hình.
+
+    Các hàm phổ biến:
+    \begin{itemize}
+        \item \texttt{plt.figure(figsize)}: tạo khung hình;
+        \item \texttt{sns.heatmap()}: vẽ ma trận nhầm lẫn;
+        \item \texttt{plt.xlabel()}, \texttt{plt.ylabel()}: thêm nhãn trục.
+    \end{itemize}
+
+    \item \textbf{OpenPyXL:}
+    Thư viện hỗ trợ đọc và ghi dữ liệu vào định dạng Excel (\texttt{.xlsx}),
+    được sử dụng khi bộ dữ liệu ban đầu ở dạng Excel hoặc khi cần xuất dữ liệu đã xử lý.
+
+    Hàm quan trọng:
+    \begin{itemize}
+        \item \texttt{load\_workbook()}: đọc file Excel;
+        \item \texttt{worksheet.append()}: thêm dòng dữ liệu;
+        \item \texttt{workbook.save()}: lưu tệp Excel.
+    \end{itemize}
+
+\end{itemize}
+
 
 \section{Module Preprocessor}
 % Nội dung 3.2

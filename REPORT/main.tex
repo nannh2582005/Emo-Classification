@@ -6,8 +6,7 @@
 \usepackage{fancyhdr}                        % Fancy headers/footers                 
 \usepackage{amsmath, amsthm, amsfonts}       % Math packages                                       
 \usepackage{setspace}                        % Line spacing
-\usepackage{geometry}                        % Page geometry
-\usepackage{hyperref}                        % Clickable TOC and references
+\usepackage{geometry}                        % Page geometry                        % Clickable TOC and references
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{tocloft}
@@ -45,6 +44,11 @@
 }
 
 \setlength{\parindent}{1.5em}
+
+\PassOptionsToPackage{hyphens}{url} % <- thêm dòng này
+\usepackage{hyperref}
+\Urlmuskip=0mu plus 1mu\relax
+
 % ------------------ DOCUMENT ------------------
 \begin{document}
 
