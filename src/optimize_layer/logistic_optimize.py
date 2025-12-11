@@ -1,6 +1,6 @@
 from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LogisticRegression
-from model_layer.logistics import LogisticRegressionModel
+from src.model_layer.logistics import LogisticRegressionModel
 from config import Config
 from logs.logger import setup_logger
 

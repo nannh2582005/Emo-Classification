@@ -1,6 +1,6 @@
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.svm import SVC
-from model_layer.svm import SVMModel
+from src.model_layer.svm import SVMModel
 from config import Config
 from logs.logger import setup_logger
 

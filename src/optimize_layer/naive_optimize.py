@@ -1,6 +1,6 @@
 from sklearn.model_selection import GridSearchCV
 from sklearn.naive_bayes import MultinomialNB
-from model_layer.naive import NaiveBayesModel
+from src.model_layer.naive import NaiveBayesModel
 from config import Config
 from logs.logger import setup_logger
 
