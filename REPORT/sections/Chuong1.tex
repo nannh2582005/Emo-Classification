@@ -1,49 +1,371 @@
 \chapter{CƠ SỞ LÝ THUYẾT}
 
+%============================
+%===== SECTION 1.1 ==========
+%============================
+
+%-----------1.1.1-------------
 \section{Các phương pháp vectorize dữ liệu}
-\subsection{One Hot}
-% Nội dung 1.1.1
+
+Trong các bài toán xử lý ngôn ngữ tự nhiên (NLP), đầu vào thường là dữ liệu tồn tại dưới dạng văn bản thô (raw text). Tuy nhiên, các mô hình học máy và học sâu không thể xử lý trực tiếp dữ liệu dạng ký tự hoặc chuỗi từ, mà yêu cầu dữ liệu phải được biểu diễn dưới dạng vector số trong không gian đặc trưng.
+Do đó, một bước quan trọng trong quy trình xử lý NLP là vector hóa dữ liệu (data vectorization) - chuyển đổi các văn bản thành các biểu diễn số học có ý nghĩa, phản ánh được thông tin ngữ nghĩa và cú pháp của văn bản. 
 
 \subsection{TF IDF}
-% Nội dung 1.1.2
+TF-IDF là một phương pháp thống kê được sử dụng rộng rãi để đánh giá mức độ quan trọng của một từ đối với một tài liệu so với một tập tài liệu lớn hơn. Phương pháp kết hợp hai thành phần:
 
-\subsection{PhoBert}
-% Nội dung 1.1.3
+\begin{enumerate}[label=\alph*)]
+    \item Tần suất thuật ngữ (TF)
+    Đo lường tần suất xuất hiện của một từ trong tài liệu. Tần suất càng cao thì mức độ quan trọng càng lớn. Nếu một thuật ngữ xuất hiện thường xuyên trong tài liệu, thì có thể nó liên quan đến nội dung của tài liệu.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/TF_Formular.png}
+    \caption{Công thức tính TF}
+    \label{fig:TF_Formular}
+    \end{figure}
+    \item Tần suất tài liệu nghịch đảo (IDF)
+    Giam trọng số của các từ phổ biến trong nhiều tài liệu đồng thời tăng trọng số của các từ hiếm. Nếu thuật ngữ xuất hiện trong ít tài liệu hơn, nó có nhiều khả năng có ý nghĩa và cụ thể hơn.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/IDF_Formular.png}
+    \caption{Công thức tính IDF}
+    \label{fig:IDF_Formular}
+    \end{figure}
+\end{enumerate}
 
-\subsection{Một số phương pháp khác}
-% Nội dung 1.1.4
+Sự cân bằng này cho phép TF-IDF làm nổi bật các thuật ngữ thường xuyên xuất hiện trong một tài liệu cụ thể và đặc biệt trong toàn bộ tài liệu văn bản, kiến nó trở thành một công cụ hữu ích cho các tác vụ như xếp hàng tìm kiếm, phân loại văn bản và trích xuất từ khóa.
 
+Ưu điểm: Đơn giản và hiệu quả, dễ dàng triển khai trong các hệ thống xử lý văn bản
 
+Hạn chế: Phương pháp không phân biệt được các từ đồng nghĩa dẫn đến bỏ sót thông tin quan trọng (ví dụ: “đẹp” và “xinh” là hoàn toàn khác nhau). Ngoài ra, độ dài của tài liệu có thể ảnh hưởng đến kết quả tính toán, đặc biệt khi các văn bản có độ dài không đồng đều.
+%-----------------1.1.2------------------
+\section{Một số phương pháp khác}
+Bên cạnh TF-IDF, nhiều phương pháp biểu diễn văn bản khác cũng được ứng dụng trong xử lý ngôn ngữ tự nhiên bao gồm:
+
+\begin{enumerate}[label=\alph*)]
+    \item One-hot Encoding
+    
+    One-hot Encoding là phương pháp chuyển đổi các biến phân loại thành định dạng nhị phân. Nó tạo ra các cột mới cho mỗi danh mục, trong đó 1 có nghĩa là danh mục đó xuất hiện và 0 có nghĩa là không xuất hiện. Số chiều của vectơ này đúng bằng số từ trong từ điển. Tuy nhiên, dữ liệu này chỉ đáp ứng được khả năng huấn luyện mà chưa phản ánh được mối liên hệ về mặt ngữ nghĩa của các từ.
+    \item Word2Vec
+    
+    Word2Vec là mô hình học biểu diễn từ dựa trên mạng noron nông, nó học các vector liên tục phản ánh được mối quan hệ ngữ nghĩa và cú pháp giữa các từ trong không gian vector. Phương pháp này khắc phục được hạn chế của One-hot Encoding. Word2Vec gồm 2 kiến trúc chính: Skip-grams và CBOW (Continuous Bag of Words) 
+    - Skip-grams: đầu vào là một từ trung tâm, mô hình dự đoán các từ ngữ cảnh.
+    - CBOW: ngược lại, đầu vào là các từ ngữ cảnh, mô hình dự đoán từ trung tâm
+    Hạn chế của Word2Vec:
+    - Không xử lý được đa dạng ngữ cảnh - không thay đổi theo câu. Ví dụ: “con chuột” có ngữ nghĩa khác nhau ở các ngữ cảnh khác nhau như “con chuột máy tính này thật đẹp” và “con chuột này to thật”. Word2Vec tìm ra 1 vector đại diện cho mỗi từ dựa trên tập ngữ liệu lớn nên không thể hiện được sự đa dạng của ngữ cảnh.
+    - Không xử lý được những từ không tồn tại trong từ điển từ vựng (OOV - out of vocabulary), tức là nếu xuất hiện một từ mới, mô hình sẽ không tạo được vector.
+    \item PhoBert
+
+    PhoBert là mô hình dựa trên BERT (Bidirectional Encoder Representations from Transformer) được giới thiệu vào năm 2020 và được xem là bước tiến quan trọng cho nhiều bài toán như Question Answering, Sentiment Analysis,... Đây là một mô hình huấn luyện cho đơn ngôn ngữ (monolingual language), tức là toàn bộ quá trình huấn luyện được thực hiện trên kho dữ liệu tiếng Việt quy mô lớn, giúp mô hình nắm bắt tốt các đặc trưng ngữ pháp và ngữ nghĩa của tiếng Việt. Nó đã cải thiện được hạn chế của Word2Vec trong việc cung cấp biểu diễn theo ngữ cảnh (contextualized embeddings) - cho phép một từ có vector khác nhau tùy thuộc vào ngữ cảnh xuất hiện.
+    \item FastText
+    
+    FastText là một mô hình mở rộng của Word2Vec, cung cấp các embedding cho các từ nằm ngoài từ điển.
+    Bạn đọc có thể tham khảo thêm ở đây: 
+    
+\noindent
+https://www.geeksforgeeks.org/machine-learning/fasttext-working-and-implementation/
+\end{enumerate}
+
+%============================
+%===== SECTION 1.2 ==========
+%============================
+
+%---------------LG----------------
 \section{Các mô hình học máy}
 \subsection{Logistic Regression}
-% Nội dung 1.2.1 ở đây
+Logistic Regression (LR) là một trong ba thuật toán phân loại phổ biến, nhằm khảo sát khả năng nhận biết các kiểu tính chất thường gặp trong văn bản tiếng Việt trên không gian số. Mô hình này đại diện cho hướng tiếp cận học máy giám sát (supervised machine learning), được lựa chọn nhờ vào khả năng học các đặc trưng ngôn ngữ quan trọng và đưa ra dự đoán ổn định trong quá trình phân tích. LR được gọi là hồi quy (regression) nhưng thực hiện phân loại (classification). LR thường được sử dụng khi biến phụ thuộc không phải là giá trị số mà là phản hồi dạng nhị phân, ví dụ như phản hồi "yes/no". Hàm Logistic Sigmoid được áp dụng cho kết quả hồi quy để lấy xác suất thuộc về một trong hai lớp. LR phân loại biến phụ thuộc vào một trong các lớp dựa trên xác suất cao hơn
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/LR.png}
+    \caption{Logistic Regression}
+    \label{fig:LG}
+\end{figure}
+Nguồn hình ảnh: https://builtin.com/data-science/supervised-machine-learning-classification 
+
+\begin{enumerate}
+    \item \textbf{Phương pháp Tối ưu Tham số (sử dụng \texttt{LogisticOptimizer})}
+
+    Quá trình tối ưu hóa siêu tham số (hyperparameters) cho mô hình LR được thực hiện thông qua lớp \texttt{LogisticOptimizer}. 
+    Lớp này sử dụng phương pháp tìm kiếm lưới \texttt{GridSearchCV} kết hợp đánh giá chéo (k-fold Cross-Validation) để xác định tập siêu tham số tốt nhất.  
+    Lưới tham số được định nghĩa để dò tìm bao gồm:
+
+    \begin{itemize}
+        \item \texttt{C}: Độ mạnh của Regularization, thử nghiệm các giá trị \texttt{[0.1, 1, 10, 100]}.
+        \item \texttt{solver}: Thuật toán tối ưu, thử nghiệm các giá trị \texttt{['lbfgs', 'liblinear']}.
+    \end{itemize}
+
+    Thước đo được sử dụng trong \texttt{GridSearchCV} là \texttt{f1\_macro}. 
+    Việc sử dụng \texttt{f1\_macro} giúp đảm bảo mô hình học tốt tất cả các lớp, 
+    đặc biệt trong trường hợp dữ liệu bị mất cân bằng.
+
+    Sau khi tối ưu, các tham số tốt nhất (\texttt{best\_params\_}) và điểm số cao nhất (\texttt{best\_score\_}) được thu thập.  
+    Hàm \texttt{train\_best\_model} trong \texttt{LogisticOptimizer} sau đó sẽ tạo đối tượng 
+    \texttt{LogisticRegressionModel} và huấn luyện mô hình bằng các tham số tối ưu này.
+
+    \item \textbf{Phương pháp Huấn luyện Mô hình (sử dụng \texttt{LogisticRegressionModel})}
+
+    Module \texttt{LogisticRegressionModel} triển khai quy trình huấn luyện và đánh giá mô hình LR.
+
+    \begin{itemize}
+        \item \textbf{Chia dữ liệu:}  
+        Module sử dụng phương thức \texttt{split\_data} để chia tập dữ liệu đầu vào 
+        \texttt{(X, y)} thành:
+        \begin{itemize}
+            \item tập huấn luyện: \texttt{\_X\_train}, \texttt{\_y\_train}
+            \item tập kiểm tra: \texttt{\_X\_test}, \texttt{\_y\_test}
+        \end{itemize}
+
+        Việc chia dữ liệu được thực hiện bằng hàm \texttt{train\_test\_split}.  
+        Đặc biệt, kỹ thuật phân tầng (\texttt{stratify = y}) được áp dụng để đảm bảo phân bố nhãn đồng đều giữa tập huấn luyện và tập kiểm tra.
+
+        \item \textbf{Huấn luyện:}  
+        Nếu không sử dụng bộ tối ưu, mô hình sẽ được huấn luyện với các tham số mặc định:
+        \begin{itemize}
+            \item \texttt{max\_iter = 1000}
+            \item \texttt{solver = 'lbfgs'}
+        \end{itemize}
+
+        Khi sử dụng tham số tối ưu, mô hình \texttt{LogisticRegression} được khởi tạo bằng các giá trị tốt nhất và huấn luyện trên tập huấn luyện.
+
+        \item \textbf{Đánh giá:}  
+        Sau khi huấn luyện, mô hình được đánh giá trên tập kiểm tra \texttt{\_X\_test}.  
+        Các thước đo đánh giá bao gồm:
+        \begin{itemize}
+            \item Độ chính xác: \texttt{accuracy\_score}
+            \item Báo cáo phân loại chi tiết: \texttt{classification\_report}
+            \item Ma trận nhầm lẫn: \texttt{confusion\_matrix}
+        \end{itemize}
+
+        Độ chính xác (Accuracy) phản ánh tỷ lệ dự đoán đúng của mô hình,  
+        trong khi ma trận nhầm lẫn (confusion matrix) cho biết chi tiết số lượng mẫu dự đoán đúng/sai cho từng lớp.
+    \end{itemize}
+
+\end{enumerate}
+
+%---------------SVM--------------
 \subsection{Support Vector Machine}
 
 Support Vector Machine (SVM) là mô hình học máy giám sát, mục tiêu của thuật toán là tìm ra một siêu phẳng (hyperplane) sao cho có thể phân tách tối ưu các điểm dữ liệu thuộc các lớp khác nhau. “Tối ưu” ở đây nghĩa là tìm ra siêu phẳng tạo ra khoảng cách lớn nhất (margin) giữa các lớp dữ liệu. Các điểm dữ liệu có khoảng cách nhỏ nhất đến siêu mặt phẳng (các điểm gần nhất) được gọi là các vector hỗ trợ (support vectors)
-Margin là độ rộng tối đa của dải không chứa bất kỳ điểm dữ liệu nào và song song với siêu phẳng.
+Margin là khoảng không gian giữa hai siêu phẳng hỗ trợ, dải này càng rộng thì mô hình SVM càng tốt. Dải đó không có điểm dữ liệu nào nằm trong và song song hoàn toàn với siêu phẳng phân loại 
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/1.2.2.png}
     \caption{Support Vector Machine}
     \label{fig:1.2.2}
 \end{figure}
 
-Việc tính toán phân tách dữ liệu phụ thuộc vào hàm kernel. Có nhiều hàm kernel khác nhau: Tuyến tính (linear kernel), đa thức (polynomial kernel), gaussian, RBF (radial basis function), sigmoid kernel. Các hàm này xác định độ mượt và hiệu quả trong việc phân tách lớp, và việc tùy biến các siêu tham số của chúng có thể dẫn đến hiện tượng quá khớp (overfitting) hoặc thiếu khớp (underfitting).
-
-Trong khuôn khổ báo cáo này, nhóm không trình bày chi tiết các biểu thức toán học của từng loại kernel, bạn có thể tham khảo công thức đầy đủ ở tài liệu sau: \cite{cortes1995support} V. Cortes, C. \& Vapnik, “Support-vector networks,” Machine Learning, 1995.
-
 SVM không chỉ hỗ trợ phân loại nhị phân và tách các điểm dữ liệu thành hai lớp, SVM còn mở rộng để hỗ trợ các bài toán phân loại đa lớp thông qua cơ chế chia nhỏ bài toán đa lớp thành nhiều mô hình nhị phân.
+
 \begin{enumerate}[label=\alph*)]
-    \item Phương pháp OvO (One-to-One)
     
-    Phương pháp OvO xây dựng bộ phân loại nhị phân cho mỗi cặp lớp trong tập dữ liệu. Với tập dữ liệu gồm K lớp, số lượng mô hình được tạo ra là *công thức toán học* [K(K-1)]/2. Mỗi mô hình được huấn luyện để phân biệt hai lớp cụ thể. Khi dự đoán, mỗi mô hình đưa ra một phiếu bầu cho một trong hai lớp, và lớp nhận được nhiều phiếu nhất sẽ được chọn làm kết quả cuối cùng. Phương pháp OvO thường hiệu quả khi số lượng lớp không quá lớn và mỗi mô hình nhị phân tương đối nhẹ.
+    \item Phương pháp OvO (One-vs-One)
+
+Phương pháp OvO xây dựng bộ phân loại nhị phân cho mỗi cặp lớp trong tập dữ liệu. 
+Với tập dữ liệu gồm $K$ lớp, số lượng mô hình được tạo ra là:
+\[
+    N_{\text{mô hình}} = \frac{K(K-1)}{2}.
+\]
+Mỗi mô hình được huấn luyện để phân biệt hai lớp cụ thể. Khi dự đoán, 
+mỗi mô hình đưa ra một phiếu bầu cho một trong hai lớp, và lớp nhận được nhiều phiếu nhất 
+sẽ được chọn làm kết quả cuối cùng. Phương pháp OvO thường hiệu quả khi số lượng lớp 
+không quá lớn và mỗi mô hình nhị phân tương đối nhẹ.
+
+Ví dụ: ta có 3 lớp phân loại \textit{Red}, \textit{Blue} và \textit{Green} và một mẫu mới $x$. 
+Phương pháp OvO sẽ tạo ra:
+\[
+    \frac{3(3-1)}{2} = 3
+\]
+mô hình nhị phân:
+\begin{itemize}
+    \item Mô hình 1: \textit{Red} vs \textit{Blue} \\
+    Nếu mô hình dự đoán \textit{Red} $\Rightarrow$ \textit{Red} nhận 1 phiếu, 
+    ngược lại \textit{Blue} nhận 1 phiếu.
+    \item Mô hình 2: \textit{Red} vs \textit{Green} \\
+    Nếu mô hình dự đoán \textit{Red} $\Rightarrow$ \textit{Red} nhận 1 phiếu, 
+    ngược lại \textit{Green} nhận 1 phiếu.
+    \item Mô hình 3: \textit{Blue} vs \textit{Green} \\
+    Nếu mô hình dự đoán \textit{Blue} $\Rightarrow$ \textit{Blue} nhận 1 phiếu, 
+    ngược lại \textit{Green} nhận 1 phiếu.
+\end{itemize}
+
+Sau cùng, mẫu $x$ được gán vào lớp có nhiều phiếu bầu nhất. 
+Nếu xảy ra trường hợp hòa phiếu, có thể dùng \textit{decision function} để phá hòa.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/ovo.png}
+        \caption{Mô phỏng phương pháp One-vs-One (OvO)}
+        \label{fig:ovo}
+    \end{figure}
     
-    \item Phương pháp OvR (One-to-Rest)
-    
-    Phương pháp OvR (OvA) chia dữ liệu đa lớp thành nhiều bài toán phân loại nhị phân, sau đó mỗi bộ phân loại nhị phân được huấn luyện trên mỗi bài toán phân loại nhị phân và đưa ra dự đoán bằng cách sử dụng mô hình có độ tin cậy cao nhất. Phương pháp này yêu cầu tạo ra một mô hình cho mỗi lớp.
+\item Phương pháp OvR (One-vs-Rest)
+
+Phương pháp OvR (OvA) chia dữ liệu đa lớp thành $K$ bài toán phân loại nhị phân độc lập, 
+trong đó $K$ là số lượng lớp. Với mỗi lớp $C_k$, mô hình phân loại được xây dựng để 
+phân biệt lớp $C_k$ với $(K-1)$ lớp còn lại. Mỗi mô hình con học cách nhận diện một lớp cụ thể. 
+
+Khi dự đoán một mẫu mới $x$, mỗi mô hình con sẽ trả về một giá trị hàm quyết định 
+(\textit{decision score}) — tức khoảng cách có dấu từ điểm $x$ đến siêu phẳng phân tách của mô hình đó. 
+Score càng lớn cho thấy mô hình càng “tự tin’’ rằng mẫu thuộc lớp $C_k$.
+
+Ví dụ: ta có 3 lớp phân loại \textit{Red}, \textit{Blue} và \textit{Green}, và một mẫu mới $x$.  
+Phương pháp OvR sẽ tạo ra 3 mô hình con như sau:
+
+\begin{itemize}
+    \item Mô hình 1: \textit{Red} vs (\textit{Blue}, \textit{Green})  
+    $\rightarrow$ output: $\text{score}_{\text{Red}}(x)$
+    \item Mô hình 2: \textit{Blue} vs (\textit{Red}, \textit{Green})  
+    $\rightarrow$ output: $\text{score}_{\text{Blue}}(x)$
+    \item Mô hình 3: \textit{Green} vs (\textit{Red}, \textit{Blue})  
+    $\rightarrow$ output: $\text{score}_{\text{Green}}(x)$
+\end{itemize}
+
+Sau khi tính toán score cho mẫu mới $x$, lớp dự đoán được xác định theo quy tắc:
+\[
+    \hat{y} = \arg\max_{k} \; \text{score}_k(x),
+\]
+tức là mẫu $x$ được gán vào lớp có giá trị score cao nhất.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/ovr.png}
+        \caption{Mô phỏng phương pháp OvR}
+        \label{fig:ovr}
+    \end{figure}
+
 \end{enumerate}
 
+%-------------NB----------------
 \subsection{Naive Bayes}
-% Nội dung 1.2.3 ở đây
+Naive Bayes là một mô hình phân loại xác suất dựa trên Định lý Bayes, 
+hoạt động bằng cách ước lượng mức độ ``khả dĩ'' của từng lớp đối với mẫu dữ liệu mới 
+dựa trên thông tin thống kê thu được từ tập huấn luyện. Nhờ cơ chế dựa trên xác suất, 
+mô hình cho phép thực hiện phân loại một cách hiệu quả ngay cả trong không gian đặc 
+trưng có số chiều lớn.
+
+Cốt lõi của Naive Bayes nằm ở giả định \textit{độc lập có điều kiện} giữa các đặc trưng: 
+các đặc trưng $x_1, x_2, \dots, x_n$ được xem là độc lập với nhau khi biết lớp $C$. 
+Giả định này giúp đơn giản hoá quá trình ước lượng, bởi mô hình chỉ cần xem xét từng 
+đặc trưng riêng lẻ để đánh giá mức độ phù hợp giữa mẫu và lớp, mặc dù điều này 
+hiếm khi hoàn toàn đúng trong thực tế.
+
+Trong quá trình dự đoán, mô hình ước lượng \textit{xác suất tiên nghiệm} $P(C)$ của từng lớp 
+và \textit{xác suất xuất hiện của mỗi đặc trưng khi biết lớp đó} $P(x_i \mid C)$. 
+Khi một mẫu mới $X$ được đưa vào, Naive Bayes kết hợp hai loại xác suất này để 
+xác định xác suất hậu nghiệm $P(C \mid X)$ và gán mẫu vào lớp có giá trị cao nhất, 
+tức là lớp có khả năng giải thích tốt nhất các đặc trưng quan sát được.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/NB.png}
+    \caption{Minh họa cơ chế phân loại của Naive Bayes dựa trên Định lý Bayes}
+    \label{fig:1.2.3}
+\end{figure}
+\noindent
+Nguồn: https://mlarchive.com/machine-learning/the-ultimate-guide-to-naive-bayes/
+\newline
+
+Trong thực tế, việc ước lượng các xác suất $P(x_i \mid C)$ 
+được thực hiện khác nhau tùy thuộc vào bản chất của dữ liệu, 
+thông qua các biến thể phổ biến của Naive Bayes như 
+Bernoulli, Multinomial hoặc Gaussian.
+
+\begin{enumerate}[label=\alph*)]
+    \item Gaussian Naive Bayes
+    
+    Gaussian Naive Bayes là một dạng của Naive Bayes dùng cho dữ liệu liên tục. 
+    Mô hình giả định rằng mỗi đặc trưng $x_i$ tuân theo phân phối chuẩn (Gaussian) khi biết lớp $\omega$. 
+    Khi đó, xác suất có điều kiện của một đặc trưng được mô hình hoá bởi hàm mật độ Gaussian:
+
+    \[
+    P(x_{ik} \mid \omega) =
+    \frac{1}{\sqrt{2\pi\sigma_\omega^2}}
+    \exp\left( -\frac{(x_{ik}-\mu_\omega)^2}{2\sigma_\omega^2} \right),
+    \]
+
+    trong đó $\mu_\omega$ và $\sigma_\omega$ được ước lượng từ dữ liệu huấn luyện. 
+    
+    Dưới giả định độc lập có điều kiện, xác suất lớp có điều kiện cho mẫu nhiều chiều 
+    được tính bằng tích các xác suất thành phần:
+
+    \[
+    P(x \mid \omega) = \prod_{k=1}^{d} P(x_{ik} \mid \omega).
+    \]
+
+    Do tuân theo giả định độc lập có điều kiện giữa các đặc trưng, Gaussian Naive Bayes có thể 
+    tính toán nhanh và hiệu quả ngay cả khi số chiều dữ liệu lớn. Sau khi mô hình được huấn luyện, 
+    việc phân loại mẫu mới được thực hiện bằng cách kết hợp xác suất tiên nghiệm của từng lớp với 
+    xác suất có điều kiện nói trên, và lựa chọn lớp có xác suất hậu nghiệm lớn nhất. Nhờ cấu trúc 
+    giải tích đơn giản và quá trình dự đoán nhanh, Gaussian Naive Bayes được xem là một mô hình \textit{eager learner}
+    - tức mô hình học từ dữ liệu một lần, sau đó có thể dự đoán tức thời mà không cần truy cập lại toàn bộ tập huấn luyện
+    \item Multinomial Naive Bayes
+    
+    Multinomial Naive Bayes là một dạng của Naive Bayes được thiết kế cho dữ liệu rời rạc có dạng 
+    tần suất xuất hiện, đặc biệt phù hợp với bài toán phân loại văn bản. 
+    Mô hình sử dụng số lần một từ $x_i$ xuất hiện trong tài liệu để ước lượng xác suất 
+    có điều kiện khi biết lớp $\omega_j$. 
+    Tần suất thô thường được chuẩn hoá theo độ dài tài liệu và được dùng để tính xấp xỉ 
+    tối đa hợp lý như sau:
+
+    \[
+    \hat{P}(x_i \mid \omega_j) =
+    \frac{\sum tf(x_i, d \in \omega_j) + \alpha}
+    {\sum N_{d \in \omega_j} + \alpha V},
+    \]
+
+    trong đó $tf(x_i, d \in \omega_j)$ là tổng số lần xuất hiện của từ $x_i$ trong các 
+    tài liệu thuộc lớp $\omega_j$, $V$ là kích thước từ vựng và $\alpha$ là tham số làm trơn. 
+    Dưới giả định độc lập có điều kiện, xác suất lớp có điều kiện của một tài liệu được tính bằng:
+
+    \[
+    P(x \mid \omega_j) = \prod_{i=1}^{m} P(x_i \mid \omega_j).
+    \]
+
+    Nhờ cách mô hình hóa dựa trên tần suất, Multinomial Naive Bayes thường đạt hiệu quả cao 
+    trong phân loại văn bản, đặc biệt khi sự khác biệt về phân bố từ giữa các lớp là rõ rệt.
+    
+    \item Bernoulli Naive Bayes
+    
+    Bernoulli Naive Bayes là một dạng của Naive Bayes được thiết kế cho dữ liệu 
+    nhị phân, nơi mỗi đặc trưng cho biết một từ \textit{xuất hiện} (1) hoặc 
+    \textit{không xuất hiện} (0) trong tài liệu. Mỗi đặc trưng được mô hình hoá 
+    như một thử nghiệm Bernoulli, trong đó xác suất xuất hiện của từ $x_i$ trong lớp 
+    $\omega_j$ được ước lượng dựa trên tỉ lệ số tài liệu thuộc lớp đó có chứa từ $x_i$, 
+    kèm theo làm trơn Laplace để tránh xác suất bằng 0.
+
+    Mô hình tính xác suất có điều kiện của một tài liệu $x$ theo công thức Bernoulli:
+
+    \[
+    P(x \mid \omega_j)
+    = \prod_{i=1}^{m} 
+    P(x_i \mid \omega_j)^{b_i} 
+    \left(1 - P(x_i \mid \omega_j)\right)^{(1-b_i)},
+    \qquad b_i \in \{0,1\},
+    \]
+
+    trong đó ước lượng xác suất xuất hiện của từ được tính bởi:
+
+    \[
+    \hat{P}(x_i \mid \omega_j)
+    = \frac{df_{x_i,j} + 1}{df_j + 2},
+    \]
+
+    với $df_{x_i,j}$ là số tài liệu thuộc lớp $\omega_j$ có chứa từ $x_i$, 
+    còn $df_j$ là tổng số tài liệu của lớp $\omega_j$.
+
+    Trong quá trình dự đoán, mô hình tính xác suất hậu nghiệm 
+    $P(\omega_j \mid x)$ và chọn lớp có giá trị lớn nhất. 
+    Bernoulli Naive Bayes đặc biệt phù hợp cho phân loại văn bản nhị phân 
+    (chẳng hạn phát hiện spam), nơi sự \textit{xuất hiện} của từ mang ý nghĩa quan trọng hơn tần suất.
+
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/typesofNB.png}
+    \caption{Ba biến thể phổ biến của Naive Bayes: Bernoulli, Multinomial và Gaussian}
+    \label{fig:1.2.3(1)}
+\end{figure}
+\noindent
+Nguồn: https://towardsdatascience.com/bernoulli-naive-bayes-explained-a-visual-guide-with-code-examples-for-beginners-aec39771ddd6/

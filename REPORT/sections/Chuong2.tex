@@ -1,6 +1,165 @@
-\chapter{THU THẬP VÀ KHÁM PHÁ DỮ LIỆU}
+\chapter{DỮ LIỆU VÀ CÔNG CỤ}
 
-\section{Thu thập dữ liệu}
-% Nội dung
+\section{Giới thiệu bộ dữ liệu}
+Dữ liệu được thu thập từ \textbf{The UIT NLP Group} -- một nhóm nghiên cứu khoa học về Xử lý Ngôn ngữ Tự nhiên (NLP) tại Trường Đại học Công nghệ Thông tin -- ĐHQG TP.\ HCM. Đây là nguồn dữ liệu uy tín, đã được xây dựng và công bố phục vụ cho các nghiên cứu học thuật về phân tích văn bản tiếng Việt. 
+
+Nhóm tác giả đã xây dựng một tập dữ liệu chuẩn về \textbf{Cảm xúc trên Mạng xã hội Tiếng Việt (UIT-VSMEC)} với khoảng \textbf{6.927 câu} được dán nhãn thủ công theo 7 cảm xúc: 
+\begin{enumerate}
+    \item Enjoyment
+    \item Sadness
+    \item Fear
+    \item Anger
+    \item Surprise
+    \item Disgust
+    \item Other
+\end{enumerate}
+
+Đồng thời, nhóm nghiên cứu cũng đã tiến hành đánh giá hiệu năng của các mô hình học máy và mạng nơ-ron sâu trên bộ dữ liệu này.
+
+Tuy nhiên, trong khuôn khổ môn học, nhóm xin phép sử dụng bộ dữ liệu UIT-VSMEC làm đầu vào và tiến hành tinh giản, điều chỉnh một số trường thông tin nhằm giảm độ phức tạp và đảm bảo phù hợp với mục tiêu bài toán phân loại của đồ án, đồng thời vẫn giữ được tính đại diện của dữ liệu gốc.
+
+Link tài liệu gốc: \url{https://drive.google.com/drive/folders/1HooABJyrddVGzll7fgkJ6VzkG_XuWfRu}
+
+Bạn đọc có thể tham khảo thêm bài nghiên cứu: Vong Ho, Duong Nguyen, Danh Nguyen, Linh Pham, Kiet Nguyen and Ngan Nguyen, Emotion Recognition for Vietnamese Social Media Text, 2019 16th International Conference of the Pacific Association for Computational Linguistics (PACLING 2019), October 11-13, 2019, Ha Noi, Vietnam.
+
+Link bài nghiên cứu: \url{https://arxiv.org/pdf/1911.09339}
+
+Bộ dữ liệu gồm 3 cột: Unnamed, Emotion và Sentence
+Dữ liệu gốc: 
+
+\begin{table}[H]
+\centering
+\caption{Ví dụ một số câu trong bộ dữ liệu UIT-VSMEC}
+\label{tab:uit_samples}
+\begin{tabular}{c|c|p{10cm}}
+\hline
+\textbf{ID} & \textbf{Emotion} & \textbf{Sentence} \\ \hline
+941  & Other      & tính tao tao biết , chẳng có chuyện gì có thể làm tao phát điên cả \\ \hline
+142  & Enjoyment  & lại là lao cai , tự hào quê mình quá :)) \\ \hline
+1164 & Sadness    & bị từ chối rồi \\ \hline
+479  & Anger      & thế đường không cấm đỗ , bạn lấy quyền gì không cho người ta đỗ vậy \\ \hline
+185  & Fear       & tao sợ ăn xong nóng đêm gãi toét chân \\ \hline
+1082 & Disgust    & bạn không có quyền đuổi người ta . khó chịu thì gọi ca giao thông thôi . bạn đuổi họ bạn sai lè lè \\ \hline
+1618 & Surprise   & nhìn mẫu này lạ mắt mà đẹp quá \\ \hline
+\end{tabular}
+\end{table}
+
+Nhóm điều chỉnh nhãn dán phân loại như sau:
+
+Tích cực bao gồm các nhãn \textit{Enjoyment}, \textit{Surprise}.
+
+Tiêu cực bao gồm các nhãn \textit{Fear}, \textit{Sadness}, \textit{Anger}, \textit{Disgust}.
+
+Trung tính bao gồm nhãn \textit{Other}.
+
+\textbf{Ghi chú:} nhãn \textit{Surprise} có thể mang hai sắc thái tiêu cực và tích cực, tuy nhiên, qua phân tích ngữ nghĩa và tần suất trong dữ liệu, đa số các câu gán nhãn \textit{Surprise} mang khuynh hướng cảm xúc tích cực. Do đó, nhóm quyết định gộp \textit{Surprise} vào nhóm \textbf{Tích cực}.
+
+Bài toán trở thành phân loại cảm xúc bình luận trên mạng xã hội tiếng Việt với 3 nhãn \textbf{Tích cực}, \textbf{Tiêu cực} và \textbf{Trung tính}. Việc gộp nhãn vẫn đảm bảo tính đại diện của dữ liệu, đồng thời giúp mô hình dễ học hơn.
+
+Dữ liệu sau khi gộp nhãn:
+
+\begin{table}[H]
+\centering
+\caption{Ví dụ dữ liệu sau khi gộp nhãn}
+\label{tab:merged_samples}
+\begin{tabular}{c|c|p{7.5cm}|c}
+\hline
+\textbf{ID} & \textbf{Emotion} & \textbf{Sentence} & \textbf{new\_emotion} \\ \hline
+941  & Other      & tính tao tao biết , chẳng có chuyện gì có thể làm tao phát điên cả & Trung tính \\ \hline
+142  & Enjoyment  & lại là lao cai , tự hào quê mình quá :)) & Tích cực \\ \hline
+1164 & Sadness    & bị từ chối rồi & Tiêu cực \\ \hline
+479  & Anger      & thế đường không cấm đỗ , bạn lấy quyền gì không cho người ta đỗ vậy & Tiêu cực \\ \hline
+185  & Fear       & tao sợ ăn xong nóng đêm gãi toét chân & Tiêu cực \\ \hline
+1082 & Disgust    & bạn không có quyền đuổi người ta . khó chịu thì gọi ca giao thông thôi . bạn đuổi họ bạn sai lè lè & Tiêu cực \\ \hline
+1618 & Surprise   & nhìn mẫu này lạ mắt mà đẹp quá & Tích cực \\ \hline
+\end{tabular}
+\end{table}
+
 \section{Khám phá bộ dữ liệu}
-% Nội dung
+\subsection{Kiểm tra dữ liệu trống}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/check_missing_value.png}
+    \caption{Kiểm tra dữ liệu trống}
+    \label{fig:missing_data}
+\end{figure}
+Dữ liệu gồm 6241 dòng, trong đó không có dòng nào bị khuyết dữ liệu
+\subsection{Kiểm tra phân phối nhãn}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/output_phân_phối_nhãn_tiền.png}
+    \caption{Biểu đồ thể hiện số lượng của mỗi nhãn dán của tập dữ liệu gốc}
+    \label{fig:label_distribution}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/tỷ lệ nhãn tiền xử lý 1.png}
+    \caption{Thống kê tỉ lệ của mỗi nhãn dán trong dữ liệu}
+    \label{fig:label_ratio}
+\end{figure}
+Như đã nói ở mục trên, nhóm quyết định gộp nhãn dán với 3 nhãn: Tích cực, Tiêu cực và Trung tính
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/output_phân_phối_nhãn_sau_khi_gộp.png}
+    \caption{Biểu đồ thể hiện số lượng của mỗi nhãn dán sau khi gộp nhãn}
+    \label{fig:merged_label_distribution}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/tỷ lệ nhãn sau gộp.png}
+    \caption{Thống kê tỉ lệ của mỗi nhãn dán sau khi gộp}
+    \label{fig:merged_label_ratio}
+\end{figure}
+
+NHẬN XÉT: sau khi gộp nhãn, dữ liệu đang có sự mất cân bằng giữa các nhãn, điều này sẽ khiến cho mô hình học thiên vị => cần cân bằng dữ liệu trước khi huấn luyện mô hình.
+
+\subsection{Kiểm tra độ dài chuỗi}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/độ_dài_chuỗi_plot.png}
+    \caption{Biểu đồ thể hiện độ dài mỗi văn bản đầu vào}
+    \label{fig:sequence_length}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/độ_dài_chuỗi_boxplot.png}
+    \caption{Biểu đồ box plot thể hiện độ dài của văn bản đầu vào}
+    \label{fig:sequence_length_boxplot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/bình luận ngắn dài.png}
+    \caption{Kiểm tra văn bản dài nhất và ngắn nhất}
+    \label{fig:longest_shortest_text}
+\end{figure}
+
+\textbf{Nhận xét:} Văn bản đầu vào có độ dài mỗi câu không tương đồng; tuy nhiên, mỗi câu đều mang ý nghĩa cảm xúc nên nhóm không thực hiện loại bỏ các câu quá ngắn (ví dụ: \textit{“im”, ...}). 
+
+Tuy nhiên, để mô hình học tốt hơn, nhóm đề xuất việc lọc ra những văn bản quá dài nhưng mang nội dung \textit{spam}, hoặc những văn bản quá ngắn và không mang giá trị cho mô hình. 
+
+Trong khuôn khổ đồ án, nhóm tạm chấp nhận rằng tất cả các văn bản đầu vào đều mang ý nghĩa cảm xúc và được giữ lại cho quá trình huấn luyện.
+
+\subsection{Kiểm tra emoji}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/kiểm tra emoji.png}
+    \caption{Kiểm tra số lượng emoji khác nhau của bộ văn bản đầu vào}
+    \label{fig:emoji_check}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/top 10.png}
+    \caption{Top 10 emoji xuất hiện nhiều nhất}
+    \label{fig:emoji_frequency}
+\end{figure}
+
+\textbf{Nhận xét:} Trong tập dữ liệu đầu vào, các emoji xuất hiện với tần suất đáng kể. Do đó, chúng đóng vai trò quan trọng trong việc huấn luyện mô hình.
+Để khai thác thông tin này, nhóm đã xây dựng tệp \texttt{emoji\_dict.json} (được đính kèm cùng dữ liệu của đồ án), trong đó mỗi emoji được ánh xạ đến nhãn cảm xúc tương ứng.
+

@@ -1,0 +1,52 @@
+\chapter{KẾT QUẢ VÀ HƯỚNG PHÁT TRIỂN}
+
+\section{Kết quả}
+
+Xây dựng thành công một hệ thống Phân loại cảm xúc tiếng Việt (Vietnamese Sentiment
+Analysis) hoàn chỉnh với quy trình khép kín (End-to-End Pipeline), đạt được các tiêu chí
+kỹ thuật sau:
+
+\begin{itemize}
+    \item \textbf{Kiến trúc phần mềm:} Hệ thống được thiết kế theo hướng đối tượng (OOP)
+    và phân tầng (Layered Architecture).
+    
+    \item \textbf{Xử lý ngôn ngữ tự nhiên đặc thù:} Hệ thống giải quyết tốt các thách thức
+    của tiếng Việt trên mạng xã hội thông qua bộ tiền xử lý mạnh mẽ.
+    
+    \item \textbf{Tối ưu hóa mô hình:} Thay vì sử dụng tham số mặc định, đồ án đã áp dụng
+    kỹ thuật Grid Search Cross-Validation (5-fold) để tìm ra bộ tham số tốt nhất cho cả
+    3 thuật toán: Logistic Regression, Naive Bayes và SVM.
+\end{itemize}
+
+\section{Hiệu năng trên dữ liệu}
+
+Dựa trên kết quả thực nghiệm với bộ dữ liệu hơn 6.000 mẫu bình luận:
+
+\begin{itemize}
+    \item \textbf{Độ chính xác:} Các mô hình đạt độ chính xác trung bình từ 65\% -- 75\%.
+    Trong đó, SVM (Support Vector Machine) sau khi cân bằng dữ liệu thường cho kết quả
+    ổn định nhất.
+    
+    \item \textbf{Khả năng nhận diện:}
+    \begin{itemize}
+        \item Hệ thống hoạt động tốt trong việc nhận diện cảm xúc Tiêu cực (Negative)
+        với độ nhạy (Recall) đạt trên 80\%. Điều này rất có ý nghĩa trong bài toán
+        Social Listening (lắng nghe mạng xã hội) để cảnh báo khủng hoảng truyền thông.
+        \item Nhận diện khá tốt cảm xúc Tích cực (Positive).
+    \end{itemize}
+    
+    \item \textbf{Hạn chế:} Việc phân loại nhãn ``Trung tính'' (Neutral) vẫn còn bị
+    ảnh hưởng bởi sự mơ nhạt về đặc trưng ngôn ngữ và dữ liệu mất cân bằng.
+\end{itemize}
+
+\section{Hướng phát triển tương lai}
+
+Trong tương lai, việc mở rộng và cải thiện mô hình phân tích cảm xúc có thể bao gồm:
+
+\begin{itemize}
+    \item Sử dụng các mô hình tiên tiến hơn hoặc kết hợp nhiều mô hình để tăng độ chính xác.
+    \item Thu thập và phân tích dữ liệu từ nhiều nguồn hơn để có cái nhìn toàn diện hơn
+    về cảm xúc của người dùng.
+    \item Áp dụng phân tích cảm xúc vào các lĩnh vực khác ngoài dịch vụ khách sạn, như
+    thương mại điện tử, mạng xã hội, v.v.
+\end{itemize}
