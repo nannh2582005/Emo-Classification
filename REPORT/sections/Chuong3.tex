@@ -282,7 +282,6 @@ Tỉ lệ phân chia:
 
 Mô hình \textbf{Logistic Regression} sau khi tối ưu đã đạt được kết quả trên tập kiểm thử (Test set):
 
-\\[0.2cm]
 \textbf{Độ chính xác toàn cục (Overall Accuracy):} 65.09\%.
 
 \begin{figure}[H]
@@ -496,6 +495,7 @@ Các chỉ số đánh giá được sử dụng:
     
     \item \textbf{F1-Score:} Trung bình điều hòa giữa Precision và Recall. Đây là chỉ số quan trọng nhất vì dữ liệu cảm xúc thường mất cân bằng.
 \end{itemize}
+
 
 \subsection{Support Vector Machine}
 Module SVM Model triển khai toàn bộ pipeline huấn luyện mô hình SVM cho bài toán phân loại cảm xúc, bao gồm chia dữ liệu, cân bằng lớp bằng RandomOverSampler, huấn luyện bằng SVC, đánh giá bằng classification report và lưu/khôi phục mô hình bằng joblib. Mô hình sử dụng tham số kernel và C từ file cấu hình nhằm đảm bảo tính nhất quán và khả năng tái sử dụng. Quá trình xử lý được giám sát thông qua hệ thống logging, giúp dễ dàng kiểm tra và theo dõi kết quả. 
