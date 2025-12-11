@@ -1,8 +1,148 @@
 \chapter{KẾT QUẢ THỰC NGHIỆM}
 
 \section{Đánh giá mô hình}
-% Nội dung
+Sau khi áp dụng kỹ thuật Grid Search Cross-Validation (5-fold) để tìm tham số tối ưu, các mô hình được huấn luyện lại trên toàn bộ tập Train và đánh giá trên tập Test (20% dữ liệu).
+
+\subsection{Mô hình Logistic Regression (Baseline)}
+
+Cấu hình tối ưu: C (thường là 1 hoặc 10), solver=\texttt{lbfgs}.
+
+\vspace{0.3cm}
+
+\textbf{Kết quả:} Đạt độ chính xác trung bình khoảng 65\% -- 68\%.
+
+\vspace{0.2cm}
+
+\textbf{Nhận xét:}
+
+Đây là mô hình cơ sở, hoạt động ổn định và rất nhanh.
+
+\vspace{0.2cm}
+
+\textbf{Ưu điểm:} Nhận diện rất tốt các lớp có từ khóa cảm xúc mạnh (như ``Tiêu cực'' với các từ chửi thề, chê bai).
+
+\vspace{0.2cm}
+
+\textbf{Nhược điểm:} Gặp khó khăn lớn trong việc phân biệt giữa nhãn ``Trung tính'' và ``Tích cực'' do sự chồng chéo về từ vựng.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/LG_cmi.png}
+    \caption{Ma trận nhầm lẫn của mô hình Logistic Regression}
+    \label{fig:logreg_confusion_matrix}
+\end{figure}
+
+\subsection{Mô hình Naive Bayes (MultinomialNB)}
+
+Cấu hình tối ưu: Tham số làm mượt \texttt{alpha} (thường là 0.5 hoặc 1.0).
+
+\vspace{0.3cm}
+
+\textbf{Kết quả:} Độ chính xác thường thấp hơn Logistic Regression khoảng 1--2\%.
+
+\vspace{0.2cm}
+
+\textbf{Nhận xét:}
+
+\vspace{0.2cm}
+
+\textbf{Ưu điểm:} Tốc độ huấn luyện nhanh nhất trong 3 mô hình, phù hợp với dữ liệu văn bản thuần túy.
+
+\vspace{0.2cm}
+
+\textbf{Nhược điểm:} Giả định các từ độc lập với nhau (tính ``ngây thơ'') nên không nắm bắt được các cụm từ phủ định phức tạp (ví dụ: ``không phải là không thích'').
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/NB_cmi.png}
+    \caption{Ma trận nhầm lẫn của mô hình Naive Bayes}
+    \label{fig:nb_confusion_matrix}
+\end{figure}
+
+\subsection{Mô hình Support Vector Machine (SVM)}
+
+Cấu hình tối ưu: Kernel \texttt{linear} hoặc \texttt{rbf}, tham số C và gamma được tinh chỉnh kỹ lưỡng.
+
+\vspace{0.3cm}
+
+\textbf{Kết quả:} Đạt độ chính xác cao nhất, thường > 70\%.
+
+\vspace{0.2cm}
+
+\textbf{Nhận xét:}
+
+\vspace{0.2cm}
+
+\textbf{Ưu điểm:} Tìm được ranh giới phân lớp (Hyperplane) tốt nhất trong không gian nhiều chiều của TF-IDF. Đặc biệt hiệu quả sau khi đã áp dụng kỹ thuật cân bằng dữ liệu (\texttt{RandomOverSampler}).
+
+\vspace{0.2cm}
+
+\textbf{Nhược điểm:} Thời gian huấn luyện (Training time) lâu nhất, đặc biệt khi chạy Grid Search.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/SVM_cmi.png}
+    \caption{Ma trận nhầm lẫn của mô hình SVM}
+    \label{fig:svm_confusion_matrix}
+\end{figure}
+
+%------------------------------------------------
 \section{So sánh mô hình}
-% Nội dung
-\section{Ứng dụng thực tế}
-% Nội dung
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{4cm}|p{3cm}|p{3cm}|p{3.5cm}|}
+\hline
+\textbf{Tiêu chí} & \textbf{Logistic Regression} & \textbf{Naive Bayes} & \textbf{SVM (Support Vector Machine)} \\ \hline
+
+Độ chính xác (Accuracy) & Khá & Trung bình & Cao nhất \\ \hline
+
+F1-Score (Trung bình) & Khá & Trung bình & Tốt \\ \hline
+
+Thời gian Huấn luyện & Nhanh & Rất nhanh & Chậm \\ \hline
+
+Tốc độ Dự đoán (Inference) & Rất nhanh & Rất nhanh & Nhanh \\ \hline
+
+Khả năng chống Overfitting & Tốt (nhờ Regularization) & Trung bình & Rất tốt \\ \hline
+\end{tabular}
+\caption{So sánh các mô hình Logistic Regression, Naive Bayes và SVM}
+\end{table}
+
+\textbf{Kết luận lựa chọn:} Dựa trên bảng so sánh, SVM được lựa chọn làm mô hình chính thức cho ứng dụng (\texttt{app.py}) vì ưu tiên cao nhất của bài toán là độ chính xác (Accuracy) và khả năng phân loại đúng các trường hợp khó.
+
+%-----------------------------------------------
+\section{Ứng dụng thực tế (thử trên tập dữ liệu khác)}
+
+Mô hình tốt nhất (SVM) đã được đóng gói và thử nghiệm trên tập dữ liệu \textit{Unseen Data} (các bình luận lấy ngẫu nhiên từ Facebook/YouTube, không nằm trong tập dữ liệu gốc).
+
+\subsection{Các trường hợp hoạt động tốt}
+
+Hệ thống xử lý xuất sắc các câu văn ngắn, sử dụng ngôn ngữ mạng đặc trưng:
+
+\begin{itemize}
+    \item \textbf{Input:} ``Phim hay vãi chưởng, xem cuốn dã man :)))''
+    \begin{itemize}
+        \item \textbf{Dự đoán:} Enjoyment (Độ tin cậy: 92\%).
+        \item \textbf{Lý do:} Module \texttt{DataProcessor} đã dịch thành công teencode ``vãi'', ``cuốn'' và emoji ``:)))''.
+    \end{itemize}
+
+    \item \textbf{Input:} ``Shop làm ăn chán, ship lâu lắc.''
+    \begin{itemize}
+        \item \textbf{Dự đoán:} Sadness/Disgust (Độ tin cậy: 88\%).
+    \end{itemize}
+\end{itemize}
+
+\subsection{Các trường hợp hạn chế (Sai số)}
+
+Hệ thống vẫn gặp lỗi ở các mẫu câu phức tạp:
+
+\begin{itemize}
+    \item \textbf{Câu mỉa mai (Sarcasm):} ``Thông minh ghê nhỉ, làm hỏng hết việc.''
+    \begin{itemize}
+        \item Máy dễ đoán nhầm là Tích cực do từ ``thông minh'', chưa hiểu được ngữ cảnh ngược lại.
+    \end{itemize}
+
+    \item \textbf{Câu đa cảm xúc:} ``Phim hình ảnh đẹp nhưng nội dung nhạt toẹt.''
+    \begin{itemize}
+        \item Máy bối rối giữa Tích cực và Tiêu cực, thường gán nhãn theo từ nào có trọng số TF-IDF cao hơn.
+    \end{itemize}
+\end{itemize}

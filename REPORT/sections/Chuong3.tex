@@ -1,7 +1,7 @@
 \chapter{XÂY DỰNG MÔ HÌNH PHÂN TÍCH}
 
-\section{Module Loader}
-\subsection{Các thư viện chính}
+\section{Các thư viện chính}
+\subsection{Module Loader}
 
 Hệ thống sử dụng các thư viện mã nguồn mở sau:
 
@@ -83,7 +83,6 @@ Hệ thống sử dụng các thư viện mã nguồn mở sau:
 
 %-----------------------------------
 \section{Module Preprocessor}
-\section{Tiền xử lý dữ liệu}
 
 Tiền xử lý là một bước thiết yếu trước khi đi vào quá trình huấn luyện mô hình. Đặc biệt hơn, trong môi trường trực tuyến trên mạng xã hội, các tài liệu thường không được viết bằng văn bản chính thức. Điều này đặc biệt đúng với thanh thiếu niên, những người thường sử dụng nhiều biểu tượng cảm xúc, dạng rút gọn của từ, ký hiệu và ký tự đặc biệt, từ viết sai chính tả, lỗi ngữ pháp, hoặc từ ghép. Trước khi được đưa vào mô hình, dữ liệu phải trải qua các bước tiền xử lý cần thiết.
 
@@ -253,8 +252,61 @@ Lớp triển khai TF-IDF (tfidf.py)
 %------------------------------------
 \section{Tối ưu tham số}
 \subsection{Logistic Regression}
-% Nội dung 3.4.1
+Quá trình huấn luyện và đánh giá được thực hiện trên tập dữ liệu đã qua xử lý (Cleaning, Tokenization, TF-IDF) với cấu hình như sau:
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/LG_op.png}
+    \caption{Mô hình: Logistic Regression (đã tối ưu tham số).}
+    \label{fig:logistic_op}
+\end{figure}
+
+Tổng số mẫu dữ liệu: \textbf{6.241} mẫu.
+
+Tỉ lệ phân chia:
+
+\begin{itemize}
+    \item \textbf{Tập Train (Huấn luyện)}: 4.992 mẫu (80\%).
+    \item \textbf{Tập Test (Kiểm thử)}: 1.249 mẫu (20\%).
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/LG_test.png}
+    \label{fig:logistic_test}
+\end{figure}
+
+\textbf{Phương pháp đánh giá:} Sử dụng các chỉ số Accuracy, Precision, Recall, F1-Score và Ma trận nhầm lẫn (Confusion Matrix).
+
+\textbf{Kết quả Tổng quan}
+
+Mô hình \textbf{Logistic Regression} sau khi tối ưu đã đạt được kết quả trên tập kiểm thử (Test set):
+
+\\[0.2cm]
+\textbf{Độ chính xác toàn cục (Overall Accuracy):} 65.09\%.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/LG_result.png}
+    \label{fig:logistic_result}
+\end{figure}
+
+Macro Average F1-Score: 0.57.
+
+Weighted Average F1-Score: 0.64.
+
+\textbf{Nhận xét:}
+
+Mức độ chính xác 65\% là một kết quả ở mức trung bình khá đối với bài toán phân loại cảm xúc 3 lớp (Tích cực, Tiêu cực, Trung tính) sử dụng các mô hình học máy truyền thống trên dữ liệu tiếng Việt. Mô hình hoạt động tốt hơn ngẫu nhiên (33\%), nhưng vẫn còn gặp khó khăn ở một số lớp dữ liệu cụ thể.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/LG_cm.png}
+    \caption{Ma trận nhầm lẫn của mô hình Logistic Regression}
+    \label{fig:logistic_cm}
+\end{figure}
+
+%-----------------------------------------------------
 \subsection{Support Vector Machine}
 Trong bài toán phân loại cảm xúc, hiệu quả của mô hình SVM phụ thuộc đáng kể vào bộ 
 tham số siêu (hyperparameters) như \textbf{kernel}, \textbf{C}, và \textbf{gamma}. Do đó, nhóm xây dựng module 
@@ -420,7 +472,30 @@ Dữ liệu được chia thành 2 phần tách biệt với tỉ lệ 80/20 (đ
 \end{figure}
 
 \subsection{Logistic Regression}
-% Nội dung 3.5.1
+Mô hình \textbf{Logistic Regression} được lựa chọn làm mô hình cơ sở (Baseline Model) cho bài toán phân loại cảm xúc đa lớp (Multi-class Classification) với 3 nhãn chính: Tích cực, Tiêu cực, và Trung tính (hoặc 7 nhãn chi tiết tùy theo cấu hình tập dữ liệu).
+
+Quy trình huấn luyện được thực hiện theo các bước chuẩn:
+
+\begin{enumerate}
+    \item \textbf{Đầu vào:} Ma trận đặc trưng TF-IDF (được tạo từ \texttt{feature\_layer/tfidf.py}).
+    
+    \item \textbf{Chia dữ liệu:} Tập dữ liệu được chia theo tỉ lệ 80\% Huấn luyện -- 20\% Kiểm thử.  
+    Quá trình chia sử dụng kỹ thuật \textit{Stratified Sampling} (lấy mẫu phân tầng) để đảm bảo tỉ lệ các nhãn cảm xúc được giữ nguyên, tránh hiện tượng lệch pha dữ liệu.
+    
+    \item \textbf{Huấn luyện:} Sử dụng thuật toán tối ưu hóa \texttt{lbfgs} (Limited-memory BFGS) phù hợp cho các bài toán đa lớp.
+\end{enumerate}
+
+Các chỉ số đánh giá được sử dụng:
+
+\begin{itemize}
+    \item \textbf{Accuracy (Độ chính xác):} Tỉ lệ dự đoán đúng trên tổng số mẫu.
+    
+    \item \textbf{Precision (Độ chính xác theo lớp):} Trong số các mẫu dự đoán là "Tiêu cực", bao nhiêu phần trăm là đúng?
+    
+    \item \textbf{Recall (Độ nhạy):} Mô hình tìm được bao nhiêu phần trăm các mẫu "Tiêu cực" có trong thực tế?
+    
+    \item \textbf{F1-Score:} Trung bình điều hòa giữa Precision và Recall. Đây là chỉ số quan trọng nhất vì dữ liệu cảm xúc thường mất cân bằng.
+\end{itemize}
 
 \subsection{Support Vector Machine}
 Module SVM Model triển khai toàn bộ pipeline huấn luyện mô hình SVM cho bài toán phân loại cảm xúc, bao gồm chia dữ liệu, cân bằng lớp bằng RandomOverSampler, huấn luyện bằng SVC, đánh giá bằng classification report và lưu/khôi phục mô hình bằng joblib. Mô hình sử dụng tham số kernel và C từ file cấu hình nhằm đảm bảo tính nhất quán và khả năng tái sử dụng. Quá trình xử lý được giám sát thông qua hệ thống logging, giúp dễ dàng kiểm tra và theo dõi kết quả. 
