@@ -135,3 +135,5 @@ Trực quan dữ liệu bằng ma trận nhầm lẫn
 |1  |Nguyễn Thị Ngọc Anh    |23280037|
 |2  |Trương Thị Quỳnh Giang |23280052|
 |3  |Trần Trung Kiên        |23280066|
+## Bảng phân công 
+![bảng phân công](REPORT/images/bang_phan_cong.png)
