@@ -1,7 +1,7 @@
 \chapter{XÂY DỰNG MÔ HÌNH PHÂN TÍCH}
 
-\section{Các thư viện chính}
-\subsection{Module Loader}
+\section{Nhập dữ liệu}
+\subsection{Các thư viện chính}
 
 Hệ thống sử dụng các thư viện mã nguồn mở sau:
 
@@ -79,6 +79,14 @@ Hệ thống sử dụng các thư viện mã nguồn mở sau:
         \item \texttt{workbook.save()}: lưu tệp Excel.
     \end{itemize}
 
+\end{itemize}
+
+\subsection{Module Loader}
+Nhóm xây dụng module Loader cho phép nhận các dữ liệu đầu vào có đuôi xlsx, xls, csx và json.
+
+\begin{itemize}
+    \item \textbf{Đầu vào:} Đường dẫn file dữ liệu.
+    \item \textbf{Đầu ra:} \textit{DataFrame} chứa dữ liệu đã được đọc từ file.
 \end{itemize}
 
 %-----------------------------------
@@ -162,24 +170,24 @@ Dữ liệu sau khi tiền xử lý:
 \begin{table}[H]
 \centering
 \caption{Một số dòng dữ liệu sau khi tiền xử lý}
+\label{tab:processed_examples}   % <--- LABEL Ở ĐÂY
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{c c c l c c l}
+
+\begin{tabularx}{\textwidth}{c c c X c c X}
 \hline
 \textbf{No} & \textbf{unnamed} & \textbf{Emotion} & \textbf{Sentence} 
 & \textbf{merged\_label} & \textbf{label\_id} & \textbf{processed} \\
 \hline
 
-0 & 0 & Disgust & hỏi nhạy khiếp 
-& Tiêu cực & 1 & {[}“nhạy”, “khiếp”{]} \\
+0 & 0 & Disgust & hỏi nhạy khiếp & Tiêu cực & 1 & {["nhạy", "khiếp"]} \\
 
-2 & 1944 & Surprise & con người giỏi nhỉ .
-& Tích cực & 0 & {[}“con\_người”, “giỏi”{]} \\
+2 & 1944 & Surprise & con người giỏi nhỉ . & Tích cực & 0 & {["con\_người", "giỏi"]} \\
 
-3 & 1711 & Other & má 2 thằng áo vàng lầy ghê 
-& Trung tính & 2 & {[}“má”, “2”, “thằng”, “áo”, “vàng”, “lầy”, “ghê”, “trung\_tính”{]} \\
+3 & 1711 & Other & má 2 thằng áo vàng lầy ghê & Trung tính & 2 & 
+{["má", "2", "thằng", "áo", "vàng", "lầy", "ghê", "trung\_tính"]} \\
 
 \hline
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \begin{figure}[H]

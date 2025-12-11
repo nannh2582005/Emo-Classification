@@ -2,47 +2,37 @@
 \chapter*{Giới thiệu}
 \addcontentsline{toc}{chapter}{Giới thiệu}
 
-Phân loại phát ngôn đóng vai trò quan trọng trong việc phân tích nội dung trao đổi của người dùng trên mạng xã hội, nơi ngôn ngữ thường được thể hiện qua nhiều sắc thái và biến thể khác nhau. Một nhiệm vụ trọng yếu trong phân loại phát ngôn là nhận diện loại nội dung mà một phát ngôn thể hiện ở các mức độ khác nhau, từ toàn văn bản đến từng câu hay từng kiểu biểu đạt - nhằm xác định liệu thông điệp đó mang sắc thái tích cực, tiêu cực, trung tính hay thuộc các hình thức diễn đạt đặc thù như mỉa mai hay công kích. Nhờ đó, hệ thống có thể hỗ trợ doanh nghiệp nắm bắt phản hồi của khách hàng, theo dõi xu hướng đánh giá về sản phẩm và nhận diện sớm các chủ đề tiêu cực liên quan đến thương hiệu. Đối với các nhà nghiên cứu, việc phân loại phát ngôn còn giúp phân tích thái độ xã hội và hành vi giao tiếp trong các bối cảnh trực tuyến.
+Phân loại phát ngôn là một nhiệm vụ quan trọng trong phân tích nội dung người dùng trên mạng xã hội, nơi ngôn ngữ được thể hiện với nhiều sắc thái và biến thể khác nhau. Việc nhận diện mức độ và kiểu biểu đạt cảm xúc—tích cực, tiêu cực, trung tính hoặc các hình thức như mỉa mai, công kích—giúp hệ thống hiểu rõ hơn thái độ người dùng. Nhờ đó, doanh nghiệp có thể theo dõi phản hồi khách hàng, đánh giá danh tiếng thương hiệu, còn các nhà nghiên cứu có thể phân tích hành vi và xu hướng giao tiếp trực tuyến.
 
-Kết quả thu được từ đồ án tạo nền tảng cho việc phát triển các hệ thống phân tích chuyên sâu hơn trong tương lai. Trên cơ sở đó, các ứng dụng như phát hiện và sàng lọc nội dung độc hại, nhận diện khuynh hướng cảm xúc hay phân tích xu hướng thảo luận trên mạng xã hội có thể được mở rộng và hoàn thiện.
-
+Kết quả đạt được trong đồ án là nền tảng để phát triển các hệ thống phân tích nâng cao hơn, phục vụ cho các bài toán như sàng lọc nội dung độc hại, dự đoán xu hướng thảo luận hay giám sát cảm xúc cộng đồng trên mạng xã hội.
 \section*{Đặt vấn đề}
 
-Sự phát triển mạnh mẽ của Internet và các nền tảng mạng xã hội đã làm gia tăng đáng kể khối lượng phát ngôn được tạo ra mỗi ngày, tạo nên nhu cầu lớn đối với việc thu thập và phân tích nội dung người dùng. Các mạng xã hội, diễn đàn thảo luận hay hệ thống bình luận trực tuyến liên tục xuất hiện những ý kiến thể hiện quan điểm, thái độ và cảm xúc của người dùng về nhiều chủ đề khác nhau.
+Sự gia tăng mạnh mẽ của lượng phát ngôn trên Internet khiến nhu cầu phân tích tự động nội dung người dùng trở nên cấp thiết. Mạng xã hội, diễn đàn và các nền tảng thảo luận trực tuyến liên tục phát sinh các ý kiến phản ánh quan điểm và cảm xúc của người dùng về nhiều chủ đề.
 
-Vai trò then chốt của việc phân loại phát ngôn:
+Phân loại phát ngôn mang lại giá trị thiết thực:
 
-- Đối với người dùng: Phân loại phát ngôn giúp họ nhanh chóng nhận diện xu hướng thảo luận, tiếp cận các ý kiến trước đó và đưa ra đánh giá chính xác hơn về một vấn đề, sự kiện hay sản phẩm. Người dùng có thể xem tổng quan ý kiến tích cực – tiêu cực của cộng đồng để hỗ trợ việc ra quyết định.
+\textbf{Đối với người dùng}: Hỗ trợ nắm bắt nhanh xu hướng thảo luận và đánh giá tổng quan cảm xúc cộng đồng.
 
-- Đối với tổ chức, doanh nghiệp: Các phát ngôn trên mạng xã hội là nguồn dữ liệu quan trọng giúp doanh nghiệp lắng nghe phản hồi, phát hiện các chủ đề nhạy cảm, theo dõi danh tiếng thương hiệu và điều chỉnh chiến lược truyền thông. Nhờ nắm bắt kịp thời thái độ người dùng, các tổ chức có thể nâng cao chất lượng dịch vụ, tối ưu hoạt động quản lý cộng đồng và hạn chế các xu hướng tiêu cực lan rộng.
+\textbf{Đối với tổ chức, doanh nghiệp}: Giúp theo dõi danh tiếng thương hiệu, phát hiện chủ đề nhạy cảm và tối ưu chiến lược truyền thông.
 
-Tuy nhiên, việc xử lý và phân loại phát ngôn trực tuyến gặp phải nhiều thách thức:
+Tuy nhiên, bài toán gặp nhiều thách thức như:
 
-- Khối lượng dữ liệu lớn: Số lượng phát ngôn phát sinh liên tục từ nhiều 
-nền tảng khiến việc phân tích thủ công trở nên tốn kém và thiếu hiệu quả.
+\textbf{Khối lượng dữ liệu lớn}: không thể xử lý thủ công.
 
-- Ngôn ngữ phức tạp và đa dạng: Phát ngôn trên mạng xã hội thường mang
-tính chủ quan, đa dạng về cách diễn đạt và sử dụng ngôn ngữ, gây khó
-khăn cho việc phân tích tự động
+\textbf{Ngôn ngữ phức tạp}: xuất hiện teencode, emoji, từ viết tắt và các biểu đạt cảm xúc không chuẩn hóa.
 
-Do đó, việc xây dựng các hệ thống phân loại phát ngôn tự động trở nên cần thiết nhằm hỗ trợ nhận diện nhanh chóng nội dung và xu hướng trao đổi trên môi trường trực tuyến. Trước khi người dùng tiếp cận một chủ đề hay doanh nghiệp tiến hành phân tích phản hồi, những hệ thống này có thể cung cấp góc nhìn tổng quát về thái độ và mức độ quan tâm của cộng đồng. Bằng cách xác định đặc trưng của từng nhóm phát ngôn, các mô hình phân loại giúp khai thác hiệu quả thông tin ngôn ngữ do người dùng tạo ra, từ đó phục vụ tốt hơn cho các hoạt động nghiên cứu và ứng dụng trong lĩnh vực phân tích dữ liệu xã hội.
+Do đó, việc xây dựng hệ thống phân loại phát ngôn tự động là cần thiết nhằm hỗ trợ nhận diện nhanh chóng nội dung, theo dõi xu hướng và trích xuất thông tin hữu ích từ lượng dữ liệu khổng lồ trên mạng xã hội.
 
 \section*{Lý do chọn đề tài}
 
-Ngày nay, cùng với sự phát triển mạnh mẽ của Internet và các nền tảng mạng xã hội, lượng thông tin và phát ngôn do người dùng tạo ra ngày càng trở nên phong phú và đa dạng. Trên các trang mạng xã hội, diễn đàn trực tuyến hay các nền tảng thảo luận công cộng, người dùng liên tục bày tỏ quan điểm, cảm xúc và thái độ của mình về nhiều vấn đề trong đời sống. Những phát ngôn này không chỉ phản ánh nhận thức và trải nghiệm cá nhân mà còn góp phần hình thành các xu hướng, ảnh hưởng đến hành vi của cộng đồng cũng như tác động trực tiếp đến doanh nghiệp và tổ chức.
+Phát ngôn trực tuyến ngày càng đa dạng và ảnh hưởng sâu rộng đến cộng đồng cũng như hoạt động của doanh nghiệp. Tuy nhiên, sự bùng nổ dữ liệu cùng đặc điểm ngôn ngữ không chuẩn hóa khiến việc phân tích thủ công trở nên không khả thi. Nội dung tiêu cực có thể lan nhanh, tác động đến danh tiếng thương hiệu và gây khó khăn cho công tác quản lý cộng đồng.
 
-Tuy nhiên, sự gia tăng nhanh chóng của khối lượng dữ liệu cùng đặc điểm ngôn ngữ thiếu chuẩn hóa trên mạng xã hội - như teencode, emoji, ký tự viết tắt hoặc các lối diễn đạt mang tính cảm xúc - khiến việc phân tích thủ công trở nên không khả thi. Trong nhiều trường hợp, các phát ngôn tiêu cực hoặc nội dung gây tranh cãi có thể lan truyền nhanh chóng, gây ảnh hưởng đến danh tiếng thương hiệu, tạo áp lực cho công tác quản lý cộng đồng và đặt ra yêu cầu cấp thiết cho các hệ thống xử lý tự động. Do đó, nhu cầu xây dựng các mô hình phân loại phát ngôn nhằm hỗ trợ nhận diện nhanh chóng nội dung, theo dõi xu hướng thảo luận và phát hiện những biểu hiện bất thường trở nên vô cùng quan trọng.
-
-Xuất phát từ thực tiễn đó, việc nghiên cứu và xây dựng một hệ thống phân loại phát ngôn trên mạng xã hội tiếng Việt không chỉ có ý nghĩa về mặt khoa học mà còn mang tính ứng dụng cao. Hệ thống này giúp doanh nghiệp nắm bắt phản hồi khách hàng, hỗ trợ nhà quản lý giám sát tương tác trực tuyến, đồng thời là công cụ hữu ích cho các nhà nghiên cứu trong việc phân tích hành vi ngôn ngữ của cộng đồng. Với mong muốn góp phần giải quyết những thách thức nêu trên, nhóm chúng em quyết định lựa chọn đề tài “Nhận diện và phân loại phát ngôn trên mạng xã hội” làm hướng nghiên cứu và triển khai trong đồ án này.
-
+Chính vì vậy, việc nghiên cứu và xây dựng hệ thống phân loại phát ngôn tiếng Việt mang ý nghĩa thực tiễn và khoa học. Hệ thống này hỗ trợ doanh nghiệp hiểu khách hàng, giúp nhà quản lý giám sát nội dung và là công cụ phục vụ nghiên cứu hành vi ngôn ngữ. Từ nhu cầu thực tế đó, nhóm quyết định chọn đề tài “Nhận diện và phân loại phát ngôn trên mạng xã hội”.
 \section*{Phát biểu bài toán}
 
-Trong nghiên cứu này, mục tiêu chính là xây dựng và đánh giá mô hình có khả năng nhận diện và phân loại các phát ngôn được tạo ra trên mạng xã hội. Bài toán hướng đến việc xác định nhóm nội dung hoặc sắc thái biểu đạt của từng phát ngôn, với các lớp thường được quan tâm như tích cực, tiêu cực và trung tính.
+Mục tiêu của nghiên cứu là xây dựng mô hình có khả năng nhận diện và phân loại các phát ngôn trên mạng xã hội tiếng Việt theo nhóm nội dung hoặc sắc thái cảm xúc, tập trung vào ba lớp chính: tích cực, tiêu cực và trung tính.
 
-Dữ liệu đầu vào của bài toán gồm gần 7.000 phát ngôn tiếng Việt được thu thập từ mạng xã hội, đã được gán nhãn cảm xúc và lưu trữ dưới dạng văn bản thô sau khi loại bỏ các yếu tố nhiễu cơ bản.
-
-Trong đồ án này, chúng em sử dụng ba mô hình học máy truyền thống gồm Support Vector Machine (SVM), Naive Bayes và Logistic Regression để giải quyết bài toán.
-
+Dữ liệu sử dụng gồm gần 7.000 phát ngôn tiếng Việt đã được gán nhãn cảm xúc. Để giải quyết bài toán, đồ án triển khai và đánh giá ba mô hình học máy truyền thống: \textit{Support Vector Machine (SVM)}, \textit{Naive Bayes} và \textit{Logistic Regression}.
 \section*{Cấu trúc đồ án}
 
 \noindent\textbf{PHẦN 1: CƠ SỞ LÝ THUYẾT}
