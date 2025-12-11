@@ -81,27 +81,347 @@ Hệ thống sử dụng các thư viện mã nguồn mở sau:
 
 \end{itemize}
 
-
+%-----------------------------------
 \section{Module Preprocessor}
-% Nội dung 3.2
+\section{Tiền xử lý dữ liệu}
 
+Tiền xử lý là một bước thiết yếu trước khi đi vào quá trình huấn luyện mô hình. Đặc biệt hơn, trong môi trường trực tuyến trên mạng xã hội, các tài liệu thường không được viết bằng văn bản chính thức. Điều này đặc biệt đúng với thanh thiếu niên, những người thường sử dụng nhiều biểu tượng cảm xúc, dạng rút gọn của từ, ký hiệu và ký tự đặc biệt, từ viết sai chính tả, lỗi ngữ pháp, hoặc từ ghép. Trước khi được đưa vào mô hình, dữ liệu phải trải qua các bước tiền xử lý cần thiết.
+
+\subsection{Xóa các ký tự đặc biệt}
+Các ký tự đặc biệt không mang ý nghĩa phân loại và có thể gây nhiễu trong quá trình phân tích.
+
+\subsection{Chuyển về chữ thường}
+Mỗi số và ký tự đặc biệt đều được biểu diễn bằng một dãy nhị phân trong bộ nhớ máy tính. Chữ in hoa và chữ thường có mã Unicode khác nhau, dù về mặt ngữ nghĩa là giống nhau, nhưng máy tính có thể không phân biệt được trong dữ liệu đầu vào, dẫn đến kết quả dự đoán bị ảnh hưởng. Do đó, việc chuyển tất cả chữ về dạng chữ thường là hợp lý cho hệ thống phân tích và dự đoán.
+
+\subsection{Loại bỏ stopword}
+Trong tiếng Việt là các từ như \textit{cái, các, cả, ...}. Các từ này thường sẽ được loại bỏ để giảm kích thước của bộ từ vựng. Nhóm dùng bộ dữ liệu stopword được tổng hợp bởi Van-Duyet Le.
+
+\textbf{Link dữ liệu gốc:} \url{https://github.com/stopwords/vietnamese-stopwords}
+
+\subsection{Unicode}
+Chuẩn hóa dữ liệu về dạng Unicode.
+
+\subsection{Gán nhãn dữ liệu}
+Như đã trình bày ở mục 2.1.
+
+\subsection{Xử lý dữ liệu khuyết}
+Tập dữ liệu thu thập có thể chứa nhiều dòng dữ liệu trống, và dữ liệu trống không có ý nghĩa trong quá trình phân tích, gây lãng phí bộ nhớ lưu trữ. Đối với bản ghi bị khuyết nhãn, nhóm quy định gán nhãn \textbf{Other} (tức Trung tính) cho dữ liệu đó.
+
+\subsection{Tokenization (tách từ)}
+Tokenization là bước tách câu hoặc văn bản thành các đơn vị nhỏ hơn (token), thường là từ, cụm từ hoặc ký tự. Đây là bước quan trọng nhất trong xử lý ngôn ngữ tự nhiên vì hầu hết các phương pháp vectorization (One-hot, TF-IDF, ...) đều yêu cầu đầu vào là danh sách token.
+
+Tiếng Việt là ngôn ngữ đơn lập, trong đó nhiều từ được cấu thành từ nhiều âm tiết và được phân tách bằng dấu cách (ví dụ: \textit{học sinh, công nghệ thông tin}). Do đó, việc tokenization đơn giản dựa trên dấu cách sẽ không đảm bảo được tính chính xác về mặt ngữ nghĩa. Để khắc phục hạn chế này, nhóm sử dụng \textbf{ViTokenizer} trong thư viện \texttt{pyvi}, một công cụ tokenization chuyên biệt cho tiếng Việt, có khả năng nhận diện và ghép các cụm từ đa âm tiết một cách chính xác. Đầu ra sau khi tokenize có dạng \textit{học\_sinh}, ...
+
+\subsection{Mã hóa nhãn dán}
+Chuyển nhãn dán thành các mã số từ 0 đến 2 tương ứng với:
+\begin{itemize}
+    \item 0: Tích cực
+    \item 1: Tiêu cực
+    \item 2: Trung tính
+\end{itemize}
+
+\subsection{Chuyển hóa emoji và teencode}
+Trong các văn bản thu thập từ mạng xã hội, emoji xuất hiện với tần suất cao, đóng vai trò quan trọng trong việc thể hiện cảm xúc của người viết, đặc biệt đối với bài toán phân loại cảm xúc. Tuy nhiên, đa số mô hình học máy và các phương pháp biểu diễn đặc trưng không thể xử lý trực tiếp biểu tượng này. Vì vậy, việc chuyển hóa chúng thành văn bản có ý nghĩa là bước cần thiết nhằm bảo toàn thông tin cảm xúc và đảm bảo tính khả dụng của dữ liệu khi đưa vào mô hình.
+
+\subsubsection{Chuyển hóa emoji}
+Emoji có thể truyền tải cảm xúc rõ rệt. Nhóm thực hiện ánh xạ từng emoji sang một nhãn văn bản tương ứng, chẳng hạn:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/emoji.png}
+    \caption{Một số nhãn dán emoji minh họa}
+    \label{fig:emoji_mapping}
+\end{figure}
+
+\subsubsection{Chuyển hóa teencode}
+Teencode là hình thức viết tắt, biến thể hoặc mã hóa trong giao tiếp của giới trẻ. Nếu không chuẩn hóa, những từ này sẽ bị xem như token riêng biệt, làm tăng kích thước từ vựng và gây nhiễu. Nhóm xây dựng bảng từ điển teencode phổ biến và thực hiện ánh xạ chúng về dạng tiếng Việt chuẩn, giúp giảm số lượng token không cần thiết.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/teencode.png}
+    \caption{Một số từ teencode được chuẩn hóa }
+    \label{fig:teencode_mapping}
+\end{figure}
+
+\subsection{Chuẩn hoá từ lặp}
+
+Trong văn bản thu thập từ mạng xã hội, đặc biệt là văn bản thể hiện cảm xúc, những từ được cố ý kéo dài (ví dụ: ``đỉnnnhhhhh'', ``đẹppppp'', ``huuuuuu'') thường mang tính nhấn mạnh và biểu đạt mức độ cảm xúc mạnh hơn so với dạng từ gốc. Tuy nhiên, dạng kéo dài này tạo ra sự đa dạng không cần thiết trong không gian đặc trưng và làm tăng độ nhiễu của dữ liệu. Do đó cần chuẩn hoá các từ kéo dài về dạng chuẩn (ví dụ: đỉnnnhhhhh $\rightarrow$ đỉnh, đẹppppppp $\rightarrow$ đẹp, ...) nhằm giảm số lượng biến thể không có giá trị ngữ nghĩa bổ sung.
+
+\subsection{Kết quả sau khi qua quá trình tiền xử lý}
+
+Với dữ liệu đầu vào là:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/đầu vào processor.png}
+    \caption{Dữ liệu đầu vào của module processor}
+    \label{fig:input_processor}
+\end{figure}
+
+Dữ liệu sau khi tiền xử lý:
+
+\begin{table}[H]
+\centering
+\caption{Một số dòng dữ liệu sau khi tiền xử lý}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c c c l c c l}
+\hline
+\textbf{No} & \textbf{unnamed} & \textbf{Emotion} & \textbf{Sentence} 
+& \textbf{merged\_label} & \textbf{label\_id} & \textbf{processed} \\
+\hline
+
+0 & 0 & Disgust & hỏi nhạy khiếp 
+& Tiêu cực & 1 & {[}“nhạy”, “khiếp”{]} \\
+
+2 & 1944 & Surprise & con người giỏi nhỉ .
+& Tích cực & 0 & {[}“con\_người”, “giỏi”{]} \\
+
+3 & 1711 & Other & má 2 thằng áo vàng lầy ghê 🤪
+& Trung tính & 2 & {[}“má”, “2”, “thằng”, “áo”, “vàng”, “lầy”, “ghê”, “trung\_tính”{]} \\
+
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/KQ module TXL.png}
+    \caption{ Kết quả chạy module tiền xử lý }
+    \label{fig:output_processor}
+\end{figure}
+
+%------------------------------------
 \section{Module feature}
-% Nội dung 3.3
+Lớp cơ sở trừu tượng (base.py)
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/dataFeature.png}
+    \caption{Đây là khung sườn cho mọi thuật toán trích xuất đặc trưng trong hệ thống}
+    \label{fig:data_feature}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Tên lớp:} \texttt{DataFeature}
+    \item \textbf{Kế thừa:} \texttt{ABC} (Abstract Base Class) từ thư viện chuẩn Python.
+    \item \textbf{Chức năng chính:}
+    \begin{enumerate}
+        \item \textbf{Thống kê dữ liệu:} Ngay khi khởi tạo, lớp này tự động tính toán số lượng từ vựng (Vocabulary Size) và tổng số lượng token trong tập dữ liệu. Điều này giúp người lập trình nắm bắt được độ phức tạp của dữ liệu đầu vào.
+        \item \textbf{Định nghĩa giao diện (Interface):} Bắt buộc các lớp con phải triển khai hai phương thức cốt lõi là \texttt{fit()} và \texttt{transform()}.
+    \end{enumerate}
+\end{itemize}
+
+Lớp triển khai TF-IDF (tfidf.py)
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/TFIDF_DF.png} % nhớ đổi tên file ngoài thư mục
+    \caption{Lớp trích xuất đặc trưng TF-IDF kế thừa từ lớp cơ sở DataFeature}
+    \label{fig:tfidf_feature}
+\end{figure}
+
+Đây là lớp kế thừa từ \texttt{DataFeature}, thực hiện kỹ thuật TF--IDF 
+(Term Frequency -- Inverse Document Frequency).
+
+\begin{itemize}
+    \item \textbf{Tên lớp:} \texttt{TFIDF}
+    \item \textbf{Thư viện sử dụng:} \texttt{TfidfVectorizer} của Scikit-learn.
+    \item \textbf{Điểm kỹ thuật đặc biệt:}
+    \begin{enumerate}[label=\alph*.]
+        \item \textbf{Xử lý đầu vào đã tách từ (Pre-tokenized Input):}  
+        Vì dữ liệu đầu vào (từ \texttt{DataProcessor}) đã được tách thành danh sách các từ 
+        (list of tokens), nên \texttt{TfidfVectorizer} được cấu hình đặc biệt để không tách từ lại lần nữa.
+        
+        \item \textbf{Xử lý đầu vào đã tách từ:}  
+        Nếu dữ liệu đầu vào đã ở dạng list of tokens, 
+        \texttt{TfidfVectorizer} được cấu hình để nhận trực tiếp danh sách này 
+        mà không thực hiện lại bước tách từ.
+    \end{enumerate}
+
+    \item \textbf{Cấu hình linh hoạt:}  
+    Các tham số quan trọng được lấy từ file \texttt{config.py} thay vì gán cứng (hard-code),
+    giúp dễ dàng tinh chỉnh mô hình:
+    \begin{itemize}
+        \item \texttt{max\_features}: Giới hạn số lượng từ vựng quan trọng nhất (ví dụ: 5000 từ).
+        \item \texttt{ngram\_range}: Sử dụng cả từ đơn (unigram) và cụm từ (bigram, trigram).
+    \end{itemize}
+
+    \item \textbf{Quản lý lỗi và Log:}  
+    Sử dụng khối try--except và hệ thống logger để ghi nhận quá trình hoạt động hoặc báo lỗi chi tiết nếu quá trình vector hóa gặp vấn đề.
+\end{itemize}
+
+%------------------------------------
 \section{Tối ưu tham số}
 \subsection{Logistic Regression}
 % Nội dung 3.4.1
 
 \subsection{Support Vector Machine}
-% Nội dung 3.4.2
+Trong bài toán phân loại cảm xúc, hiệu quả của mô hình SVM phụ thuộc đáng kể vào bộ 
+tham số siêu (hyperparameters) như \textbf{kernel}, \textbf{C}, và \textbf{gamma}. Do đó, nhóm xây dựng module 
+\texttt{SVMOptimizer} nhằm tự động tìm tập tham số tốt nhất cho mô hình thông qua phương pháp 
+\texttt{GridSearchCV} kết hợp đánh giá chéo (Cross-Validation).
+
+Mục tiêu: thiết lập lưới tham số (parameter grid) cho SVM -> tìm kiếm tối ưu bằng 
+GridSearchCV với thước đo \texttt{f1\_macro} (giúp đảm bảo mô hình học tốt tất cả các lớp mà 
+không chỉ lớp lớn) => mô hình đạt hiệu năng cao và ổn định hơn so với việc thủ công.
+
+Cách hoạt động của \texttt{SVMOptimizer}:
+Khi khởi tạo: lớp \texttt{SVMOptimizer} nhận các tham số:
+\begin{itemize}
+    \item X, y là tập đặc trưng và nhãn
+    \item config: chứa các thông số chung của hệ thống (random\_state, test\_size)
+    \item khởi tạo bộ ghi log để theo dõi tiến trình tối ưu
+\end{itemize}
+
+Các tham số được định nghĩa như sau:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Tham số tối ưu} & \textbf{Thử nghiệm các giá trị} \\
+\hline
+kernel & linear, rbf, poly \\
+\hline
+C & 0.1, 1, 10 \\
+\hline
+gamma & scale, auto \\
+\hline
+\end{tabular}
+\end{center}
+
+Với:
+\begin{itemize}
+    \item kernel: quyết định hình dạng siêu phẳng
+    \item C: điều chỉnh mức phạt đối với lỗi phân loại
+    \item gamma: xác định mức ảnh hưởng của từng điểm dữ liệu
+\end{itemize}
+
+Tối ưu tham số bằng GridSearchCV:
+\begin{itemize}
+    \item Kết hợp toàn bộ các giá trị trong lưới tham số
+    \item huấn luyện và đánh giá mô hình trên từng tổ hợp
+    \item sử dụng k-fold cross-validation (mặc định 5-fold) để đánh giá mỗi tổ hợp
+    \item chọn tổ hợp tham số cho điểm \texttt{f1\_macro} cao nhất
+\end{itemize}
+
+Kết quả trả ra:
+\begin{itemize}
+    \item \texttt{best\_params\_}: tham số tối ưu
+    \item \texttt{best\_score\_}: điểm \texttt{f1\_macro} cao nhất đạt được
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/SVM_op.png}
+    \caption{Kết quả tối ưu tham số của mô hình SVM}
+    \label{fig:log_svm}
+\end{figure}
 
 \subsection{Naive Bayes}
-% Nội dung 3.4.3
 
+Trong bài toán phân loại cảm xúc, độ hiệu quả của mô hình Naive Bayes phụ thuộc đáng kể vào
+siêu tham số (hyperparameter) \texttt{alpha}. Do đó, nhóm xây dựng module 
+\texttt{NaiveBayesOptimizer} nhằm thử nghiệm và tìm giá trị \texttt{alpha} tối ưu nhất thông qua 
+kỹ thuật GridSearchCV kết hợp đánh giá chéo (Cross-Validation).
+
+Mục tiêu: thiết lập lưới tham số (parameter grid) cho Naive Bayes → tìm kiếm tối ưu bằng 
+GridSearchCV với thước đo \texttt{f1\_macro} (giúp đảm bảo mô hình học tốt tất cả các lớp chứ 
+không chỉ lớp lớn) ⇒ mô hình đạt hiệu năng cao và ổn định hơn so với việc thử thủ công.
+
+Cách hoạt động của \texttt{NaiveBayesOptimizer}:
+
+Khi khởi tạo, lớp \texttt{NaiveBayesOptimizer} nhận các tham số:
+\begin{itemize}
+    \item X, y: tập đặc trưng và nhãn.
+    \item config: chứa các thông số chung của hệ thống (random\_state, test\_size).
+    \item khởi tạo bộ ghi log để theo dõi tiến trình tối ưu.
+\end{itemize}
+
+Các tham số được định nghĩa như sau:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Tham số tối ưu} & \textbf{Thử nghiệm các giá trị} \\
+\hline
+alpha & 0.01, 0.1, 1.0 \\
+\hline
+\end{tabular}
+\end{center}
+
+Với:
+\begin{itemize}
+    \item \texttt{alpha}: hệ số làm trơn (smoothing) giúp tránh việc xác suất bằng 0 đối với 
+    những từ hiếm trong dữ liệu.
+\end{itemize}
+
+Tối ưu tham số bằng GridSearchCV:
+\begin{itemize}
+    \item Kết hợp toàn bộ các giá trị trong lưới tham số.
+    \item Huấn luyện và đánh giá mô hình trên từng tổ hợp.
+    \item Sử dụng k-fold cross-validation (mặc định 5-fold) để đánh giá mỗi tổ hợp.
+    \item Chọn tổ hợp tham số cho điểm \texttt{f1\_macro} cao nhất.
+\end{itemize}
+
+Kết quả trả ra:
+\begin{itemize}
+    \item \texttt{best\_params\_}: tham số tối ưu.
+    \item \texttt{best\_score\_}: điểm \texttt{f1\_macro} cao nhất đạt được.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/NB_op.png}
+    \caption{Kết quả tối ưu tham số của mô hình Naive Bayes}
+    \label{fig:log_naive_bayes}
+\end{figure}
+
+Từ đó, ta thu được tham số tối ưu cho mô hình Naive Bayes: 
+\texttt{alpha = 0.1} với điểm \texttt{f1\_macro = 0.5220}.
+
+%--------------------------------------------
 \section{Huấn luyện mô hình}
+
+\subsection{Tỉ lệ phân chia (Split Ratio)}
+
+Dữ liệu được chia thành 2 phần tách biệt với tỉ lệ 80/20 (được cấu hình trong \texttt{config.py}):
+
+\begin{itemize}
+    \item \textbf{Tập Huấn luyện (Training Set - 80\%)}: Dùng để cho mô hình học các đặc trưng và tìm ra quy luật.
+    \begin{itemize}
+        \item Số lượng: Khoảng 4.992 mẫu.
+    \end{itemize}
+
+    \item \textbf{Tập Kiểm thử (Test Set - 20\%)}: Dùng để đánh giá độc lập hiệu năng của mô hình sau khi học xong. Dữ liệu này mô hình chưa từng nhìn thấy trước đó (Unseen Data).
+    \begin{itemize}
+        \item Số lượng: Khoảng 1.249 mẫu.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Kỹ thuật chia: Stratified Random Sampling (Lấy mẫu phân tầng)}
+
+Đây là điểm kỹ thuật quan trọng nhất trong phần chia dữ liệu của đồ án này.
+
+\begin{itemize}
+    \item \textbf{Vấn đề}: Dữ liệu cảm xúc thường bị mất cân bằng (Imbalanced Data). 
+    Ví dụ: Nhãn \textit{``Enjoyment''} có 1000 câu, nhưng \textit{``Fear''} chỉ có 100 câu. 
+    Nếu chia ngẫu nhiên bình thường, có thể xảy ra trường hợp tập Test không có câu \textit{``Fear''} nào, hoặc tỉ lệ bị lệch hẳn so với thực tế.
+    
+    \item \textbf{Giải pháp}: Sử dụng tham số \texttt{stratify=self.y} trong hàm \texttt{train\_test\_split}.
+    
+    \item \textbf{Tác dụng}: Đảm bảo tỉ lệ phần trăm của các nhãn (Vui, Buồn, Giận...) trong tập Train và tập Test là giống hệt nhau và giống với tập dữ liệu gốc.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/KyThuatChia.png}
+    \caption{Minh họa kỹ thuật Stratified Random Sampling}
+    \label{fig:stratified_sampling}
+\end{figure}
+
 \subsection{Logistic Regression}
 % Nội dung 3.5.1
-
+s
 \subsection{Support Vector Machine}
 % Nội dung 3.5.2
 
