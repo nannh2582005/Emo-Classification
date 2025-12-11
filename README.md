@@ -10,6 +10,61 @@ Phân loại cảm xúc thành 3 nhóm chính:
 
 **Pipeline:** EDA -> Data Loading -> Data Preprocessing -> Feature Engineering -> Modeling -> Evaluation -> Visualization
 
+**Cấu trúc thư mục**:
+Emo-Classification/
+│
+├── README.md                       # Mô tả tổng quan, cách cài đặt, chạy, dataset, mô hình...
+├── requirements.txt                # Thư viện cần thiết
+├── config.py                       # Cấu hình chung: thông số, paths, constants
+│
+├── data/                           # Dữ liệu chính của project         
+│
+├── src/                            # Mã nguồn chính
+│   ├── processor_layer/            # Module tiền xử lý dữ liệu
+|   |     ├──__init__.py
+│   |     ├──loader.py              # Load dữ liệu
+|   |     └──processor.py           # Tiền xử lý dữ liệu  
+|   |   
+│   ├── feature_layer/              # Module trích xuất đặc trưng 
+|   |    ├── __init__.py
+|   |    ├── base.py
+│   │    └── tfidf.py               # Phương pháp TF-IDF
+|   |
+│   ├── model_layer/                # Định nghĩa mô hình, huấn luyện, đánh giá
+|   |    ├──__init__.py
+|   |    ├── base.py
+|   |    ├── svm.py                 # Mô hình Support Vector Machine
+|   |    ├── naive.py               # Mô hình Naive Bayes
+│   │    └── logistics.py           # Mô hình Regression Logistic
+|   |    
+│   ├── optimize_layer/             # Module tìm tham số tối ưu cho mô hình 
+|   |    ├──__init__.py
+|   |    ├── base.py 
+|   |    ├── svm_optimize.py        # tham số tối ưu cho mô hình SVM
+|   |    ├── naive_optimize.py      # tham số tối ưu cho mô hình Naive
+│   │    └── logistic_optimize.py   # tham số tối ưu cho mô hình Logistic
+|   |
+|   ├── visualiztion_layer/         # Module trực quan dữ liệu (kết quả)
+|   |    ├──__init__.py
+|   |    ├── base.py
+|   |    ├── svm.py                 # Trực quan Support Vector Machine
+|   |    ├── naive.py               # Trực quan Naive Bayes
+│   │    └── logistics.py           # Trực quan Regression Logistic
+│   └── utils/                      # Các tiện ích chung, helper functions, xử lý chung
+│
+├── notebooks/                # Jupyter notebooks: EDA, thử nghiệm, phân tích
+│   └── EDA.ipynb             # Notebook khám phá dữ liệu
+│
+├── logs/                     # File log, output log — ghi chú: thường thêm vào .gitignore nếu log tự sinh
+│
+├── output/                   # Kết quả: model đã train, báo cáo, biểu đồ, confusion matrix ...
+│   ├── models/               # model checkpoint, saved model
+│   └── reports/              # báo cáo, biểu đồ, thống kê
+│
+├── tests/                    # Unit tests / integration tests (nếu có)
+│
+└── .gitignore                # Loại trừ file không cần track (data lớn, log, v.v)
+
 ## Cài đặt 
 ### Clone repository
 ```bash

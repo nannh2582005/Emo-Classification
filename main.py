@@ -2,18 +2,18 @@
 import json
 import os
 from config import Config
-from processor_layer.loader import DataLoader
-from processor_layer.processor import DataProcessor
-from feature_layer.tfidf import TFIDF
-from model_layer.logistics import LogisticRegressionModel 
-from model_layer.naive import NaiveBayesModel
-from model_layer.svm import SVMModel
-from visualization.naive import NaiveVisualization
-from visualization.svm import SVMVisualization
-from visualization.logistics import LogisticVisualization
-from optimize.svm_optimize import SVMOptimizer
-from optimize.naive_optimize import NaiveBayesOptimizer
-from optimize.logistic_optimize import LogisticOptimizer
+from src.processor_layer.loader import DataLoader
+from src.processor_layer.processor import DataProcessor
+from src.feature_layer.tfidf import TFIDF
+from src.model_layer.logistics import LogisticRegressionModel 
+from src.model_layer.naive import NaiveBayesModel
+from src.model_layer.svm import SVMModel
+from src.visualization_layer.naive import NaiveVisualization
+from src.visualization_layer.svm import SVMVisualization
+from src.visualization_layer.logistics import LogisticVisualization
+from src.optimize_layer.svm_optimize import SVMOptimizer
+from src.optimize_layer.naive_optimize import NaiveBayesOptimizer
+from src.optimize_layer.logistic_optimize import LogisticOptimizer
 
 
 def main():
