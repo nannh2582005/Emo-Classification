@@ -126,7 +126,7 @@ Trong các văn bản thu thập từ mạng xã hội, emoji xuất hiện vớ
 \subsubsection{Chuyển hóa emoji}
 Emoji có thể truyền tải cảm xúc rõ rệt. Nhóm thực hiện ánh xạ từng emoji sang một nhãn văn bản tương ứng, chẳng hạn:
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/emoji.png}
     \caption{Một số nhãn dán emoji minh họa}
@@ -136,7 +136,7 @@ Emoji có thể truyền tải cảm xúc rõ rệt. Nhóm thực hiện ánh x�
 \subsubsection{Chuyển hóa teencode}
 Teencode là hình thức viết tắt, biến thể hoặc mã hóa trong giao tiếp của giới trẻ. Nếu không chuẩn hóa, những từ này sẽ bị xem như token riêng biệt, làm tăng kích thước từ vựng và gây nhiễu. Nhóm xây dựng bảng từ điển teencode phổ biến và thực hiện ánh xạ chúng về dạng tiếng Việt chuẩn, giúp giảm số lượng token không cần thiết.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/teencode.png}
     \caption{Một số từ teencode được chuẩn hóa }
@@ -151,7 +151,7 @@ Trong văn bản thu thập từ mạng xã hội, đặc biệt là văn bản 
 
 Với dữ liệu đầu vào là:
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/đầu vào processor.png}
     \caption{Dữ liệu đầu vào của module processor}
@@ -176,14 +176,14 @@ Dữ liệu sau khi tiền xử lý:
 2 & 1944 & Surprise & con người giỏi nhỉ .
 & Tích cực & 0 & {[}“con\_người”, “giỏi”{]} \\
 
-3 & 1711 & Other & má 2 thằng áo vàng lầy ghê 🤪
+3 & 1711 & Other & má 2 thằng áo vàng lầy ghê 
 & Trung tính & 2 & {[}“má”, “2”, “thằng”, “áo”, “vàng”, “lầy”, “ghê”, “trung\_tính”{]} \\
 
 \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/KQ module TXL.png}
     \caption{ Kết quả chạy module tiền xử lý }
@@ -194,7 +194,7 @@ Dữ liệu sau khi tiền xử lý:
 \section{Module feature}
 Lớp cơ sở trừu tượng (base.py)
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/dataFeature.png}
     \caption{Đây là khung sườn cho mọi thuật toán trích xuất đặc trưng trong hệ thống}
@@ -213,7 +213,7 @@ Lớp cơ sở trừu tượng (base.py)
 
 Lớp triển khai TF-IDF (tfidf.py)
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/TFIDF_DF.png} % nhớ đổi tên file ngoài thư mục
     \caption{Lớp trích xuất đặc trưng TF-IDF kế thừa từ lớp cơ sở DataFeature}
@@ -310,7 +310,7 @@ Kết quả trả ra:
     \item \texttt{best\_score\_}: điểm \texttt{f1\_macro} cao nhất đạt được
 \end{itemize}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/SVM_op.png}
     \caption{Kết quả tối ưu tham số của mô hình SVM}
@@ -326,7 +326,7 @@ kỹ thuật GridSearchCV kết hợp đánh giá chéo (Cross-Validation).
 
 Mục tiêu: thiết lập lưới tham số (parameter grid) cho Naive Bayes → tìm kiếm tối ưu bằng 
 GridSearchCV với thước đo \texttt{f1\_macro} (giúp đảm bảo mô hình học tốt tất cả các lớp chứ 
-không chỉ lớp lớn) ⇒ mô hình đạt hiệu năng cao và ổn định hơn so với việc thử thủ công.
+không chỉ lớp lớn) -> mô hình đạt hiệu năng cao và ổn định hơn so với việc thử thủ công.
 
 Cách hoạt động của \texttt{NaiveBayesOptimizer}:
 
@@ -421,9 +421,9 @@ Dữ liệu được chia thành 2 phần tách biệt với tỉ lệ 80/20 (đ
 
 \subsection{Logistic Regression}
 % Nội dung 3.5.1
-s
+
 \subsection{Support Vector Machine}
-% Nội dung 3.5.2
+Module SVM Model triển khai toàn bộ pipeline huấn luyện mô hình SVM cho bài toán phân loại cảm xúc, bao gồm chia dữ liệu, cân bằng lớp bằng RandomOverSampler, huấn luyện bằng SVC, đánh giá bằng classification report và lưu/khôi phục mô hình bằng joblib. Mô hình sử dụng tham số kernel và C từ file cấu hình nhằm đảm bảo tính nhất quán và khả năng tái sử dụng. Quá trình xử lý được giám sát thông qua hệ thống logging, giúp dễ dàng kiểm tra và theo dõi kết quả. 
 
 \subsection{Naive Bayes}
-% Nội dung 3.5.3
+Module Naive Bayes Model triển khai toàn bộ pipeline huấn luyện mô hình Naive Bayes cho bài toán phân loại cảm xúc, bao gồm chia dữ liệu, cân bằng lớp bằng RandomOverSampler, huấn luyện mô hình bằng thuật toán MultinomialNB, đánh giá bằng classification report và lưu/khôi phục mô hình bằng joblib. Mô hình sử dụng tham số \texttt{alpha} được lấy từ file cấu hình nhằm đảm bảo tính nhất quán và khả năng tái sử dụng. Toàn bộ quá trình xử lý được giám sát thông qua hệ thống logging, giúp dễ dàng kiểm tra và theo dõi kết quả.

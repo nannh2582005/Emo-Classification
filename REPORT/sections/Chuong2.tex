@@ -27,7 +27,7 @@ Link bài nghiên cứu: \url{https://arxiv.org/pdf/1911.09339}
 Bộ dữ liệu gồm 3 cột: Unnamed, Emotion và Sentence
 Dữ liệu gốc: 
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \caption{Ví dụ một số câu trong bộ dữ liệu UIT-VSMEC}
 \label{tab:uit_samples}
@@ -58,7 +58,7 @@ Bài toán trở thành phân loại cảm xúc bình luận trên mạng xã h�
 
 Dữ liệu sau khi gộp nhãn:
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \caption{Ví dụ dữ liệu sau khi gộp nhãn}
 \label{tab:merged_samples}
@@ -78,7 +78,7 @@ Dữ liệu sau khi gộp nhãn:
 \section{Khám phá bộ dữ liệu}
 \subsection{Kiểm tra dữ liệu trống}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/check_missing_value.png}
     \caption{Kiểm tra dữ liệu trống}
@@ -87,27 +87,27 @@ Dữ liệu sau khi gộp nhãn:
 Dữ liệu gồm 6241 dòng, trong đó không có dòng nào bị khuyết dữ liệu
 \subsection{Kiểm tra phân phối nhãn}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/output_phân_phối_nhãn_tiền.png}
     \caption{Biểu đồ thể hiện số lượng của mỗi nhãn dán của tập dữ liệu gốc}
     \label{fig:label_distribution}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/tỷ lệ nhãn tiền xử lý 1.png}
     \caption{Thống kê tỉ lệ của mỗi nhãn dán trong dữ liệu}
     \label{fig:label_ratio}
 \end{figure}
 Như đã nói ở mục trên, nhóm quyết định gộp nhãn dán với 3 nhãn: Tích cực, Tiêu cực và Trung tính
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/output_phân_phối_nhãn_sau_khi_gộp.png}
     \caption{Biểu đồ thể hiện số lượng của mỗi nhãn dán sau khi gộp nhãn}
     \label{fig:merged_label_distribution}
 \end{figure}
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/tỷ lệ nhãn sau gộp.png}
     \caption{Thống kê tỉ lệ của mỗi nhãn dán sau khi gộp}
@@ -117,21 +117,21 @@ Như đã nói ở mục trên, nhóm quyết định gộp nhãn dán với 3 n
 NHẬN XÉT: sau khi gộp nhãn, dữ liệu đang có sự mất cân bằng giữa các nhãn, điều này sẽ khiến cho mô hình học thiên vị => cần cân bằng dữ liệu trước khi huấn luyện mô hình.
 
 \subsection{Kiểm tra độ dài chuỗi}
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/độ_dài_chuỗi_plot.png}
     \caption{Biểu đồ thể hiện độ dài mỗi văn bản đầu vào}
     \label{fig:sequence_length}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/độ_dài_chuỗi_boxplot.png}
     \caption{Biểu đồ box plot thể hiện độ dài của văn bản đầu vào}
     \label{fig:sequence_length_boxplot}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/bình luận ngắn dài.png}
     \caption{Kiểm tra văn bản dài nhất và ngắn nhất}
@@ -146,20 +146,20 @@ Trong khuôn khổ đồ án, nhóm tạm chấp nhận rằng tất cả các v
 
 \subsection{Kiểm tra emoji}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/kiểm tra emoji.png}
     \caption{Kiểm tra số lượng emoji khác nhau của bộ văn bản đầu vào}
     \label{fig:emoji_check}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/top 10.png}
     \caption{Top 10 emoji xuất hiện nhiều nhất}
     \label{fig:emoji_frequency}
 \end{figure}
 
-\textbf{Nhận xét:} Trong tập dữ liệu đầu vào, các emoji xuất hiện với tần suất đáng kể (ví dụ: 😂 xuất hiện 100 lần, ...). Do đó, chúng đóng vai trò quan trọng trong việc huấn luyện mô hình.
+\textbf{Nhận xét:} Trong tập dữ liệu đầu vào, các emoji xuất hiện với tần suất đáng kể. Do đó, chúng đóng vai trò quan trọng trong việc huấn luyện mô hình.
 Để khai thác thông tin này, nhóm đã xây dựng tệp \texttt{emoji\_dict.json} (được đính kèm cùng dữ liệu của đồ án), trong đó mỗi emoji được ánh xạ đến nhãn cảm xúc tương ứng.
 

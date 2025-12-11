@@ -16,7 +16,7 @@ TF-IDF là một phương pháp thống kê được sử dụng rộng rãi đ�
 \begin{enumerate}[label=\alph*)]
     \item Tần suất thuật ngữ (TF)
     Đo lường tần suất xuất hiện của một từ trong tài liệu. Tần suất càng cao thì mức độ quan trọng càng lớn. Nếu một thuật ngữ xuất hiện thường xuyên trong tài liệu, thì có thể nó liên quan đến nội dung của tài liệu.
-    \begin{figure}[ht]
+    \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/TF_Formular.png}
     \caption{Công thức tính TF}
@@ -24,7 +24,7 @@ TF-IDF là một phương pháp thống kê được sử dụng rộng rãi đ�
     \end{figure}
     \item Tần suất tài liệu nghịch đảo (IDF)
     Giam trọng số của các từ phổ biến trong nhiều tài liệu đồng thời tăng trọng số của các từ hiếm. Nếu thuật ngữ xuất hiện trong ít tài liệu hơn, nó có nhiều khả năng có ý nghĩa và cụ thể hơn.
-    \begin{figure}[ht]
+    \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/IDF_Formular.png}
     \caption{Công thức tính IDF}
@@ -74,7 +74,7 @@ https://www.geeksforgeeks.org/machine-learning/fasttext-working-and-implementati
 \subsection{Logistic Regression}
 Logistic Regression (LR) là một trong ba thuật toán phân loại phổ biến, nhằm khảo sát khả năng nhận biết các kiểu tính chất thường gặp trong văn bản tiếng Việt trên không gian số. Mô hình này đại diện cho hướng tiếp cận học máy giám sát (supervised machine learning), được lựa chọn nhờ vào khả năng học các đặc trưng ngôn ngữ quan trọng và đưa ra dự đoán ổn định trong quá trình phân tích. LR được gọi là hồi quy (regression) nhưng thực hiện phân loại (classification). LR thường được sử dụng khi biến phụ thuộc không phải là giá trị số mà là phản hồi dạng nhị phân, ví dụ như phản hồi "yes/no". Hàm Logistic Sigmoid được áp dụng cho kết quả hồi quy để lấy xác suất thuộc về một trong hai lớp. LR phân loại biến phụ thuộc vào một trong các lớp dựa trên xác suất cao hơn
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/LR.png}
     \caption{Logistic Regression}
@@ -148,7 +148,7 @@ Nguồn hình ảnh: https://builtin.com/data-science/supervised-machine-learnin
 Support Vector Machine (SVM) là mô hình học máy giám sát, mục tiêu của thuật toán là tìm ra một siêu phẳng (hyperplane) sao cho có thể phân tách tối ưu các điểm dữ liệu thuộc các lớp khác nhau. “Tối ưu” ở đây nghĩa là tìm ra siêu phẳng tạo ra khoảng cách lớn nhất (margin) giữa các lớp dữ liệu. Các điểm dữ liệu có khoảng cách nhỏ nhất đến siêu mặt phẳng (các điểm gần nhất) được gọi là các vector hỗ trợ (support vectors)
 Margin là khoảng không gian giữa hai siêu phẳng hỗ trợ, dải này càng rộng thì mô hình SVM càng tốt. Dải đó không có điểm dữ liệu nào nằm trong và song song hoàn toàn với siêu phẳng phân loại 
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/1.2.2.png}
     \caption{Support Vector Machine}
@@ -192,7 +192,7 @@ mô hình nhị phân:
 Sau cùng, mẫu $x$ được gán vào lớp có nhiều phiếu bầu nhất. 
 Nếu xảy ra trường hợp hòa phiếu, có thể dùng \textit{decision function} để phá hòa.
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/ovo.png}
         \caption{Mô phỏng phương pháp One-vs-One (OvO)}
@@ -227,7 +227,7 @@ Sau khi tính toán score cho mẫu mới $x$, lớp dự đoán được xác �
 \]
 tức là mẫu $x$ được gán vào lớp có giá trị score cao nhất.
 
-    \begin{figure}[ht]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/ovr.png}
         \caption{Mô phỏng phương pháp OvR}
@@ -256,7 +256,7 @@ Khi một mẫu mới $X$ được đưa vào, Naive Bayes kết hợp hai loạ
 xác định xác suất hậu nghiệm $P(C \mid X)$ và gán mẫu vào lớp có giá trị cao nhất, 
 tức là lớp có khả năng giải thích tốt nhất các đặc trưng quan sát được.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/NB.png}
     \caption{Minh họa cơ chế phân loại của Naive Bayes dựa trên Định lý Bayes}
@@ -361,7 +361,7 @@ Bernoulli, Multinomial hoặc Gaussian.
 
 \end{enumerate}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/typesofNB.png}
     \caption{Ba biến thể phổ biến của Naive Bayes: Bernoulli, Multinomial và Gaussian}
